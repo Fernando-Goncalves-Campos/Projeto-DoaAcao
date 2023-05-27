@@ -1,0 +1,12 @@
+:root{
+    --NavBar-height: 10vh;
+    --Footer-height: 10vh;
+}
+
+.contentNav{
+    min-height: calc(100vh - var(--NavBar-height) - var(--Footer-height));
+}
+
+.contentWelcome{
+    min-height: calc(100vh - var(--Footer-height));
+}
