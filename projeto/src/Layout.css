@@ -1,12 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 :root{
     --NavBar-height: 10vh;
     --Footer-height: 10vh;
 }
 
+body{
+    overflow: auto;
+}
+
 .contentNav{
     min-height: calc(100vh - var(--NavBar-height) - var(--Footer-height));
+    width: 100%;
 }
 
 .contentWelcome{
     min-height: calc(100vh - var(--Footer-height));
+    width: 100%;
 }
