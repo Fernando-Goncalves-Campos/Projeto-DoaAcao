@@ -10,8 +10,8 @@ function WelcomePage() {
                     <span>
                         Você pode fazer o bem que o mundo tanto precisa. Ajude o próximo.
                     </span>
-                    <ButtonNav key="welcomeToHome" url="/home" >Ver ações voluntárias</ButtonNav>
-                    <ButtonNav key="welcomeToAboutUs" url="/aboutus" >Saiba mais sobre o projeto</ButtonNav>
+                    <ButtonNav url="/home" >Ver ações voluntárias</ButtonNav>
+                    <ButtonNav url="/aboutus" >Saiba mais sobre o projeto</ButtonNav>
                 </div>
             </div>
 
