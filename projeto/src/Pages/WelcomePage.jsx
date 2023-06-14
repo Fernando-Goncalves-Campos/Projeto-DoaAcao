@@ -1,17 +1,20 @@
 import { memo } from "react";
+import { useNavigate } from "react-router-dom";
 
-import ButtonNav from "../Components/ButtonNav.jsx";
+import Button from "../Components/Button.jsx";
 
 function WelcomePage() {
-	return(
+    const navigate = useNavigate();
+
+    return(
         <>
             <div id="welcomeImage">
                 <div id="welcomeButtonsContainer">
                     <span>
                         Você pode fazer o bem que o mundo tanto precisa. Ajude o próximo.
                     </span>
-                    <ButtonNav url="/home" >Ver ações voluntárias</ButtonNav>
-                    <ButtonNav url="/aboutus" >Saiba mais sobre o projeto</ButtonNav>
+                    <Button onClick={() => {navigate("/home")}} >Ver ações voluntárias</Button>
+                    <Button onClick={() => {navigate("/aboutus")}} >Saiba mais sobre o projeto</Button>
                 </div>
             </div>
 

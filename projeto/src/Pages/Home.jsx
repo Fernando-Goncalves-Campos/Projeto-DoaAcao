@@ -1,8 +1,53 @@
 import { memo } from "react";
+import { useNavigate } from "react-router-dom";
+
+import SocialInvite from "../Components/SocialInvite.jsx";
+import Button from "../Components/Button.jsx";
+import ImageLink from "../Components/ImageLink.jsx";
+import LinkQuery from "../Components/LinkQuery.jsx";
 
 function Home() {
+    const navigate = useNavigate();
+
 	return(
-        <h1>Home</h1>
+        <div>
+            <ul>
+                <li><SocialInvite src="">Seu gesto faz a diferença</SocialInvite></li>
+                <li><SocialInvite src="">Você muda o mundo</SocialInvite></li>
+                <li><SocialInvite src="">Apoie as entidades</SocialInvite></li>
+            </ul>
+
+            <div>
+                <div>
+                    <h1>Oportunidades imperdíveis</h1>
+                    <div>
+                    </div>
+                    <Button onClick={() => {navigate("/works")}} >Ver ações voluntárias</Button>
+                </div>
+                
+                <div>
+                    <h1>Encontre as melhores ações voluntárias para você</h1>
+                    <h2>Confira as categorias mais acessadas</h2>
+                    <ul>
+                        <li><ImageLink to="/works?reason=causa animal" src="">Causa Animal</ImageLink></li>
+                        <li><ImageLink to="/works?reason=combate à fome" src="">Combate à fome</ImageLink></li>
+                        <li><ImageLink to="/works?region=são carlos" src="">Vagas em São Carlos</ImageLink></li>
+                        <li><ImageLink to="/works?reason=arte e cultura" src="">Arte e Cultura</ImageLink></li>
+                        <li><ImageLink to="/works?reason=educação" src="">Educação</ImageLink></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h1>Escolha sua cidade</h1>
+                    <ul>
+                        <li><LinkQuery to="/works?region=são carlos">São Carlos</LinkQuery></li>
+                        <li><LinkQuery to="/works?region=araraquara">Araraquara</LinkQuery></li>
+                        <li><LinkQuery to="/works?region=ribeirão preto">Ribeirão Preto</LinkQuery></li>
+                        <li><LinkQuery to="/works?region=rio claro">Rio Claro</LinkQuery></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     );
 }
 
