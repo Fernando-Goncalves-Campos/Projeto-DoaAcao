@@ -6,14 +6,14 @@ function SearchBar({setValue, defaultValue="", type="text", className="", style=
     const [bufferSearch, setBufferSearch] = useState('');
 
     const handleChange = (e) => {
-        setBufferSearch(e.target.value);
+        setBufferSearch(e.target.value.normalize('NFD').replace(/\p{Diacritic}/gu, ''));
         if(onChange){
-            setValue(e.target.value.toLowerCase());
+            setValue(e.target.value.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase());
         }
     }
 
     const handleConfirm = () => {
-        setValue(bufferSearch.toLowerCase());
+        setValue(bufferSearch.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase());
     }
 
     const testEnterKey = (e) => {

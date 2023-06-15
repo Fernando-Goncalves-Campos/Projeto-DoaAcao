@@ -2,23 +2,22 @@ import { memo, useEffect, useState } from "react";
 
 import "./Filter.style.css";
 import SearchBar from "./SearchBar";
+import CheckBox from "./CheckBox";
 
 function Filter({name, options, searchParams, setSearchParams, className="", style = {}, search = false, children}) {
     const [searchOptions, setSearchOptions] = useState(options);
     const [filterOptions, setFilterOptions] = useState([]);
-    const [selectedOptions, setSelectedOptions] = useState(searchParams.getAll(name));
 
     useEffect(() => {
         const handleCheck = (e) => {
             if(e.target.checked){
-                setSelectedOptions(prevSelected => [...prevSelected, e.target.value.toLowerCase()])
                 searchParams.append(name, e.target.value.toLowerCase());
             }
             else{
-                searchParams.delete(name);
                 
-                let newSelectedOptions = selectedOptions.filter(option => option !== e.target.value.toLowerCase())
-                setSelectedOptions(newSelectedOptions);
+                
+                let newSelectedOptions = searchParams.getAll(name).filter(option => option !== e.target.value.toLowerCase());
+                searchParams.delete(name);
 
                 newSelectedOptions.forEach(selectedOption => {
                     searchParams.append(name, selectedOption);
@@ -30,14 +29,9 @@ function Filter({name, options, searchParams, setSearchParams, className="", sty
         
         setFilterOptions(searchOptions.map(option => {
             let boolChecked = searchParams.getAll(name).includes(option.toLowerCase());
-            return(
-                <div key={option}>
-                    <input  type="checkbox" name={name} value={option} checked={boolChecked} onChange={handleCheck}/>
-                    {option}
-                </div>
-            )
+            return <CheckBox key={option} name={name} checked={boolChecked} onChange={handleCheck}>{option}</CheckBox>
         }))
-    }, [searchOptions, name, options, selectedOptions, searchParams, setSearchParams])
+    }, [searchOptions, name, options, searchParams, setSearchParams])
 
     return(
         <div className={`filterClass ${className}`} style={style}>
