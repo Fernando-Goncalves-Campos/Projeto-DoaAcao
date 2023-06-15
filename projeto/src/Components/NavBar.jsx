@@ -8,7 +8,7 @@ import UserMenu from "./UserMenu.jsx";
 import LinkQuery from "./LinkQuery.jsx";
 
 function NavBar() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const location = useLocation();
 
     //Lê os estados do usuário
@@ -20,7 +20,7 @@ function NavBar() {
     //Define qual tipo de botão estará na barra de navegação
     useEffect(() => {
         const updateUserBtn = () => {
-            if(location.pathname === "/login"){
+            if(location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/signup/entity"){
                 setUserBtn();
             }
             else if(!logged){

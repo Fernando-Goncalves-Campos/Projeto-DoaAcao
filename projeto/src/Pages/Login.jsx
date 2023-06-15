@@ -59,10 +59,10 @@ function Login() {
         <div>
             <div>
                 <h1>Já sou usuário</h1>
-                    <InputForm setValue={value => {setUsername(value)}}>E-mail, CPF ou CNPJ</InputForm>
-                    <InputForm setValue={value => {setPassword(value)}} type="password">Senha</InputForm>
-                    <span>Esqueci minha senha</span>
-                    <Button onClick={handleLogin}>Acessar conta</Button>
+                <InputForm setValue={value => {setUsername(value)}}>E-mail, CPF ou CNPJ</InputForm>
+                <InputForm setValue={value => {setPassword(value)}} type="password">Senha</InputForm>
+                <span>Esqueci minha senha</span>
+                <Button onClick={handleLogin}>Acessar conta</Button>
                 
             </div>
 
