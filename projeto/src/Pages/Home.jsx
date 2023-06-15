@@ -1,13 +1,43 @@
-import { memo } from "react";
+import { memo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import SocialInvite from "../Components/SocialInvite.jsx";
 import Button from "../Components/Button.jsx";
 import ImageLink from "../Components/ImageLink.jsx";
 import LinkQuery from "../Components/LinkQuery.jsx";
+import WorkOption from "../Components/WorkOption.jsx";
 
 function Home() {
     const navigate = useNavigate();
+
+    const [topWorks, setTopWorks] = useState([]);
+    const [topWorkOptions, setTopWorkOptions] = useState([]);
+
+	useEffect(() => {
+		async function getTopWorks(amount = 4) {
+			/*const response = await fetch(`http://localhost:5050/works/top/${amount}`);
+
+			if (response.status !== 200) {
+				const message = `An error occurred: ${response.statusText}`;
+				console.log(message);
+				return;
+			}
+
+			const readTopWorks = await response.json();
+
+			setTopWorks(readTopWorks);*/
+            setTopWorks([]);
+		}
+
+		getTopWorks();
+	}, []);
+
+    
+    useEffect(() => {
+        setTopWorkOptions(topWorks.map(work => {
+            return <WorkOption work={work} />
+        }))
+    }, [topWorks])
 
 	return(
         <div>
@@ -21,6 +51,7 @@ function Home() {
                 <div>
                     <h1>Oportunidades imperdíveis</h1>
                     <div>
+                        {topWorkOptions}
                     </div>
                     <Button onClick={() => {navigate("/works")}} >Ver ações voluntárias</Button>
                 </div>
