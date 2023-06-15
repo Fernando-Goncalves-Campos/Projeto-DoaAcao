@@ -21,3 +21,11 @@ body{
     min-height: calc(100vh - var(--Footer-height));
     width: 100%;
 }
+
+.hoverScale {
+    transition: transform 0.1s; 
+}
+
+.hoverScale:hover{
+    transform: scale(1.03);
+}
