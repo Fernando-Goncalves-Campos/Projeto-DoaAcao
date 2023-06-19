@@ -22,10 +22,22 @@ body{
     width: 100%;
 }
 
+
+/*Classe para aumentar o tamanho dos elementos ao passar o mouse por cima*/
 .hoverScale {
     transition: transform 0.1s; 
 }
-
 .hoverScale:hover{
+    transform: scale(1.03);
+}
+/*Funcionamento para inputs de arquivos*/
+.hoverScale,input[type="file"]:hover{
+    transform: scale(1);
+}
+.hoverScale::file-selector-button{
+    transition: transtorm 0.1s;
+    margin: 1px
+}
+.hoverScale::file-selector-button:hover{
     transform: scale(1.03);
 }
