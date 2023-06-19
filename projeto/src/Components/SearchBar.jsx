@@ -26,7 +26,7 @@ function SearchBar({setValue, defaultValue="", type="text", className="", style=
     return(
         <div className={`inputClass ${className}`} style={style}>
             <input type={type} defaultValue={defaultValue} placeholder={children} onChange={handleChange} onKeyDown={testEnterKey}/>
-            <button className="magnifyingGlass" onClick={handleConfirm}></button>
+            <button className="magnifyingGlass" onClick={handleConfirm}>Lupa</button>
         </div>
     );
 }

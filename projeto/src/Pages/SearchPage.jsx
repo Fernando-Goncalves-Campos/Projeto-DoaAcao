@@ -54,10 +54,10 @@ function SearchPage() {
 
             <div>
                 <FiltersContainer searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}}>
-                    <Filter name="reason" options={["Causa 1", "Causa 2", "Causa 3", "Causa 4", "Causa 5"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>Causas</Filter>
-                    <Filter name="skill" options={["Habilidade 1", "Habilidade 2", "Habilidade 3", "Habilidade 4", "Habilidade 5"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>Habilidades</Filter>
-                    <Filter name="region" options={["São Carlos", "Araraquara", "Ribeirão Preto", "Rio Claro"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>Localidades</Filter>
-                    <Filter name="frequency" options={["Recorrente", "Casual"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}}>Disponibilidade</Filter>
+                    <Filter name="causa" options={["Causa 1", "Causa 2", "Causa 3", "Causa 4", "Causa 5"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>Causas</Filter>
+                    <Filter name="habilidade" options={["Habilidade 1", "Habilidade 2", "Habilidade 3", "Habilidade 4", "Habilidade 5"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>Habilidades</Filter>
+                    <Filter name="localidade" options={["São Carlos", "Araraquara", "Ribeirão Preto", "Rio Claro"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>Localidades</Filter>
+                    <Filter name="disponibilidade" options={["Recorrente", "Casual"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}}>Disponibilidade</Filter>
                 </FiltersContainer> 
 
                 <div>
