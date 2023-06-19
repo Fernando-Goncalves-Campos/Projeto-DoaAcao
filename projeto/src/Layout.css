@@ -3,6 +3,7 @@
     margin: 0;
 }
 
+/*Variáveis globais*/
 :root{
     --NavBar-height: 10vh;
     --Footer-height: 10vh;
@@ -12,16 +13,17 @@ body{
     overflow: auto;
 }
 
+/*Região onde fica o conteúdo entre o header e o footer*/
 .contentNav{
     min-height: calc(100vh - var(--NavBar-height) - var(--Footer-height));
     width: 100%;
 }
 
+/*Região que fica acima do footer na tela de bem-vindo*/
 .contentWelcome{
     min-height: calc(100vh - var(--Footer-height));
     width: 100%;
 }
-
 
 /*Classe para aumentar o tamanho dos elementos ao passar o mouse por cima*/
 .hoverScale {
