@@ -15,7 +15,7 @@ function Home() {
 
 	useEffect(() => {
 		async function getTopWorks(amount = 4) {
-			/*const response = await fetch(`http://localhost:5050/works/top/${amount}`);
+			/*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/works?amount=${amount}`);
 
 			if (response.status !== 200) {
 				const message = `An error occurred: ${response.statusText}`;

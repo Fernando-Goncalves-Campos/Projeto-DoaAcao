@@ -14,7 +14,7 @@ function SearchPage() {
 
 	useEffect(() => {
 		async function getWorks() {
-			/*const response = await fetch(`http://localhost:5050/works/${document.location.search}`);
+			const response = await fetch(`http://${process.env.REACT_APP_API_URL}/works${document.location.search}`);
 
 			if (response.status !== 200) {
 				const message = `An error occurred: ${response.statusText}`;
@@ -24,12 +24,11 @@ function SearchPage() {
 
 			const readWorks = await response.json();
 
-			setWorks(readWorks);*/
-            setWorks([]);
+			setWorks(readWorks);
 		}
 
 		getWorks();
-	}, []);
+	}, [setSearchParams]);
 
     
     useEffect(() => {

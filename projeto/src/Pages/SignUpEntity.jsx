@@ -28,7 +28,7 @@ function SignUpEntity() {
 
     //Adiciona a conta no banco de dados
     const addVolunteerDB = async () => {
-        /*const response = await fetch(`http://localhost:5050/volunteers/`, {
+        /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/volunteers`, {
             method: "POST",
             body: JSON.stringify({
                 name: name,

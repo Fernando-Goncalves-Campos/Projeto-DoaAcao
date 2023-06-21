@@ -1,10 +1,19 @@
-const express = require('express');
+import express from "express"
+import cors from "cors"
 const app = express();
 const port = 8000; 
 
+let database = {
+    volunteers: [],
+    entities: [],
+}
+
+app.use(cors());
 
 app.use((req, res, next) => {
-    console.log("Foi");
+    console.log(`Request Method: ${req.method}`);
+    console.log(`Request URL: ${req.url}`);
+    console.log();
   next();
 });
 
@@ -14,11 +23,11 @@ app.get('/', function(req, res){
  });
 
 app.get('/works', (req, res) => {
-  res.json("Acessou /works,GET");
+    res.status(200).send([]);
 });
 
-app.get('/entities/:entityName', (req, res) => {
-  res.json("Acessou /entities/entityName,GET");
+app.get('/entities/:entityName', (req, res) => {   
+    res.json("Acessou /entities/entityName,GET");
 });
 
 app.get('/entities/:entityName/works/:workName', (req, res) => {
