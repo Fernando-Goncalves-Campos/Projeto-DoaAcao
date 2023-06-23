@@ -4,7 +4,7 @@ import "./Filter.style.css";
 import SearchBar from "./SearchBar";
 import CheckBox from "./CheckBox";
 
-function Filter({name, options, searchParams, setSearchParams, className="", style = {}, search = false, children}) {
+function Filter({name, options, searchParams, setSearchParams, className="", style = {}, search = false, max = 4, children}) {
     const [searchOptions, setSearchOptions] = useState(options);
     const [filterOptions, setFilterOptions] = useState([]);
 
@@ -35,7 +35,7 @@ function Filter({name, options, searchParams, setSearchParams, className="", sty
         }
         
         //Cria as check box
-        setFilterOptions(searchOptions.map(option => {
+        setFilterOptions(searchOptions.filter((searchOption, index) => index < max).map(option => {
             let boolChecked = searchParams.getAll(name).includes(option.toLowerCase());
             return <CheckBox key={option} name={name} checked={boolChecked} onChange={handleCheck}>{option}</CheckBox>
         }))

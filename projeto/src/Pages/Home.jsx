@@ -25,7 +25,7 @@ function Home() {
 
 			const readTopWorks = await response.json();
 
-			setTopWorks(readTopWorks);*/
+			setTopWorks(readTopWorks.filter((topWork, index) => index < amount));*/
             setTopWorks([]);
 		}
 

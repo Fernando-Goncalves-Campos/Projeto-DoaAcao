@@ -14,17 +14,18 @@ function SearchPage() {
 
 	useEffect(() => {
 		async function getWorks() {
-			const response = await fetch(`http://${process.env.REACT_APP_API_URL}/works${document.location.search}`);
+			//const response = await fetch(`http://${process.env.REACT_APP_API_URL}/works${document.location.search}`);
 
-			if (response.status !== 200) {
-				const message = `An error occurred: ${response.statusText}`;
-				console.log(message);
-				return;
-			}
+			//if (response.status !== 200) {
+			//	const message = `An error occurred: ${response.statusText}`;
+			//	console.log(message);
+			//	return;
+			//}
 
-			const readWorks = await response.json();
+			//const readWorks = await response.json();
 
-			setWorks(readWorks);
+			//setWorks(readWorks);
+            setWorks([]);
 		}
 
 		getWorks();
