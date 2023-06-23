@@ -15,14 +15,50 @@ import AboutUs from "./Pages/AboutUs.jsx";
 import NoPage from "./Pages/NoPage.jsx";
 import SearchPage from "./Pages/SearchPage.jsx";
 
-//Passes all the user information to all pages
+//Passa as informações do usuário para todas as páginas
 export const UserContext = createContext();
 
+//Passa as informações dos filtros para todas as páginas
+export const FilterContext = createContext();
+
 function App() {
-    //Values that save information about the user
+    //Salva as informações do usuário
     const [user, setUser] = useState({});
     const [logged, setLogged] = useState(false);
     const [entity, setEntity] = useState(false);
+
+    //Salva informações sobre os filtros
+    const [filters, setFilters] = useState({
+        Causas:{
+            name: "causa",
+            options: [
+                "Causa 1",
+                "Causa 2",
+                "Causa 3",
+                "Causa 4",
+                "Causa 5"
+            ],
+        },
+        Habilidades:{
+            name: "habilidade",
+            options: [
+                "Habilidade 1",
+                "Habilidade 2",
+                "Habilidade 3",
+                "Habilidade 4",
+                "Habilidade 5"
+            ]
+        },
+        Localidades:{
+            name: "localidade",
+            options: [
+                "São Carlos",
+                "Araraquara",
+                "Ribeirão Preto",
+                "Rio Claro"
+            ]
+        }
+    })
 
     return (
         <UserContext.Provider value={{
@@ -33,6 +69,7 @@ function App() {
             entity,
             setEntity,
         }}>
+        <FilterContext.Provider value={{filters, setFilters}}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Layout />}>
@@ -63,6 +100,7 @@ function App() {
                     </Route>
                 </Routes>
             </BrowserRouter>
+        </FilterContext.Provider>
         </UserContext.Provider>
         
     );	

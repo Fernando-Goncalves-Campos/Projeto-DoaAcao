@@ -1,5 +1,7 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, useContext } from "react";
 import { useSearchParams } from "react-router-dom";
+
+import { FilterContext } from "../App";
 
 import SearchBar from "../Components/SearchBar";
 import FiltersContainer from "../Components/FiltersContainer";
@@ -7,10 +9,20 @@ import Filter from "../Components/Filter.jsx";
 import WorkOption from "../Components/WorkOption.jsx";
 
 function SearchPage() {
+    const { filters } = useContext(FilterContext);
+
+    const [filterOptions, setFilterOptions] = useState([]);
+
 	const [works, setWorks] = useState([]);
     const [workOptions, setWorkOptions] = useState([]);
 
     const [searchParams, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        setFilterOptions(Object.entries(filters).map(([title, info]) => {
+            return <Filter key={title} name={info.name} options={info.options} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>{title}</Filter>;
+        }))
+    }, [filters, searchParams, setSearchParams]);
 
 	useEffect(() => {
 		async function getWorks() {
@@ -54,9 +66,7 @@ function SearchPage() {
 
             <div>
                 <FiltersContainer searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}}>
-                    <Filter name="causa" options={["Causa 1", "Causa 2", "Causa 3", "Causa 4", "Causa 5"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>Causas</Filter>
-                    <Filter name="habilidade" options={["Habilidade 1", "Habilidade 2", "Habilidade 3", "Habilidade 4", "Habilidade 5"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>Habilidades</Filter>
-                    <Filter name="localidade" options={["São Carlos", "Araraquara", "Ribeirão Preto", "Rio Claro"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>Localidades</Filter>
+                    {filterOptions}
                     <Filter name="disponibilidade" options={["Recorrente", "Casual"]} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}}>Disponibilidade</Filter>
                 </FiltersContainer> 
 

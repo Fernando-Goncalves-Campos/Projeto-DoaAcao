@@ -7,7 +7,7 @@ import "./Footer.style.css";
 function Footer() {
 	return(
         <footer>
-            <LinkQuery to="/home" replace>Início</LinkQuery>
+            <LinkQuery to="/aboutus" replace>Sobre nós</LinkQuery>
         </footer>
     );
 }

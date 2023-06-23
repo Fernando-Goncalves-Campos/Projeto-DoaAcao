@@ -2,45 +2,49 @@ import { memo, useEffect, useState } from "react";
 
 import "./Filter.style.css";
 import SearchBar from "./SearchBar";
-import CheckBox from "./CheckBox";
+import CheckBoxGroup from "./CheckBoxGroup";
 
 function Filter({name, options, searchParams, setSearchParams, className="", style = {}, search = false, max = 4, children}) {
     const [searchOptions, setSearchOptions] = useState(options);
-    const [filterOptions, setFilterOptions] = useState([]);
+    const [filterGroup, setFilterGroup] = useState();
 
     //Altera as check box sempre que a query da página muda ou o texto de pesquisa muda
     useEffect(() => {
-        //Função que lida com as interações com as check box
-        const handleCheck = (e) => {
-            //Quando a check box é marcada, adiciona o parâmetro na query
-            if(e.target.checked){
-                searchParams.append(name, e.target.value.toLowerCase());
-            }
-
-            //Quando a check box é desmarcada, remove o parâmetro da query
-            else{
-                //Salva os parâmetros selecionados da categoria, que são diferentes do que será removido
-                let newSelectedOptions = searchParams.getAll(name).filter(option => option !== e.target.value.toLowerCase());
-                
-                //Remove todos os parâmetros da categoria
-                searchParams.delete(name);
-
-                //Retorna os parâmetros para a query
-                newSelectedOptions.forEach(selectedOption => {
-                    searchParams.append(name, selectedOption);
-                })
-
-            }
-            setSearchParams(searchParams);
+        //Quando o filtro é marcado
+        const checkFunction = (e) => {
+            searchParams.append(name, e.target.value.toLowerCase());
         }
         
-        //Cria as check box
-        setFilterOptions(searchOptions.filter((searchOption, index) => index < max).map(option => {
-            let boolChecked = searchParams.getAll(name).includes(option.toLowerCase());
-            return <CheckBox key={option} name={name} checked={boolChecked} onChange={handleCheck}>{option}</CheckBox>
-        }))
+        //Quando o filtro é desmarcado
+        const unCheckFunction = (e) => {
+            //Salva os parâmetros selecionados da categoria, que são diferentes do que será removido
+            let newSelectedOptions = searchParams.getAll(name).filter(option => option !== e.target.value.toLowerCase());
+                    
+            //Remove todos os parâmetros da categoria
+            searchParams.delete(name);
 
-    }, [searchOptions, name, options, searchParams, setSearchParams])
+            //Retorna os parâmetros para a query
+            newSelectedOptions.forEach(selectedOption => {
+                searchParams.append(name, selectedOption);
+            })
+        }
+
+        //Sempre que alguma check box é marcada
+        const onChangeLastFunction = (e) => {
+            setSearchParams(searchParams);
+        }
+
+        setFilterGroup(
+            <CheckBoxGroup
+                name={name}
+                options={searchOptions.filter((searchOption, index) => index < max)}
+                checkFunction={checkFunction}
+                unCheckFunction={unCheckFunction}
+                onChangeLastFunction={onChangeLastFunction}
+                testChecked={(option) => searchParams.getAll(name).includes(option.toLowerCase())}
+            />
+        )
+    }, [max, name, searchOptions, searchParams, setSearchParams])
 
     return(
         <div className={`filterClass ${className}`} style={style}>
@@ -50,7 +54,7 @@ function Filter({name, options, searchParams, setSearchParams, className="", sty
                     ? <SearchBar setValue={(value) => {setSearchOptions(options.filter(option => option.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase().startsWith(value)))}} onChange/>
                     : ""
             }
-            {filterOptions}
+            {filterGroup}
         </div>
     );
 }
