@@ -3,9 +3,9 @@ import { memo, useEffect, useState } from "react";
 import "./CheckBoxGroup.style.css";
 import CheckBox from "./CheckBox";
 
-function CheckBoxGroup({name, options, onChangeFirstFunction=(e)=>{}, checkFunction, unCheckFunction, onChangeLastFunction=(e)=>{}, testChecked=(option)=>{return false}, className="", style = {}, max = 0}) {
+function CheckBoxGroup({name, options, onChangeFirstFunction=(e)=>{}, checkFunction, unCheckFunction, onChangeLastFunction=(e)=>{}, testChecked=(option)=>{return false}, className="", style = {}, max = 0, startingCount = 0}) {
     const [checkBoxes, setCheckBoxes] = useState([]);
-    const [count, setCount] = useState(max);
+    const [count, setCount] = useState(max - startingCount);
 
     //Cria as checkbox
     useEffect(() => {
@@ -19,7 +19,6 @@ function CheckBoxGroup({name, options, onChangeFirstFunction=(e)=>{}, checkFunct
                 if(max){
                     if(count){
                         setCount(count - 1);
-                        console.log(count);
                         checkFunction(e);
                     }
                     else{
@@ -47,7 +46,7 @@ function CheckBoxGroup({name, options, onChangeFirstFunction=(e)=>{}, checkFunct
             let boolChecked = testChecked(option);
             return <CheckBox key={option} name={name} checked={boolChecked} onChange={handleCheck}>{option}</CheckBox>
         }))
-    }, [options]);
+    }, [options, testChecked]);
 
     return(
         <div className={`checkBoxGroup ${className}`} style={style}>

@@ -34,9 +34,9 @@ function Home() {
 
     
     useEffect(() => {
-        setTopWorkOptions(topWorks.map(work => {
+        setTopWorkOptions(topWorks? topWorks.map(work => {
             return <WorkOption work={work} />
-        }))
+        }) : <></>)
     }, [topWorks])
 
 	return(

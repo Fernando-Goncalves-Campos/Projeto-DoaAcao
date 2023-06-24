@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { UserContext } from "../App";
 
+import "./NavBar.style.css"
+
 import Button from "./Button.jsx";
 import UserMenu from "./UserMenu.jsx";
 import LinkQuery from "./LinkQuery.jsx";

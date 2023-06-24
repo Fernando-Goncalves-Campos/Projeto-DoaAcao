@@ -30,7 +30,7 @@ function SearchPage() {
 
 			//if (response.status !== 200) {
 			//	const message = `An error occurred: ${response.statusText}`;
-			//	console.log(message);
+			//	alert(message);
 			//	return;
 			//}
 
@@ -45,9 +45,9 @@ function SearchPage() {
 
     
     useEffect(() => {
-        setWorkOptions(works.map(work => {
+        setWorkOptions(works? works.map(work => {
             return <WorkOption work={work} />
-        }))
+        }) :<></>)
     }, [works])
 
 	return(

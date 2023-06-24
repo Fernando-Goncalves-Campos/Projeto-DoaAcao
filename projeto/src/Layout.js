@@ -12,7 +12,7 @@ function Layout() {
         <>
             {location.pathname !== "/" ? <NavBar /> : null}
         
-            <div id={location.pathname !== "/" ? "contentNav" : "contentWelcome"}>
+            <div className={location.pathname !== "/" ? "contentNav" : "contentWelcome"}>
                 <Outlet/>
             </div>
 

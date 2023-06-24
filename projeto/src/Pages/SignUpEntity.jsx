@@ -8,7 +8,7 @@ function SignUpEntity() {
     const navigate = useNavigate()
 
     const [name, setName] = useState("");
-    const [reason, setReason] = useState("");
+    const [socialReason, setSocialReason] = useState("");
     const [CNPJ, setCNPJ] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -27,12 +27,12 @@ function SignUpEntity() {
     const [position, setPosition] = useState("");
 
     //Adiciona a conta no banco de dados
-    const addVolunteerDB = async () => {
-        /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/volunteers`, {
+    const addEntityDB = async () => {
+        /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities`, {
             method: "POST",
             body: JSON.stringify({
                 name: name,
-                reason: reason,
+                socialReason: socialReason,
                 CNPJ, CNPJ
                 email: email,
                 phone: phone,
@@ -61,12 +61,17 @@ function SignUpEntity() {
         e.preventDefault();
 
         //Adiciona o administrador ao banco de dados
-        const response = await addVolunteerDB();
+        const response = await addEntityDB();
         if(response.status === 201){
+            alert("Account sent to validation");
             navigate(-1);
         }
-        else{
+        else if(response.status === 409){
             alert("Account already exists!!!");
+        }
+        else{
+            const message = `An error occurred: ${response.statusText}`;
+			alert(message);
         }
     }
 
@@ -74,7 +79,7 @@ function SignUpEntity() {
         <form onSubmit={handleSubmit}>
             <h2>*Campos obrigatórios</h2>
             <InputForm setValue={value => {setName(value)}} required>*Nome da Empresa</InputForm>
-            <InputForm setValue={value => {setReason(value)}} required>*Razão Social</InputForm>
+            <InputForm setValue={value => {setSocialReason(value)}} required>*Razão Social</InputForm>
             <InputForm setValue={value => {setCNPJ(value)}} required>*CNPJ</InputForm>
             <InputForm type="email" setValue={value => {setEmail(value)}} required>*E-mail</InputForm>
             <InputForm setValue={value => {setPhone(value)}} required>*Telefone</InputForm>

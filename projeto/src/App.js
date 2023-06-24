@@ -9,8 +9,9 @@ import SignUpEntity from "./Pages/SignUpEntity.jsx";
 import SignUpVolunteer from "./Pages/SignUpVolunteer.jsx";
 import VolunteerProfile from "./Pages/VolunteerProfile.jsx";
 import EntityProfile from "./Pages/EntityProfile.jsx";
+import EntityWorks from "./Pages/EntityWorks.jsx";
+import CreateWork from "./Pages/CreateWork.jsx";
 import WorkDescription from "./Pages/WorkDescription.jsx";
-import HelpAndContact from "./Pages/HelpAndContact.jsx";
 import AboutUs from "./Pages/AboutUs.jsx";
 import NoPage from "./Pages/NoPage.jsx";
 import SearchPage from "./Pages/SearchPage.jsx";
@@ -85,16 +86,19 @@ function App() {
                             <Route path="entity" element={<SignUpEntity />}/>
                         </Route>
                         
-                        <Route path="entities/:entityName">
+                        <Route path="entities/:entityCNPJ">
                             <Route index element={<EntityProfile />}/>
-                            <Route path="works/:workName" element={<WorkDescription />}/>
+                            
+                            <Route path="works">
+                                <Route index element={<EntityWorks />}/>
+                                <Route path="create" element={<CreateWork />} />
+                                <Route path=":workName" element={<WorkDescription />}/>
+                            </Route>
                         </Route>
 
-                        <Route path="volunteers/:volunteerName" element={<VolunteerProfile />}/>
+                        <Route path="volunteers/:volunteerCPF" element={<VolunteerProfile />}/>
 
-                        <Route path="help&contact" element={<HelpAndContact />}/>
                         <Route path="aboutus" element={<AboutUs />}/>
-
 
                         <Route path="*" element={<NoPage />} />
                     </Route>
@@ -102,7 +106,6 @@ function App() {
             </BrowserRouter>
         </FilterContext.Provider>
         </UserContext.Provider>
-        
     );	
 }
 

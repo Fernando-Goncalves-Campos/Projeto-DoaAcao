@@ -15,7 +15,7 @@ body{
 
 /*Região onde fica o conteúdo entre o header e o footer*/
 .contentNav{
-    min-height: calc(100vh - var(--NavBar-height) - var(--Footer-height));
+    min-height: calc(100vh - var(--Footer-height) - var(--NavBar-height));
     width: 100%;
 }
 

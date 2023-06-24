@@ -36,8 +36,12 @@ function Login() {
             setEntity(loggedUser.entity);
             navigate("/home");
         }
-        else{
+        else if(response.status === 403 || response.status === 404){
             alert("account doesn't exist or the password is wrong!");
+        }
+        else{
+            const message = `An error occurred: ${response.statusText}`;
+			alert(message);
         }*/
     }
 

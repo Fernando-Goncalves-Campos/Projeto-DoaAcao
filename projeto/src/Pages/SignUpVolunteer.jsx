@@ -83,8 +83,12 @@ function SignUpVolunteer() {
             });
             navigate(-2);
         }
-        else{
+        else if(response.status === 409){
             alert("Account already exists!!!");
+        }
+        else{
+            const message = `An error occurred: ${response.statusText}`;
+			alert(message);
         }
     }
 
