@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 import WorkOptionEntity from "../Components/WorkOptionEntity.jsx";
 import SearchBar from "../Components/SearchBar.jsx";
@@ -8,11 +8,13 @@ function EntityWorks() {
     const [works, setWorks] = useState([]);
     const [workOptions, setWorkOptions] = useState([]);
 
+    const { entityCNPJ } = useParams();
+
     const [searchParams, setSearchParams] = useSearchParams();
 
 	useEffect(() => {
 		async function getWorks() {
-			//const response = await fetch(`http://${process.env.REACT_APP_API_URL}/works${document.location.search}`);
+			//const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityCNPJ}/works${document.location.search}`);
 
 			//if (response.status !== 200) {
 			//	const message = `An error occurred: ${response.statusText}`;
@@ -29,6 +31,7 @@ function EntityWorks() {
                     img: "",
                     address: "Address",
                     frequency: "Pontual",
+                    description: "Descrição",
                     volunteers: [
                         {
                             name: "Fernando",
@@ -65,7 +68,7 @@ function EntityWorks() {
 
     useEffect(() => {
         setWorkOptions(works? works.map(work => {
-            return <WorkOptionEntity work={work} deleteWork={() => {handleDelete(work)}}/>
+            return <WorkOptionEntity work={work} entityCNPJ={entityCNPJ} deleteWork={() => {handleDelete(work)}}/>
         }) :<></>);
     }, [works])
 

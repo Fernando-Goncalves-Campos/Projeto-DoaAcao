@@ -1,12 +1,16 @@
-import { memo, useRef, useState } from "react";
+import { memo, useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "./WorkOptionEntity.style.css";
+import { UserContext } from "../App"
 
 import Button from "./Button";
 import WorkVolunteerRating from "./WorkVolunteerRating";
 
-function WorkOptionEntity({work, deleteWork, className="", style={}}) {
+import "./WorkOptionEntity.style.css";
+
+function WorkOptionEntity({work, entityCNPJ, deleteWork, className="", style={}}) {
+    const { user, entity } = useContext(UserContext);
+
     const contentRef = useRef();
     const navigate = useNavigate();
 
@@ -26,8 +30,13 @@ function WorkOptionEntity({work, deleteWork, className="", style={}}) {
             <img src={work.img} alt={work.name}/>
             <h2 onClick={()=>{navigate(`${work.name}`)}}>{work.name}</h2>
             {work.description}
-            <Button onClick={handleDelete}>Remover</Button>
-            <Button onClick={handleLook}>Visualizar</Button>
+            {entity && user.CNPJ === entityCNPJ?
+                    <><Button onClick={handleDelete}>Remover</Button>
+                    <Button onClick={handleLook}>Visualizar</Button></>
+                :
+                    <></>
+            }
+            
             <div ref={contentRef} className="workData" style={{height: open ? contentRef.current.scrollHeight + "px" : 0}}>
                 {work.address}
                 Tipo de vaga: {work.frequency}
