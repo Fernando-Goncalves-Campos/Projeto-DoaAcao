@@ -2,10 +2,17 @@ import { memo } from "react";
 
 import "./WorkVolunteerRating.style.css";
 
-function WorkVolunteerRating({volunteer, handleData, className="", style={}}) {
+import CustomRating from "./CustomRating"
+
+function WorkVolunteerRating({volunteer, className="", style={}}) {
 
     return(
-        <div className={className} style={style}></div>
+        <div className={className} style={style}>
+            {volunteer.name}
+            {volunteer.email}
+            {volunteer.phone}
+            <CustomRating />
+        </div>
     );
 }
 

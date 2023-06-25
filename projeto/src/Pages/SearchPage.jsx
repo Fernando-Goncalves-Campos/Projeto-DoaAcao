@@ -42,7 +42,6 @@ function SearchPage() {
 
 		getWorks();
 	}, [setSearchParams]);
-
     
     useEffect(() => {
         setWorkOptions(works? works.map(work => {
