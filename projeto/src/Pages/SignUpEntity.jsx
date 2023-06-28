@@ -25,6 +25,7 @@ function SignUpEntity() {
     const [referencePoint, setReferencePoint] = useState("");
     const [responsible, setResponsible] = useState("");
     const [position, setPosition] = useState("");
+    const [password, setPassword] = useState("");
 
     //Adiciona a conta no banco de dados
     const addEntityDB = async () => {
@@ -46,7 +47,8 @@ function SignUpEntity() {
                 city: city,
                 referencePoint: referencePoint,
                 responsible: responsible,
-                position: position
+                position: position,
+                password: password
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -96,6 +98,7 @@ function SignUpEntity() {
             <InputForm setValue={value => {setReferencePoint(value)}}>Ponto de Referência</InputForm>
             <InputForm setValue={value => {setResponsible(value)}} required>*Nome do Responsável</InputForm>
             <InputForm setValue={value => {setPosition(value)}} required>*Cargo do responsável</InputForm>
+            <InputForm type="password" setValue={value => {setPassword(value)}} required>*Senha</InputForm>
 
             <Button submit>Criar conta</Button>
         </form>

@@ -33,7 +33,6 @@ function WorkDescription() {
             info:{
                 name: workName,
                 description: "Descrição t",
-                workSummary: "Resumo",
                 date: "1/1/1",
                 time: "8:00 até 12:00",
                 img: "",
@@ -54,7 +53,6 @@ function WorkDescription() {
         setWorkDisplay(work? <>
             <div>
                 <h1>{work.info.name}</h1>
-                {work.info.description}
                 <h2>{work.info.location}</h2>
                 <ul>
                     {work.info.skills.map((skill)=><li key={skill}>{skill}</li>)}
@@ -68,7 +66,7 @@ function WorkDescription() {
 
             <div>
                 <h1>Sobre o trabalho</h1>
-                {work.info.workSummary}
+                {work.info.description}
             </div>
 
             <div>

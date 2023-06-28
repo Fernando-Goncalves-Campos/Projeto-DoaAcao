@@ -149,7 +149,7 @@ function VolunteerProfile() {
                     <h1>Dados da entidade</h1>
                     <form onSubmit={handleSubmit}>
                         <InputForm setValue={value => {setName(value)}} defaultValue={volunteerInfo.name} title required>Nome</InputForm>
-                        <InputForm setValue={value => {setBirthday(value)}} defaultValue={volunteerInfo.birthday} title required>Aniversário</InputForm>
+                        <InputForm type="date" setValue={value => {setBirthday(value)}} defaultValue={volunteerInfo.birthday} title required>Data de nascimento</InputForm>
                         <InputForm setValue={value => {setCPF(value)}} defaultValue={volunteerInfo.CPF} title disabled required>CPF</InputForm>
                         <InputForm type="email" setValue={value => {setEmail(value)}} defaultValue={volunteerInfo.email} title required>E-mail</InputForm>
                         <InputForm setValue={value => {setPhone(value)}} defaultValue={volunteerInfo.phone} title required>Telefone 1</InputForm>

@@ -28,8 +28,8 @@ function CreateWork() {
 
     const [frequency, setFrequency] = useState("Recorrente");
 
-    const [singleTime, setSingleTime] = useState([]);
-    const [repeating, setRepeating] = useState([]);
+    const [singleTime, setSingleTime] = useState({day: "", start: "", finish: "", task: ""});
+    const [repeating, setRepeating] = useState({timeDescription: "", weekHours: ""});
 
     const [distance, setDistance] = useState(false);
 
@@ -107,7 +107,12 @@ function CreateWork() {
 
                 <CheckBox radio name="frequency" checked={frequency === "Recorrente"} onChange={e => {setFrequency(e.target.value)}}>Recorrente</CheckBox>
                 <CheckBox radio name="frequency" checked={frequency === "Pontual"} onChange={e => {setFrequency(e.target.value)}}>Pontual</CheckBox>
-                {frequency === "Pontual"? <SingleTimeEvent setEvents={value => {setSingleTime(value)}}/>: <RepeatingEvent setEvents={value => {setRepeating(value)}}/>}
+                {
+                    frequency === "Pontual"? 
+                        <SingleTimeEvent eventInfo={singleTime} setEventInfo={value => {setSingleTime(value)}}/>
+                    : 
+                        <RepeatingEvent eventInfo={repeating} setEventInfo={value => {setRepeating(value)}}/>
+                }
                 
                 <CheckBox name="Distance" onChange={handleDistanceChange} checked={distance}>Essa vaga pode ser feita a distância</CheckBox>
 
