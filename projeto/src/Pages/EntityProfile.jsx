@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { UserContext } from "../App";
 
-import Button from "../Components/Button";
+import CustomButton from "../Components/CustomButton";
 import InputForm from "../Components/InputForm";
 
 function EntityProfile() {
@@ -143,25 +143,25 @@ function EntityProfile() {
             setEntityDisplay(entityInfo? <>
                 <h1>Dados da entidade</h1>
                 <form onSubmit={handleSubmit}>
-                    <InputForm setValue={value => {setName(value)}} defaultValue={entityInfo.name} title required>Nome</InputForm>
-                    <InputForm setValue={value => {setSocialReason(value)}} defaultValue={entityInfo.socialReason} title required>Razão Social</InputForm>
-                    <InputForm setValue={value => {setCNPJ(value)}} defaultValue={entityInfo.CNPJ} title disabled required>CNPJ</InputForm>
-                    <InputForm type="email" setValue={value => {setEmail(value)}} defaultValue={entityInfo.email} title required>E-mail</InputForm>
-                    <InputForm setValue={value => {setPhone(value)}} defaultValue={entityInfo.phone} title required>Telefone 1</InputForm>
-                    <InputForm setValue={value => {setSecondPhone(value)}} defaultValue={entityInfo.secondPhone} title>Telefone 2</InputForm>
+                    <InputForm setValue={value => {setName(value)}} defaultValue={entityInfo.name}  required>Nome</InputForm>
+                    <InputForm setValue={value => {setSocialReason(value)}} defaultValue={entityInfo.socialReason}  required>Razão Social</InputForm>
+                    <InputForm setValue={value => {setCNPJ(value)}} defaultValue={entityInfo.CNPJ}  disabled required>CNPJ</InputForm>
+                    <InputForm type="email" setValue={value => {setEmail(value)}} defaultValue={entityInfo.email}  required>E-mail</InputForm>
+                    <InputForm setValue={value => {setPhone(value)}} defaultValue={entityInfo.phone}  required>Telefone 1</InputForm>
+                    <InputForm setValue={value => {setSecondPhone(value)}} defaultValue={entityInfo.secondPhone} >Telefone 2</InputForm>
 
-                    <InputForm setValue={value => {setCEP(value)}} defaultValue={entityInfo.CEP} title required>CEP</InputForm>
-                    <InputForm setValue={value => {setStreetName(value)}} defaultValue={entityInfo.streetName} title required>Nome da Rua</InputForm>
-                    <InputForm setValue={value => {setAddressNumber(value)}} defaultValue={entityInfo.addressNumber} title required>Número</InputForm>
-                    <InputForm setValue={value => {setComplement(value)}} defaultValue={entityInfo.complement} title>Complemento</InputForm>
+                    <InputForm setValue={value => {setCEP(value)}} defaultValue={entityInfo.CEP}  required>CEP</InputForm>
+                    <InputForm setValue={value => {setStreetName(value)}} defaultValue={entityInfo.streetName}  required>Nome da Rua</InputForm>
+                    <InputForm setValue={value => {setAddressNumber(value)}} defaultValue={entityInfo.addressNumber}  required>Número</InputForm>
+                    <InputForm setValue={value => {setComplement(value)}} defaultValue={entityInfo.complement} >Complemento</InputForm>
 
-                    <InputForm setValue={value => {setDistrict(value)}} defaultValue={entityInfo.district} title required>Bairro</InputForm>
-                    <InputForm setValue={value => {setState(value)}} defaultValue={entityInfo.state} title required>Estado</InputForm>
-                    <InputForm setValue={value => {setCity(value)}} defaultValue={entityInfo.city} title required>Cidade</InputForm>
-                    <InputForm setValue={value => {setReferencePoint(value)}} defaultValue={entityInfo.referencePoint} title>Referência</InputForm>
-                    <InputForm setValue={value => {setResponsible(value)}} defaultValue={entityInfo.responsible} title required>Nome do Responsável</InputForm>
-                    <InputForm setValue={value => {setPosition(value)}} defaultValue={entityInfo.position} title required>Cargo do responsável</InputForm>
-                    <Button submit>SALVAR INFORMAÇÕES</Button>
+                    <InputForm setValue={value => {setDistrict(value)}} defaultValue={entityInfo.district}  required>Bairro</InputForm>
+                    <InputForm setValue={value => {setState(value)}} defaultValue={entityInfo.state}  required>Estado</InputForm>
+                    <InputForm setValue={value => {setCity(value)}} defaultValue={entityInfo.city}  required>Cidade</InputForm>
+                    <InputForm setValue={value => {setReferencePoint(value)}} defaultValue={entityInfo.referencePoint} >Referência</InputForm>
+                    <InputForm setValue={value => {setResponsible(value)}} defaultValue={entityInfo.responsible}  required>Nome do Responsável</InputForm>
+                    <InputForm setValue={value => {setPosition(value)}} defaultValue={entityInfo.position}  required>Cargo do responsável</InputForm>
+                    <CustomButton submit>SALVAR INFORMAÇÕES</CustomButton>
                 </form>
             </> :<></>);
         }
@@ -184,7 +184,7 @@ function EntityProfile() {
                 {entityInfo.referencePoint}
                 {entityInfo.responsible}
                 {entityInfo.position}
-                <Button onClick={()=>{navigate(`/entities/${entityCNPJ}/works`)}}>VER TRABALHOS</Button>
+                <CustomButton onClick={()=>{navigate(`/entities/${entityCNPJ}/works`)}}>VER TRABALHOS</CustomButton>
             </> :<></>);
         }
     }, [entityInfo]);

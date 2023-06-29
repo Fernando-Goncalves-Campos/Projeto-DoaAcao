@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import Button from "../Components/Button";
+import CustomButton from "../Components/CustomButton";
 
 function WorkDescription() {
     const navigate = useNavigate();
@@ -60,7 +60,7 @@ function WorkDescription() {
 
                 <div>
                     <img src={work.info.img} alt={work.info.name}/>
-                    <Button onClick={handleRegister}>QUERO ME INSCREVER</Button>
+                    <CustomButton onClick={handleRegister}>QUERO ME INSCREVER</CustomButton>
                 </div>
             </div>
 

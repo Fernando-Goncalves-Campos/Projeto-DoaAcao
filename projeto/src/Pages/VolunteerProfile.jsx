@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { UserContext, FilterContext } from "../App";
 
-import Button from "../Components/Button";
+import CustomButton from "../Components/CustomButton";
 import InputForm from "../Components/InputForm";
 import ChoosePreferences from "../Components/ChoosePreferences";
 
@@ -148,27 +148,27 @@ function VolunteerProfile() {
                 setVolunteerDisplay(<>
                     <h1>Dados da entidade</h1>
                     <form onSubmit={handleSubmit}>
-                        <InputForm setValue={value => {setName(value)}} defaultValue={volunteerInfo.name} title required>Nome</InputForm>
-                        <InputForm type="date" setValue={value => {setBirthday(value)}} defaultValue={volunteerInfo.birthday} title required>Data de nascimento</InputForm>
-                        <InputForm setValue={value => {setCPF(value)}} defaultValue={volunteerInfo.CPF} title disabled required>CPF</InputForm>
-                        <InputForm type="email" setValue={value => {setEmail(value)}} defaultValue={volunteerInfo.email} title required>E-mail</InputForm>
-                        <InputForm setValue={value => {setPhone(value)}} defaultValue={volunteerInfo.phone} title required>Telefone 1</InputForm>
-                        <InputForm setValue={value => {setSecondPhone(value)}} defaultValue={volunteerInfo.secondPhone} title>Telefone 2</InputForm>
+                        <InputForm setValue={value => {setName(value)}} defaultValue={volunteerInfo.name}  required>Nome</InputForm>
+                        <InputForm type="date" setValue={value => {setBirthday(value)}} defaultValue={volunteerInfo.birthday}  required>Data de nascimento</InputForm>
+                        <InputForm setValue={value => {setCPF(value)}} defaultValue={volunteerInfo.CPF}  disabled required>CPF</InputForm>
+                        <InputForm type="email" setValue={value => {setEmail(value)}} defaultValue={volunteerInfo.email}  required>E-mail</InputForm>
+                        <InputForm setValue={value => {setPhone(value)}} defaultValue={volunteerInfo.phone}  required>Telefone 1</InputForm>
+                        <InputForm setValue={value => {setSecondPhone(value)}} defaultValue={volunteerInfo.secondPhone} >Telefone 2</InputForm>
 
-                        <InputForm setValue={value => {setCEP(value)}} defaultValue={volunteerInfo.CEP} title required>CEP</InputForm>
-                        <InputForm setValue={value => {setStreetName(value)}} defaultValue={volunteerInfo.streetName} title required>Nome da Rua</InputForm>
-                        <InputForm setValue={value => {setAddressNumber(value)}} defaultValue={volunteerInfo.addressNumber} title required>Número</InputForm>
-                        <InputForm setValue={value => {setComplement(value)}} defaultValue={volunteerInfo.complement} title>Complemento</InputForm>
+                        <InputForm setValue={value => {setCEP(value)}} defaultValue={volunteerInfo.CEP}  required>CEP</InputForm>
+                        <InputForm setValue={value => {setStreetName(value)}} defaultValue={volunteerInfo.streetName}  required>Nome da Rua</InputForm>
+                        <InputForm setValue={value => {setAddressNumber(value)}} defaultValue={volunteerInfo.addressNumber}  required>Número</InputForm>
+                        <InputForm setValue={value => {setComplement(value)}} defaultValue={volunteerInfo.complement} >Complemento</InputForm>
 
-                        <InputForm setValue={value => {setDistrict(value)}} defaultValue={volunteerInfo.district} title required>Bairro</InputForm>
-                        <InputForm setValue={value => {setState(value)}} defaultValue={volunteerInfo.state} title required>Estado</InputForm>
-                        <InputForm setValue={value => {setCity(value)}} defaultValue={volunteerInfo.city} title required>Cidade</InputForm>
-                        <InputForm setValue={value => {setReferencePoint(value)}} defaultValue={volunteerInfo.referencePoint} title>Referência</InputForm>
+                        <InputForm setValue={value => {setDistrict(value)}} defaultValue={volunteerInfo.district}  required>Bairro</InputForm>
+                        <InputForm setValue={value => {setState(value)}} defaultValue={volunteerInfo.state}  required>Estado</InputForm>
+                        <InputForm setValue={value => {setCity(value)}} defaultValue={volunteerInfo.city}  required>Cidade</InputForm>
+                        <InputForm setValue={value => {setReferencePoint(value)}} defaultValue={volunteerInfo.referencePoint} >Referência</InputForm>
                         
                         <ChoosePreferences filter={filters.Causas} preferences={reasons} setPreferences={(value) => {setReasons(value)}} max={3}>Causas</ChoosePreferences>
                         <ChoosePreferences filter={filters.Habilidades} preferences={skills} setPreferences={(value) => {setSkills(value)}} max={3}>Habilidades</ChoosePreferences>
 
-                        <Button submit>SALVAR INFORMAÇÕES</Button>
+                        <CustomButton submit>SALVAR INFORMAÇÕES</CustomButton>
                     </form>
                 </>);
             }

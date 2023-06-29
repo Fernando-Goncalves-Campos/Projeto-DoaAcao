@@ -2,7 +2,7 @@ import { memo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import SocialInvite from "../Components/SocialInvite.jsx";
-import Button from "../Components/Button.jsx";
+import CustomButton from "../Components/CustomButton.jsx";
 import ImageLink from "../Components/ImageLink.jsx";
 import LinkQuery from "../Components/LinkQuery.jsx";
 import WorkOption from "../Components/WorkOption.jsx";
@@ -53,7 +53,7 @@ function Home() {
                     <div>
                         {topWorkOptions}
                     </div>
-                    <Button onClick={() => {navigate("/works")}} >Ver ações voluntárias</Button>
+                    <CustomButton onClick={() => {navigate("/works")}} >Ver ações voluntárias</CustomButton>
                 </div>
                 
                 <div>

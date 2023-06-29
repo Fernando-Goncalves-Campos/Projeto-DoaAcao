@@ -5,7 +5,7 @@ import { UserContext } from "../App";
 
 import "./NavBar.style.css"
 
-import Button from "./Button.jsx";
+import CustomButton from "./CustomButton.jsx";
 import UserMenu from "./UserMenu.jsx";
 import LinkQuery from "./LinkQuery.jsx";
 
@@ -26,13 +26,10 @@ function NavBar() {
                 setUserBtn();
             }
             else if(!logged){
-                setUserBtn(<Button onClick={() => {navigate("/login")}}>Entrar</Button>)
-            }
-            else if(entity){
-                setUserBtn(<UserMenu></UserMenu>)
+                setUserBtn(<CustomButton onClick={() => {navigate("/login")}}>Entrar</CustomButton>)
             }
             else{
-                setUserBtn(<UserMenu></UserMenu>)
+                setUserBtn(<UserMenu />)
             }
         }
 

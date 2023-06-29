@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Button from "../Components/Button.jsx";
+import CustomButton from "../Components/CustomButton.jsx";
 
 function WelcomePage() {
     const navigate = useNavigate();
@@ -9,12 +9,12 @@ function WelcomePage() {
     return(
         <>
             <div id="welcomeImage">
-                <div id="welcomeButtonsContainer">
+                <div id="welcomeCustomButtonsContainer">
                     <span>
                         Você pode fazer o bem que o mundo tanto precisa. Ajude o próximo.
                     </span>
-                    <Button onClick={() => {navigate("/home")}} >Ver ações voluntárias</Button>
-                    <Button onClick={() => {navigate("/aboutus")}} >Saiba mais sobre o projeto</Button>
+                    <CustomButton onClick={() => {navigate("/home")}} >Ver ações voluntárias</CustomButton>
+                    <CustomButton onClick={() => {navigate("/aboutus")}} >Saiba mais sobre o projeto</CustomButton>
                 </div>
             </div>
 

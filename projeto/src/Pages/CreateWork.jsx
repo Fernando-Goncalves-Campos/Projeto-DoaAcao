@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { FilterContext } from "../App";
 
-import Button from "../Components/Button";
+import CustomButton from "../Components/CustomButton";
 import InputForm from "../Components/InputForm";
 import CheckBox from "../Components/CheckBox";
 import ChoosePreferences from "../Components/ChoosePreferences";
@@ -116,7 +116,7 @@ function CreateWork() {
                 
                 <CheckBox name="Distance" onChange={handleDistanceChange} checked={distance}>Essa vaga pode ser feita a distância</CheckBox>
 
-                <Button submit>Adicionar vaga</Button>
+                <CustomButton submit>Adicionar vaga</CustomButton>
             </form>
             
         </div>

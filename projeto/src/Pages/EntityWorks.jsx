@@ -1,20 +1,19 @@
 import { memo, useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import WorkOptionEntity from "../Components/WorkOptionEntity.jsx";
 import SearchBar from "../Components/SearchBar.jsx";
 
 function EntityWorks() {
     const [works, setWorks] = useState([]);
+    const [ filteredWorks, setFilteredWorks ] = useState([]);
     const [workOptions, setWorkOptions] = useState([]);
 
     const { entityCNPJ } = useParams();
 
-    const [searchParams, setSearchParams] = useSearchParams();
-
 	useEffect(() => {
 		async function getWorks() {
-			//const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityCNPJ}/works${document.location.search}`);
+			//const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityCNPJ}/works`);
 
 			//if (response.status !== 200) {
 			//	const message = `An error occurred: ${response.statusText}`;
@@ -25,7 +24,30 @@ function EntityWorks() {
 			//const readWorks = await response.json();
 
 			//setWorks(readWorks);
+            //setFilteredWorks(readWorks);
             setWorks([
+                {
+                    name: "nome",
+                    img: "",
+                    address: "Address",
+                    frequency: "Pontual",
+                    description: "Descrição",
+                    volunteers: [
+                        {
+                            name: "Fernando",
+                            email: "Fernando@Fernando.com",
+                            phone: "Fernando"
+                        },
+                        {
+                            name: "Eduardo",
+                            email: "Eduardo@Eduardo.com",
+                            phone: "Eduardo"
+                        }
+                    ]
+                }
+            ]);
+
+            setFilteredWorks([
                 {
                     name: "nome",
                     img: "",
@@ -48,8 +70,12 @@ function EntityWorks() {
             ]);
 		}
 
-		getWorks();
-	}, [setSearchParams]);
+        getWorks();
+	}, []);
+
+    const filterWorks = (searchText) => {
+        setFilteredWorks(works.filter(work => work.name.startsWith(searchText)));
+    }
 
     const handleDelete = (work) => {
         /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityCNPJ}/works/${work}`, {
@@ -67,26 +93,16 @@ function EntityWorks() {
     }
 
     useEffect(() => {
-        setWorkOptions(works? works.map(work => {
+        setWorkOptions(filteredWorks? filteredWorks.map(work => {
             return <WorkOptionEntity work={work} entityCNPJ={entityCNPJ} deleteWork={() => {handleDelete(work)}}/>
         }) :<></>);
-    }, [works])
+    }, [works, filteredWorks])
 
 	return(
         <div>
             <h1>Gerenciar vagas</h1>
             <div>
-                <SearchBar 
-                    setValue={value => {
-                        if(value){
-                            searchParams.set("search", value);
-                        }
-                        else{
-                            searchParams.delete("search");
-                        }
-                        setSearchParams(searchParams);
-                    }}
-                >Busque vagas criadas</SearchBar>
+                <SearchBar setValue={value => {filterWorks(value)}} onChange >Busque vagas criadas</SearchBar>
 
                 {workOptions}
             </div>

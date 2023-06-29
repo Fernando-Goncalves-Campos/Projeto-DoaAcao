@@ -91,9 +91,10 @@ function App() {
                             
                             <Route path="works">
                                 <Route index element={<EntityWorks />}/>
-                                <Route path="create" element={<CreateWork />} />
                                 <Route path=":workName" element={<WorkDescription />}/>
                             </Route>
+
+                            <Route path="createWork" element={<CreateWork />} />
                         </Route>
 
                         <Route path="volunteers/:volunteerCPF" element={<VolunteerProfile />}/>

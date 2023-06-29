@@ -1,8 +1,8 @@
 import { memo } from "react";
 
-import "./Button.style.css";
+import "./CustomButton.style.css";
 
-function Button({onClick=() => {}, className = '', style = {}, submit=false, children}) {
+function CustomButton({onClick=() => {}, className = '', style = {}, submit=false, children}) {
     //Caso seja um botão de um formulário
     if(submit){
         return <input type="submit" className={`btnClass hoverScale ${className}`} style={style} value={children} />
@@ -13,4 +13,4 @@ function Button({onClick=() => {}, className = '', style = {}, submit=false, chi
     }
 }
 
-export default memo(Button);
+export default memo(CustomButton);

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
 
 import InputForm from "../Components/InputForm.jsx";
-import Button from "../Components/Button.jsx";
+import CustomButton from "../Components/CustomButton.jsx";
 
 
 function Login() {
@@ -66,7 +66,7 @@ function Login() {
                 <InputForm setValue={value => {setUsername(value)}}>E-mail, CPF ou CNPJ</InputForm>
                 <InputForm setValue={value => {setPassword(value)}} type="password">Senha</InputForm>
                 <span>Esqueci minha senha</span>
-                <Button onClick={handleLogin}>Acessar conta</Button>
+                <CustomButton onClick={handleLogin}>Acessar conta</CustomButton>
                 
             </div>
 
@@ -74,13 +74,13 @@ function Login() {
                 <div>
                     <h1>Criar conta como Voluntário</h1>
                     <InputForm setValue={value => {setEmailVolunteer(value)}}>Informe seu e-mail</InputForm>
-                    <Button onClick={handleVolunteer}>Voluntariar-se</Button>
+                    <CustomButton onClick={handleVolunteer}>Voluntariar-se</CustomButton>
                 </div>
 
                 <div>
                     <h1>Criar conta como Entidade</h1>
                     <InputForm setValue={value => {setEmailEntity(value)}}>Informe seu e-mail</InputForm>
-                    <Button onClick={handleEntity}>Cadastrar-se</Button>
+                    <CustomButton onClick={handleEntity}>Cadastrar-se</CustomButton>
                 </div>
             </div>
         </div>

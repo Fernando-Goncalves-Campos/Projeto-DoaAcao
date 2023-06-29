@@ -3,13 +3,13 @@ import { memo, useState, useContext } from "react";
 import { UserContext } from "../App";
 
 import InputForm from "../Components/InputForm"
-import Button from "../Components/Button";
+import CustomButton from "../Components/CustomButton";
 import { useNavigate } from "react-router-dom";
 
 function SignUpVolunteer() {
     const navigate = useNavigate()
     
-    const {setUser, setLogged, setEntity} = useContext(UserContext);
+    const {user, setUser, setLogged, setEntity} = useContext(UserContext);
 
     const [name, setName] = useState("");
     const [birthday, setBirthday] = useState("");
@@ -98,8 +98,8 @@ function SignUpVolunteer() {
         <form onSubmit={handleSubmit}>
             <h2>*Campos obrigatórios</h2>
             <InputForm setValue={value => {setName(value)}} required>*Nome</InputForm>
-            <InputForm type="date" setValue={value => {setBirthday(value)}} title required>*Data de nascimento</InputForm>
-            <InputForm setValue={value => {setCPF(value)}}>CPF</InputForm>
+            <InputForm type="date" setValue={value => {setBirthday(value)}}  required>*Data de nascimento</InputForm>
+            <InputForm setValue={value => {setCPF(value)}} required>*CPF</InputForm>
             <InputForm type="email" setValue={value => {setEmail(value)}} required>*E-mail</InputForm>
             <InputForm setValue={value => {setPhone(value)}} required>*Telefone</InputForm>
             
@@ -115,7 +115,7 @@ function SignUpVolunteer() {
             <InputForm setValue={value => {setReferencePoint(value)}}>Ponto de Referência</InputForm>
             <InputForm type="password" setValue={value => {setPassword(value)}} required>*Senha</InputForm>
 
-            <Button submit>Criar conta</Button>
+            <CustomButton submit>Criar conta</CustomButton>
         </form>
     );
 }

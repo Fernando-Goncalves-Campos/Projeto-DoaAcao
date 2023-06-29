@@ -1,7 +1,7 @@
 import { memo, useState } from "react";
 
 import InputForm from "../Components/InputForm"
-import Button from "../Components/Button";
+import CustomButton from "../Components/CustomButton";
 import { useNavigate } from "react-router-dom";
 
 function SignUpEntity() {
@@ -100,7 +100,7 @@ function SignUpEntity() {
             <InputForm setValue={value => {setPosition(value)}} required>*Cargo do responsável</InputForm>
             <InputForm type="password" setValue={value => {setPassword(value)}} required>*Senha</InputForm>
 
-            <Button submit>Criar conta</Button>
+            <CustomButton submit>Criar conta</CustomButton>
         </form>
     );
 }

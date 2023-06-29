@@ -19,8 +19,8 @@ function SearchPage() {
     const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
-        setFilterOptions(Object.entries(filters).map(([title, info]) => {
-            return <Filter key={title} name={info.name} options={info.options} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>{title}</Filter>;
+        setFilterOptions(Object.entries(filters).map(([, info]) => {
+            return <Filter key="search" name={info.name} options={info.options} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>{}</Filter>;
         }))
     }, [filters, searchParams, setSearchParams]);
 

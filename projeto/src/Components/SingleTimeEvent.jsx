@@ -2,7 +2,7 @@ import { memo, useState } from "react";
 
 import "./SingleTimeEvent.style.css";
 
-import Button from "./Button";
+import CustomButton from "./CustomButton";
 import InputForm from "./InputForm";
 
 function SingleTimeEvent({eventInfo, setEventInfo, className="", style={}}) {

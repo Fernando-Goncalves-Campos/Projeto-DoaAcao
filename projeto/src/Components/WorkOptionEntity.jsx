@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { UserContext } from "../App"
 
-import Button from "./Button";
+import CustomButton from "./CustomButton";
 import WorkVolunteerRating from "./WorkVolunteerRating";
 
 import "./WorkOptionEntity.style.css";
@@ -30,9 +30,9 @@ function WorkOptionEntity({work, entityCNPJ, deleteWork, className="", style={}}
             <img src={work.img} alt={work.name}/>
             <h2 onClick={()=>{navigate(`${work.name}`)}}>{work.name}</h2>
             {work.description}
-            {entity && user.CNPJ === entityCNPJ?
-                    <><Button onClick={handleDelete}>Remover</Button>
-                    <Button onClick={handleLook}>Visualizar</Button></>
+            {entity && user.CNPJ == entityCNPJ?
+                    <><CustomButton onClick={handleDelete}>Remover</CustomButton>
+                    <CustomButton onClick={handleLook}>Visualizar</CustomButton></>
                 :
                     <></>
             }
