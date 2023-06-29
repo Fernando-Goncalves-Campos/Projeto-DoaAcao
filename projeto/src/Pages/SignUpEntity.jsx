@@ -86,7 +86,7 @@ function SignUpEntity() {
             <InputForm type="email" setValue={value => {setEmail(value)}} required>*E-mail</InputForm>
             <InputForm setValue={value => {setPhone(value)}} required>*Telefone</InputForm>
             
-            Imagem de perfil: <input type="file" className="hoverScale" onChange={value => {setImg(value)}} accept=".png, .jpg, .jpeg"/>
+            Imagem de perfil: <input type="file" className="hoverScale" onChange={e => {setImg(e.target.value)}} accept=".png, .jpg, .jpeg"/>
             <InputForm setValue={value => {setCEP(value)}} required>*CEP</InputForm>
             <InputForm setValue={value => {setStreetName(value)}} required>*Nome da Rua</InputForm>
             <InputForm setValue={value => {setAddressNumber(value)}} required>*Número</InputForm>

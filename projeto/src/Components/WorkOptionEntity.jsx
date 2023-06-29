@@ -15,7 +15,7 @@ function WorkOptionEntity({work, entityCNPJ, deleteWork, className="", style={}}
     const navigate = useNavigate();
 
     const [open, setOpen] = useState(false);
-    const [volunteersInfo, setVolunteersInfo] = useState(work.volunteers.map(volunteer => <WorkVolunteerRating volunteer={volunteer}/>));
+    const [volunteersInfo, setVolunteersInfo] = useState(work.volunteers.map(volunteer => <WorkVolunteerRating key={volunteer.CPF} volunteer={volunteer}/>));
 
     const handleLook = () => {
         setOpen(!open)

@@ -30,7 +30,7 @@ function UserMenu() {
         setUser({});
         navigate("/home")
     }
-
+    
     return(
         <div>
             <Button
@@ -53,17 +53,18 @@ function UserMenu() {
             >
                 {entity?
                     <>
-                        <MenuItem onClick={() => {handleClose(); navigate(`/entities/${user.CNPJ}`)}}>Editar entidade</MenuItem>
-                        <MenuItem onClick={() => {handleClose(); navigate(`/entities/${user.CNPJ}/createWork`)}}>Criar vaga</MenuItem>
-                        <MenuItem onClick={() => {handleClose(); navigate(`/entities/${user.CNPJ}/works`)}}>Gerenciar vagas</MenuItem>
-                        <MenuItem onClick={() => {handleClose(); handleLogout()}}>Sair</MenuItem>
+                        <MenuItem key="profile" onClick={() => {handleClose(); navigate(`/entities/${user.CNPJ}`)}}>Editar entidade</MenuItem>
+                        <MenuItem key="createWork" onClick={() => {handleClose(); navigate(`/entities/${user.CNPJ}/createWork`)}}>Criar vaga</MenuItem>
+                        <MenuItem key="works" onClick={() => {handleClose(); navigate(`/entities/${user.CNPJ}/works`)}}>Gerenciar vagas</MenuItem>
+                        <MenuItem key="logout" onClick={() => {handleClose(); handleLogout()}}>Sair</MenuItem>
                     </>
                 :
-                    <>
-                        <MenuItem onClick={() => {handleClose(); navigate(`/Volunteers/${user.CPF}`)}}>Editar perfil</MenuItem>
-                        <MenuItem>Meus trabalhos</MenuItem>
-                        <MenuItem onClick={() => {handleClose(); handleLogout()}}>Sair</MenuItem>
-                    </>
+                    [
+                        <MenuItem key="profile" onClick={() => {handleClose(); navigate(`/Volunteers/${user.CPF}`)}}>Editar perfil</MenuItem>,
+                        <MenuItem key="works">Meus trabalhos</MenuItem>,
+                        <MenuItem key="logout" onClick={() => {handleClose(); handleLogout()}}>Sair</MenuItem>
+                    ]
+                    
                 }
             </Menu>
         </div>

@@ -20,7 +20,7 @@ function SearchPage() {
 
     useEffect(() => {
         setFilterOptions(Object.entries(filters).map(([, info]) => {
-            return <Filter key="search" name={info.name} options={info.options} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>{}</Filter>;
+            return <Filter key={info.name} name={info.name} options={info.options} searchParams={searchParams} setSearchParams={value => {setSearchParams(value)}} search>{}</Filter>;
         }))
     }, [filters, searchParams, setSearchParams]);
 
