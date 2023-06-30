@@ -7,7 +7,13 @@ import "./Footer.style.css";
 function Footer() {
 	return(
         <footer>
+<<<<<<< Updated upstream
             <LinkQuery to="/aboutus" replace>Sobre nós</LinkQuery>
+=======
+            <div className="links">
+                <LinkQuery to="/home" replace>Início</LinkQuery>
+            </div>
+>>>>>>> Stashed changes
         </footer>
     );
 }
