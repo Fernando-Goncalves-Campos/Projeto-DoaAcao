@@ -7,6 +7,10 @@ import InputForm from "../Components/InputForm.jsx";
 import CustomButton from "../Components/CustomButton.jsx";
 
 
+//Import do css
+import './Login.css'
+
+
 function Login() {
     const navigate = useNavigate();
 
@@ -60,26 +64,33 @@ function Login() {
         navigate("/signup/entity")
     }
 	return(
-        <div>
-            <div>
-                <h1>Já sou usuário</h1>
-                <InputForm setValue={value => {setUsername(value)}}>E-mail, CPF ou CNPJ</InputForm>
-                <InputForm setValue={value => {setPassword(value)}} type="password">Senha</InputForm>
-                <span>Esqueci minha senha</span>
-                <CustomButton onClick={handleLogin}>Acessar conta</CustomButton>
-                
+        <div className="container-login-register">
+            <div className="container-login">
+                <div className="container-login-fields">
+                    <h1>Já sou usuário</h1>
+                    <InputForm setValue={value => {setUsername(value)}}>E-mail, CPF ou CNPJ</InputForm>
+                    <InputForm setValue={value => {setPassword(value)}} type="password">Senha</InputForm>
+                    <br/>
+                    <span>Esqueci minha senha</span>
+                    <br/>
+                    <CustomButton onClick={handleLogin}>Acessar conta</CustomButton>
+                </div>
             </div>
 
-            <div>
-                <div>
+            <div className="line-between"></div>
+
+            <div className="container-register">
+                <div className="container-login-fields">
                     <h1>Criar conta como Voluntário</h1>
                     <InputForm setValue={value => {setEmailVolunteer(value)}}>Informe seu e-mail</InputForm>
+                    <br/>
                     <CustomButton onClick={handleVolunteer}>Voluntariar-se</CustomButton>
                 </div>
 
-                <div>
+                <div className="container-login-fields">
                     <h1>Criar conta como Entidade</h1>
                     <InputForm setValue={value => {setEmailEntity(value)}}>Informe seu e-mail</InputForm>
+                    <br/>
                     <CustomButton onClick={handleEntity}>Cadastrar-se</CustomButton>
                 </div>
             </div>

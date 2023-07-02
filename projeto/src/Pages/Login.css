@@ -1,0 +1,33 @@
+body{
+    background-color: #45BBC2;
+}
+
+.container-login-register{
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.container-login{
+ 
+    width: 30%;
+}
+
+.container-register{
+   
+    width: 30%;
+}
+
+.container-login-fields{
+    background-color: none;
+}
+.container-login-fields h1{
+    font-size: 20px;
+}
+
+.line-between{
+    border-left: 2px solid #EBEBEB;
+    height: 320px;
+    position:absolute;
+    left: 46%;
+}

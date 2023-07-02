@@ -41,6 +41,7 @@ function NavBar() {
             <LinkQuery to="/home" replace>Início</LinkQuery>
             {userBtn}
         </nav>
+
     );
 }
 
