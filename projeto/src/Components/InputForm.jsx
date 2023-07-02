@@ -7,7 +7,7 @@ function InputForm({setValue, defaultValue="", type="text", className="", style=
         setValue(e.target.value);
     }
 
-
+    
     return(
         <>
             {textarea?

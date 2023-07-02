@@ -9,12 +9,10 @@ body{
 }
 
 .container-login{
- 
     width: 30%;
 }
 
 .container-register{
-   
     width: 30%;
 }
 
@@ -31,3 +29,4 @@ body{
     position:absolute;
     left: 46%;
 }
+

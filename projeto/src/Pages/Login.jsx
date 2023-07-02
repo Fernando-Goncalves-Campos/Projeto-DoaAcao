@@ -8,7 +8,7 @@ import CustomButton from "../Components/CustomButton.jsx";
 
 
 //Import do css
-import './Login.css'
+import './css/Login.css';
 
 
 function Login() {
@@ -68,12 +68,12 @@ function Login() {
             <div className="container-login">
                 <div className="container-login-fields">
                     <h1>Já sou usuário</h1>
-                    <InputForm setValue={value => {setUsername(value)}}>E-mail, CPF ou CNPJ</InputForm>
-                    <InputForm setValue={value => {setPassword(value)}} type="password">Senha</InputForm>
+                    <InputForm setValue={value => {setUsername(value)} } className="login-input">E-mail, CPF ou CNPJ</InputForm>
+                    <InputForm setValue={value => {setPassword(value)}} type="password" className="login-input">Senha</InputForm>
                     <br/>
                     <span>Esqueci minha senha</span>
                     <br/>
-                    <CustomButton onClick={handleLogin}>Acessar conta</CustomButton>
+                    <CustomButton onClick={handleLogin} className="login-button">Acessar conta</CustomButton>
                 </div>
             </div>
 
@@ -82,16 +82,16 @@ function Login() {
             <div className="container-register">
                 <div className="container-login-fields">
                     <h1>Criar conta como Voluntário</h1>
-                    <InputForm setValue={value => {setEmailVolunteer(value)}}>Informe seu e-mail</InputForm>
+                    <InputForm setValue={value => {setEmailVolunteer(value)}} className="login-input">Informe seu e-mail</InputForm>
                     <br/>
-                    <CustomButton onClick={handleVolunteer}>Voluntariar-se</CustomButton>
+                    <CustomButton onClick={handleVolunteer} className="login-button">Voluntariar-se</CustomButton>
                 </div>
 
                 <div className="container-login-fields">
                     <h1>Criar conta como Entidade</h1>
-                    <InputForm setValue={value => {setEmailEntity(value)}}>Informe seu e-mail</InputForm>
+                    <InputForm setValue={value => {setEmailEntity(value)}} className="login-input">Informe seu e-mail</InputForm>
                     <br/>
-                    <CustomButton onClick={handleEntity}>Cadastrar-se</CustomButton>
+                    <CustomButton onClick={handleEntity} className="login-button">Cadastrar-se</CustomButton>
                 </div>
             </div>
         </div>

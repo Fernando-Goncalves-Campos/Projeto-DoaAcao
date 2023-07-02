@@ -6,6 +6,9 @@ import InputForm from "../Components/InputForm"
 import CustomButton from "../Components/CustomButton";
 import { useNavigate } from "react-router-dom";
 
+
+import './css/SignUpVolunteer.css';
+
 function SignUpVolunteer() {
     const navigate = useNavigate()
     
@@ -97,25 +100,60 @@ function SignUpVolunteer() {
 	return(
         <form onSubmit={handleSubmit}>
             <h2>*Campos obrigatórios</h2>
-            <InputForm setValue={value => {setName(value)}} required>*Nome</InputForm>
-            <InputForm type="date" setValue={value => {setBirthday(value)}}  required>*Data de nascimento</InputForm>
-            <InputForm setValue={value => {setCPF(value)}} required>*CPF</InputForm>
-            <InputForm type="email" setValue={value => {setEmail(value)}} required>*E-mail</InputForm>
-            <InputForm setValue={value => {setPhone(value)}} required>*Telefone</InputForm>
+            <div className="container-input-forms-volunteer">
+                        <div className="form-row">
+                            <InputForm setValue={value => {setName(value)}} required className="input-forms-volunteer nome">*Nome</InputForm>
+                            <InputForm type="date" setValue={value => {setBirthday(value)}}  required className="input-forms-volunteer aniversario">*Data de nascimento</InputForm>
+                        </div>
+
+                        <div className="form-row">
+                            <InputForm setValue={value => {setCPF(value)}} required className="input-forms-volunteer cpf">*CPF</InputForm>
+                            <InputForm type="email" setValue={value => {setEmail(value)}} required className="input-forms-volunteer email">*E-mail</InputForm>
+                            <InputForm setValue={value => {setPhone(value)}} required className="input-forms-volunteer phone">*Telefone</InputForm>
+                        </div>
+
+
+                        <div className="form-row">
+                            <InputForm setValue={value => {setCEP(value)}} required className="input-forms-volunteer cep">*CEP</InputForm>
+                            <InputForm setValue={value => {setStreetName(value)}} required className="input-forms-volunteer rua">*Nome da Rua</InputForm>
+                            <InputForm setValue={value => {setAddressNumber(value)}} required className="input-forms-volunteer numero">*Número</InputForm>
             
-            Imagem de perfil: <input type="file" className="hoverScale" onChange={e => {setImg(e.target.value)}} accept=".png, .jpg, .jpeg"/>
-            <InputForm setValue={value => {setCEP(value)}} required>*CEP</InputForm>
-            <InputForm setValue={value => {setStreetName(value)}} required>*Nome da Rua</InputForm>
-            <InputForm setValue={value => {setAddressNumber(value)}} required>*Número</InputForm>
-            <InputForm setValue={value => {setComplement(value)}}>Complemento</InputForm>
+                        </div>
+                            
+                        <div className="form-row">
+                            <InputForm setValue={value => {setComplement(value)}} className="input-forms-volunteer complemento">Complemento</InputForm>
+                            <InputForm setValue={value => {setDistrict(value)}} required className="input-forms-volunteer bairro">*Bairro</InputForm>
+                            <InputForm setValue={value => {setState(value)}} required className="input-forms-volunteer estado">*Estado</InputForm>
+                            <InputForm setValue={value => {setCity(value)}} required className="input-forms-volunteer cidade">*Cidade</InputForm>
+                        </div>
+                        
+                        <div className="form-row">
+                            <InputForm setValue={value => {setReferencePoint(value)}} className="input-forms-volunteer referencia">Ponto de Referência</InputForm>
+                            <InputForm type="password" setValue={value => {setPassword(value)}} required className="input-forms-volunteer senha">*Senha</InputForm>
+                   
+                        </div>
 
-            <InputForm setValue={value => {setDistrict(value)}} required>*Bairro</InputForm>
-            <InputForm setValue={value => {setState(value)}} required>*Estado</InputForm>
-            <InputForm setValue={value => {setCity(value)}} required>*Cidade</InputForm>
-            <InputForm setValue={value => {setReferencePoint(value)}}>Ponto de Referência</InputForm>
-            <InputForm type="password" setValue={value => {setPassword(value)}} required>*Senha</InputForm>
+                        <div className="form-row">
+                            <div className="img-cadastro-volunteer">
+                                Imagem de perfil:<br/>
+                                <input type="file" className="hoverScale file-volunteer-register" onChange={e => {setImg(e.target.value)}} accept=".png, .jpg, .jpeg"/>
+                            </div>
 
-            <CustomButton submit>Criar conta</CustomButton>
+
+                            <div className="container-submi-volunteer-create">
+                                <CustomButton submit className="create-account-volunteer">Criar conta</CustomButton>
+                            </div>
+                            
+                        </div>  
+
+                        
+
+                  
+                
+            </div>
+
+            
+
         </form>
     );
 }
