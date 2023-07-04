@@ -2,6 +2,7 @@ import { memo, useState } from "react";
 
 import "./SearchBar.style.css";
 
+//Barra de pesquisas
 function SearchBar({setValue, defaultValue="", type="text", className="", style={}, onChange=false, children}) {
     const [bufferSearch, setBufferSearch] = useState('');
 

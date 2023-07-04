@@ -5,6 +5,7 @@ import CheckBoxGroup from "./CheckBoxGroup";
 
 import "./ChoosePreferences.style.css";
 
+//Container que colapsa com checkboxes
 function ChoosePreferences({filter, preferences, setPreferences, max=0, children}) {
     const checkPreferences = (e) => {
         let newPreferences = [...preferences, e.target.value.toLowerCase()];
@@ -12,7 +13,6 @@ function ChoosePreferences({filter, preferences, setPreferences, max=0, children
     }
 
     const unCheckPreferences = (e) => {
-    
         let newPreferences = preferences.filter(preference => preference.toLowerCase() !== e.target.value.toLowerCase());
         setPreferences(newPreferences);
     }

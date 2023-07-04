@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./WorkOption.style.css";
 
+//Item que mostra um trabalho que o usuário pode fazer
 function WorkOption({work, className="", style={}}) {
     const navigate = useNavigate();
 

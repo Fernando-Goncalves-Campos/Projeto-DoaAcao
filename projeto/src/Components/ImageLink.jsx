@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./ImageLink.style.css";
 
+//Imagem com link de redirecionamento
 function ImageLink({to, src, className = '', style = {}, children}) {
     const navigate = useNavigate();
     return(

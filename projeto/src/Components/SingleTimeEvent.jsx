@@ -2,9 +2,9 @@ import { memo, useState } from "react";
 
 import "./SingleTimeEvent.style.css";
 
-import CustomButton from "./CustomButton";
 import InputForm from "./InputForm";
 
+//Input dos horários de um evento, quando ele acontece em apenas um momento
 function SingleTimeEvent({setDate, setTime, className="", style={}}) {
     const [startTime, setStartTime] = useState("");
     const [endTime, setEndTime] = useState("");

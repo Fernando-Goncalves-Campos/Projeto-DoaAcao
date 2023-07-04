@@ -2,9 +2,9 @@ import { memo, useState } from "react";
 
 import "./SingleTimeEvent.style.css";
 
-import CustomButton from "./CustomButton";
 import InputForm from "./InputForm";
 
+//Input dos horários de um evento, quando ele repete
 function RepeatingEvent({setDate, setTime, className="", style={}}) {
     return(
         <div id="form" className={className} style={style}>
