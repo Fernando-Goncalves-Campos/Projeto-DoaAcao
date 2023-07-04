@@ -1,0 +1,159 @@
+.signup-entity h2{
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+.signup-entity{
+    width: 60%;
+    margin: 0 auto;
+
+    margin-top: 200px;
+    background-color: white;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+}
+
+
+.container-input-forms-entity{
+    width: 92%;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+
+.form-row{
+    margin: 0 auto;
+    margin-bottom: 17px;
+}
+
+
+
+.img-cadastro-entity{
+    width: 50%;
+    margin-right: 30px;
+}
+
+.container-submit-entity-create{
+    width: 100%;
+}
+
+
+/*Estilização do nome do cadastro de entidade*/
+.input-forms-entity.nome{
+    width: 30%;
+    margin-right: 60px;
+}
+/*Estilização da razao social do cadastro de entidade*/
+.input-forms-entity.razaosocial{
+    width: 30%;
+    margin-right: 60px;
+}
+/*Estilização do cnpf do cadastro de entidade*/
+.input-forms-entity.cnpf{
+    width: 10%;
+}
+
+
+/*Estilização do email do cadastro de entidade*/
+.input-forms-entity.email{
+    width: 20%;
+    margin-right: 30px;
+}
+/*Estilização do email do cadastro de entidade*/
+.input-forms-entity.telefone{
+    width: 20%;
+    margin-right: 30px;
+}
+/*Estilização do cep do cadastro de entidade*/
+.input-forms-entity.cep{
+    width: 20%;
+}
+
+
+/*Estilização da rua do cadastro de entidade*/
+.input-forms-entity.rua{
+    width: 35%;
+    margin-right: 30px;
+}
+/*Estilização do numero do cadastro de entidade*/
+.input-forms-entity.numero{
+    width: 20%;
+    margin-right: 30px;
+}
+/*Estilização do complemento do cadastro de entidade*/
+.input-forms-entity.complemento{
+    width: 20%;
+}
+
+
+
+/*Estilização do bairro do cadastro de entidade*/
+.input-forms-entity.bairro{
+    width: 25%;
+    margin-right: 30px;
+}
+/*Estilização do estado do cadastro de entidade*/
+.input-forms-entity.estado{
+    width: 10%;
+    margin-right: 30px;
+}
+/*Estilização do cidade do cadastro de entidade*/
+.input-forms-entity.cidade{
+    width: 20%;
+    margin-right: 20px;
+}
+/*Estilização do referencia do cadastro de entidade*/
+.input-forms-entity.referencia{
+    width: 20%;
+}
+
+
+/*Estilização do nome responsavel do cadastro de entidade*/
+.input-forms-entity.responsavel{
+    width: 30%;
+    margin-right: 40px;
+}
+/*Estilização do cargoresponsavel do cadastro de entidade*/
+.input-forms-entity.cargoresponsavel{
+    width: 20%;
+    margin-right: 40px;
+}
+/*Estilização do senha do cadastro de entidade*/
+.input-forms-entity.senha{
+    width: 20%;
+}
+
+
+
+
+/*Estilizações do file input do cadastro de entity*/
+.file-entity-register{
+    width: 70%;
+}
+.file-entity-register::file-selector-button{
+
+    margin-right: 20px;
+    border: none;
+    background: #084cdf;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+.file-entity-register::file-selector-button:hover{
+    background: #0d45a5;
+}
+
+
+/*Estilização especifica do botao de criar formulario de entidade*/
+.create-account-entity{
+    position: relative;
+    left: 20%;
+    width: 60%;
+    height: 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+

@@ -97,7 +97,7 @@ function SignUpVolunteer() {
     }
 
 	return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="signup-volunteer">
             <h2>*Campos obrigatórios</h2>
             <div className="container-input-forms-volunteer">
                         <div className="form-row">
@@ -139,19 +139,13 @@ function SignUpVolunteer() {
                             </div>
 
 
-                            <div className="container-submi-volunteer-create">
+                            <div className="container-submit-volunteer-create">
                                 <CustomButton submit className="create-account-volunteer">Criar conta</CustomButton>
                             </div>
                             
                         </div>  
-
-                        
-
-                  
                 
             </div>
-
-            
 
         </form>
     );

@@ -34,3 +34,9 @@ body{
     left: 50%;
 }
 
+
+/*Estilização especifica dos inputs de login*/
+.login-input{
+    width: 64%;
+    margin-top: 10px;
+  }
