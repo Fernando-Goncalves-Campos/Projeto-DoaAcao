@@ -38,7 +38,18 @@ function NavBar() {
 
 	return(
         <nav>
-            <LinkQuery to="/home" replace>Início</LinkQuery>
+            <div className="navbar-btns">
+                <div>
+                    <LinkQuery to="/home" replace><h3>Início</h3></LinkQuery>
+                </div>
+                <div>
+                    <LinkQuery to="/works" replace><h3>Atividades</h3></LinkQuery>
+                </div>
+                <div>
+                    <LinkQuery to="/aboutus" replace><h3>Sobre nós</h3></LinkQuery>
+                </div>
+            </div>
+
             {userBtn}
         </nav>
 
