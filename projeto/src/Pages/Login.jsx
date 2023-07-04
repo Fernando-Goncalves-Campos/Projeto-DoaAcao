@@ -8,7 +8,7 @@ import CustomButton from "../Components/CustomButton.jsx";
 
 
 //Import do css
-import './css/Login.css';
+import './css/Login.style.css';
 
 
 function Login() {

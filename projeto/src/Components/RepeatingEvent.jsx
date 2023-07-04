@@ -5,14 +5,14 @@ import "./SingleTimeEvent.style.css";
 import CustomButton from "./CustomButton";
 import InputForm from "./InputForm";
 
-function RepeatingEvent({eventInfo, setEventInfo, className="", style={}}) {
+function RepeatingEvent({setDate, setTime, className="", style={}}) {
     return(
         <div id="form" className={className} style={style}>
             <h2>Descrição dos horários</h2>
-            <InputForm textarea setValue={value => {setEventInfo({...eventInfo, timeDescription: value})}} defaultValue={eventInfo.timeDescription}>Ex: Todos os sábados das 10 às 12</InputForm>
+            <InputForm textarea setValue={value => {setDate(value)}} required>Ex: Todos os sábados das 10 às 12</InputForm>
 
             <h2>Horas semanais</h2>
-            <InputForm setValue={value => {setEventInfo({...eventInfo, weekHours: value})}} defaultValue={eventInfo.weekHours}>Ex: 4</InputForm>
+            <InputForm setValue={value => {setTime(value + " horas semanais")}} required>Ex: 4</InputForm>
         </div>
     );
 }

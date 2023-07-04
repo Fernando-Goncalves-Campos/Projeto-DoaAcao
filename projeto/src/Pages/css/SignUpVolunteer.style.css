@@ -4,7 +4,6 @@ h2{
 }
 
 form {
-
     width: 60%;
     margin: 0 auto;
 
@@ -12,23 +11,20 @@ form {
     background-color: white;
 
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-
 }
 
 
 .container-input-forms-volunteer{
- 
-
     width: 92%;
     margin: 0 auto;
     padding: 30px 20px;
+    text-align: center;
 }
 
 
 .form-row{
     margin: 0 auto;
     margin-bottom: 17px;
-
 }
 
 .img-cadastro-volunteer{

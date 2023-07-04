@@ -64,7 +64,7 @@ function SignUpEntity() {
 
         //Adiciona o administrador ao banco de dados
         const response = await addEntityDB();
-        if(response.status === 201){
+        if(response.status === 201 || response.status === 200){
             alert("Account sent to validation");
             navigate(-1);
         }

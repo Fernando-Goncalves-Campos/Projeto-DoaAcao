@@ -27,7 +27,6 @@ function WorkDescription() {
             setWork({entity: {
                 name: "nome",
                 CNPJ: entityCNPJ,
-                description: "Descrição",
                 img: "",
             },
             info:{
@@ -78,7 +77,6 @@ function WorkDescription() {
             <div>
                 <h1 onClick={() => {navigate(`/entities/${entityCNPJ}`)}}>Sobre a entidade</h1>
                 <img src={work.entity.img} alt={work.entity.name}/>
-                {work.entity.description}
             </div>
         </> :<></>)
     }, [work]);

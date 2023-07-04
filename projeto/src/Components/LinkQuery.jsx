@@ -6,7 +6,7 @@ import "./LinkQuery.style.css";
 function LinkQuery({to, className = '', style = {}, children}) {
     const navigate = useNavigate();
     return(
-        <span onClick={() => {navigate(to)}} className={`linkClass hoverScale ${className}`} style={style}>{children}</span>
+        <span onClick={() => {navigate(to)}} className={`linkClass ${className}`} style={style}>{children}</span>
     );
 }
 

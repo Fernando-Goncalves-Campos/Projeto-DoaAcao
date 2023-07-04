@@ -6,8 +6,7 @@ import InputForm from "../Components/InputForm"
 import CustomButton from "../Components/CustomButton";
 import { useNavigate } from "react-router-dom";
 
-
-import './css/SignUpVolunteer.css';
+import './css/SignUpVolunteer.style.css';
 
 function SignUpVolunteer() {
     const navigate = useNavigate()
@@ -67,7 +66,7 @@ function SignUpVolunteer() {
 
         //Adiciona o administrador ao banco de dados
         const response = await addVolunteerDB();
-        if(response.status === 201){
+        if(response.status === 201 || response.status === 200){
             setLogged(true);
             setEntity(false);
             setUser({

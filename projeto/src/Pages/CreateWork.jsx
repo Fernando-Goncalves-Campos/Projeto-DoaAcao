@@ -28,8 +28,8 @@ function CreateWork() {
 
     const [frequency, setFrequency] = useState("Recorrente");
 
-    const [singleTime, setSingleTime] = useState({day: "", start: "", finish: "", task: ""});
-    const [repeating, setRepeating] = useState({timeDescription: "", weekHours: ""});
+    const [date, setDate] = useState("");
+    const [time, setTime] = useState("");
 
     const [distance, setDistance] = useState(false);
 
@@ -45,7 +45,8 @@ function CreateWork() {
                 reasons: reasons,
                 skills: skills,
                 frequency: frequency,
-                time: frequency === "Recorrente"? singleTime : recurrent,
+                time: time,
+                date: date,
                 distance: distance
             }),
             headers: {
@@ -62,7 +63,7 @@ function CreateWork() {
 
         //Adiciona o administrador ao banco de dados
         const response = await addWorkDB();
-        if(response.status === 201){
+        if(response.status === 201 || response.status === 200){
             alert("Work created");
             navigate(-1);
         }
@@ -82,6 +83,12 @@ function CreateWork() {
         else{
             setDistance(false);
         }
+    }
+
+    const handleChangeFrequency = (e) => {
+        setDate("");
+        setTime("");
+        setFrequency(e.target.value);
     }
 
 	return(
@@ -105,13 +112,13 @@ function CreateWork() {
                 <ChoosePreferences filter={filters.Causas} preferences={reasons} setPreferences={(value) => {setReasons(value)}} max={3}>Causas</ChoosePreferences>
                 <ChoosePreferences filter={filters.Habilidades} preferences={skills} setPreferences={(value) => {setSkills(value)}} max={3}>Habilidades</ChoosePreferences>
 
-                <CheckBox radio name="frequency" checked={frequency === "Recorrente"} onChange={e => {setFrequency(e.target.value)}}>Recorrente</CheckBox>
-                <CheckBox radio name="frequency" checked={frequency === "Pontual"} onChange={e => {setFrequency(e.target.value)}}>Pontual</CheckBox>
+                <CheckBox radio name="frequency" checked={frequency === "Recorrente"} onChange={handleChangeFrequency}>Recorrente</CheckBox>
+                <CheckBox radio name="frequency" checked={frequency === "Pontual"} onChange={handleChangeFrequency}>Pontual</CheckBox>
                 {
                     frequency === "Pontual"? 
-                        <SingleTimeEvent eventInfo={singleTime} setEventInfo={value => {setSingleTime(value)}}/>
+                        <SingleTimeEvent setDate={value => {setDate(value)}} setTime={value => {setTime(value)}}/>
                     : 
-                        <RepeatingEvent eventInfo={repeating} setEventInfo={value => {setRepeating(value)}}/>
+                        <RepeatingEvent setDate={value => {setDate(value)}} setTime={value => {setTime(value)}}/>
                 }
                 
                 <CheckBox name="Distance" onChange={handleDistanceChange} checked={distance}>Essa vaga pode ser feita a distância</CheckBox>
