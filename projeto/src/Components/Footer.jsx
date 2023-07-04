@@ -7,8 +7,8 @@ import "./Footer.style.css";
 function Footer() {
 	return(
         <footer>
-            <LinkQuery to="/aboutus" replace>Sobre nós</LinkQuery>
             <div className="links">
+                <LinkQuery to="/aboutus" replace>Sobre nós</LinkQuery>
                 <LinkQuery to="/home" replace>Início</LinkQuery>
             </div>
         </footer>
