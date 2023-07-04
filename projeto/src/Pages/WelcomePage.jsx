@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import CustomButton from "../Components/CustomButton.jsx";
 
-import "./WelcomePage.css";
+import "./WelcomePage.style.css";
 
 function WelcomePage() {
     const navigate = useNavigate();

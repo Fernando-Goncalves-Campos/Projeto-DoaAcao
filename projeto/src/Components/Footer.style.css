@@ -1,6 +1,4 @@
-footer{
-    height: var(--Footer-height);
-}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 footer {
@@ -8,15 +6,19 @@ footer {
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
     width: 100%;
-    height: 20vh;
+    height: var(--Footer-height);
     background-color: #00162D;
 }
 
-.links {
-    padding: 8vh 25vw;
+.links{
+    height: var(--Footer-height);
+    vertical-align: center;
+    display: flex;
+    text-align: center;
 }
 
 .links span {
     color: white;
     cursor: pointer;
+    margin: auto;
 }
