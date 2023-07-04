@@ -1,4 +1,5 @@
 
+/*Estilização generica dos inputs*/
   textarea.inputClass:focus {
     outline: none;
     border-color: #5c8bff;
@@ -19,11 +20,7 @@
     box-shadow: 0 0 5px rgba(92, 139, 255, 0.5);
   }
 
-  /*Estilização especifica dos inputs de login*/
-  .login-input{
-    width: 64%;
-    margin-top: 10px;
-  }
+  
 
   /*Estilização especifica dos inputs de cadastro de voluntario*/
   .input-forms{
@@ -31,106 +28,4 @@
     border: 1px solid #336971;
     border-radius: 8px;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    /*Estilização do nome do cadastro de voluntario*/
-    .input-forms-volunteer.nome{
-        width: 60%;
-        margin-right: 60px;
-    }
-
-    /*Estilização do nome do cadastro de voluntario*/
-    .input-forms-volunteer.aniversario{
-        width: 15%;
-    }
-
-
-    /*Estilização do cpf do cadastro de voluntario*/
-    .input-forms-volunteer.cpf{
-        width: 30%;
-        margin-right: 40px;
-    }
-
-    /*Estilização do email do cadastro de voluntario*/
-    .input-forms-volunteer.email{
-        width: 30%;
-        margin-right: 40px;
-    }
-
-    /*Estilização do telefone do cadastro de voluntario*/
-    .input-forms-volunteer.phone{
-        width: 20%;
-    }
-
-    /*Estilização do cep do cadastro de voluntario*/
-    .input-forms-volunteer.cep{
-        width: 15%;
-        margin-right: 20px;
-    }
-
-    /*Estilização do rua do cadastro de voluntario*/
-    .input-forms-volunteer.rua{
-        width: 40%;
-        margin-right: 20px;
-    }
-
-    /*Estilização do numero do cadastro de voluntario*/
-    .input-forms-volunteer.numero{
-        width: 8%;
-    }
-
-
-
-    /*Estilização do complemento do cadastro de voluntario*/
-    .input-forms-volunteer.complemento{
-        width: 15%;
-        margin-right: 20px;
-    }
-
-    /*Estilização do bairro do cadastro de voluntario*/
-    .input-forms-volunteer.bairro{
-        width: 25%;
-        margin-right: 20px;
-    }
-
-    /*Estilização do estado do cadastro de voluntario*/
-    .input-forms-volunteer.estado{
-        width: 10%;
-        margin-right: 20px;
-    }
-
-    /*Estilização do cidade do cadastro de voluntario*/
-    .input-forms-volunteer.cidade{
-        width: 15%;
-    }
-
-    /*Estilização da referencia do cadastro de voluntario*/
-    .input-forms-volunteer.referencia{
-        width: 55%;
-        margin-right: 40px;
-    }
-
-    /*Estilização do senha do cadastro de voluntario*/
-    .input-forms-volunteer.senha{
-        width: 30%;
-    }
-
-  
-    /*Estilizações do file input do cadastro de voluntario*/
-    .file-volunteer-register{
-        width: 70%;
-    }
-    .file-volunteer-register::file-selector-button{
-
-        margin-right: 20px;
-        border: none;
-        background: #084cdf;
-        padding: 10px 20px;
-        border-radius: 10px;
-        color: #fff;
-        cursor: pointer;
-        transition: background .2s ease-in-out;
-    }
-    .file-volunteer-register::file-selector-button:hover{
-        background: #0d45a5;
     }
