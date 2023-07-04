@@ -35,8 +35,15 @@ body{
 }
 
 
+/*Estização dos botoes da pagina de login*/
+.login-button{
+    width: 70%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
 /*Estilização especifica dos inputs de login*/
 .login-input{
     width: 64%;
     margin-top: 10px;
-  }
+}

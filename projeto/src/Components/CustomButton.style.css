@@ -45,31 +45,3 @@
   }
   
 
-  /*Estização dos botoes da pagina de login*/
-  .login-button{
-    width: 70%;
-    margin-top: 15px;
-    margin-bottom: 20px;
-  }
-
-
-  /*Estilização especifica do botao de criar formulario de voluntario*/
-  .create-account-volunteer{
-    position: relative;
-    left: 20%;
-    width: 60%;
-    height: 50px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
-
-
-  .create-account-entity{
-    position: relative;
-    left: 20%;
-    width: 60%;
-    height: 50px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-
-  }
