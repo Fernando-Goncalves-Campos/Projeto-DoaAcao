@@ -10,6 +10,7 @@ import { UserContext } from "../App";
 
 import "./UserMenu.style.css";
 
+//Menu dos usuários
 function UserMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);

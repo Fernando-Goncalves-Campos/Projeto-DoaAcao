@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./LinkQuery.style.css";
 
+//Link de redirecionamento
 function LinkQuery({to, className = '', style = {}, children}) {
     const navigate = useNavigate();
     return(

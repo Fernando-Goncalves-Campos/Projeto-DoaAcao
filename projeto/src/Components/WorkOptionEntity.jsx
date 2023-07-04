@@ -8,6 +8,7 @@ import WorkVolunteerRating from "./WorkVolunteerRating";
 
 import "./WorkOptionEntity.style.css";
 
+//Item que mostra os dados de um trabalho de uma entidade
 function WorkOptionEntity({work, entityCNPJ, deleteWork, className="", style={}}) {
     const { user, entity } = useContext(UserContext);
 
