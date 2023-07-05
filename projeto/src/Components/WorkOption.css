@@ -1,0 +1,39 @@
+.workOptionContainer {
+    width: 30%;
+    margin-bottom: 2%;
+    border: 2px solid black;
+    border-radius: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.workOptionContainer img {
+    width: 70%;
+    height: 40%;
+
+    margin-left: 15%;
+}
+
+
+.workOptionContainer h1 {
+    color: #0044AA;
+    font-weight: 600;
+    margin-left: 2%;
+}
+
+.workOptionContainer h2 {
+    color: #ccc;
+    font-weight: 600;
+    margin-left: 2%;
+
+}
+
+.workOptionContainer p {
+    color: gray;
+    margin-left: 2%;
+}
+
+.workOptionContainer span {
+    margin-left: 2%;
+}

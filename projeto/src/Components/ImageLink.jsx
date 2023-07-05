@@ -9,7 +9,7 @@ function ImageLink({to, src, className = '', style = {}, children}) {
     return(
         <div className={`hoverScale ${className}`} style={style} onClick={() => {navigate(to)}}>
             <img src={src} alt={children}/>
-            <div className="textInsideImg">{children}</div>
+            <div className="textInsideImg"><span>{children}</span></div>
         </div>
     );
 }
