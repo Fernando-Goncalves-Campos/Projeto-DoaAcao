@@ -8,10 +8,14 @@
     justify-content: center;
 }
 
+.workOptionContainer:hover {
+    cursor: pointer;
+}
+
+
 .workOptionContainer img {
     width: 70%;
     height: 40%;
-
     margin-left: 15%;
 }
 
@@ -26,7 +30,6 @@
     color: #ccc;
     font-weight: 600;
     margin-left: 2%;
-
 }
 
 .workOptionContainer p {
