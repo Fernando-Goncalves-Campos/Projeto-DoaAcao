@@ -42,6 +42,7 @@ function Filter({name, options, searchParams, setSearchParams, className="", sty
                 unCheckFunction={unCheckFunction}
                 onChangeLastFunction={onChangeLastFunction}
                 testChecked={(option) => searchParams.getAll(name).includes(option.toLowerCase())}
+                className={`${className}`}
             />
         )
     }, [max, name, searchOptions, searchParams, setSearchParams])
@@ -51,7 +52,7 @@ function Filter({name, options, searchParams, setSearchParams, className="", sty
             <h1>{children}</h1>
             {
                 search
-                    ? <SearchBar setValue={(value) => {setSearchOptions(options.filter(option => option.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase().startsWith(value)))}} onChange/>
+                    ? <SearchBar className={`${className}`} setValue={(value) => {setSearchOptions(options.filter(option => option.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase().startsWith(value)))}} onChange/>
                     : ""
             }
             {filterGroup}

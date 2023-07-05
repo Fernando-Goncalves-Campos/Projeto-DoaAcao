@@ -42,7 +42,7 @@ function FiltersContainer({searchParams, setSearchParams, className = '', style 
 
         //Cria os "botões"
         setRemoveParamsBtns(params.sort().map(param => {
-            return <span key={param} onClick={() => {removeParams(param)}}>{`${param[0]}: ${param[1]}  X`}<br /></span>
+            return <span key={param} onClick={() => {removeParams(param)}} className="clean-filter">{`${param[0]}: ${param[1]}  X`}<br /></span>
         }));
     };
     
@@ -50,10 +50,10 @@ function FiltersContainer({searchParams, setSearchParams, className = '', style 
     useEffect(createRemoveBtns, [searchParams, selectedOptions, setSearchParams]);
     
     return(
-        <div>
+        <div className="container-filter">
             <h1>Filtros selecionados</h1>
             {removeParamsBtns}
-            <span onClick={removeAllParams}>Limpar todos</span>
+            <span onClick={removeAllParams}><span className="clean-all-search">Limpar todos</span></span>
             {children}
         </div>
     );

@@ -44,7 +44,7 @@ function CheckBoxGroup({name, options, onChangeFirstFunction=(e)=>{}, checkFunct
         //Cria as check box
         setCheckBoxes(options.map(option => {
             let boolChecked = testChecked(option);
-            return <CheckBox key={option} name={name} checked={boolChecked} onChange={handleCheck}>{option}</CheckBox>
+            return <CheckBox className={`${className}`} key={option} name={name} checked={boolChecked} onChange={handleCheck}>{option}</CheckBox>
         }))
     }, [options, testChecked]);
 

@@ -16,6 +16,7 @@ import AboutUs from "./Pages/AboutUs.jsx";
 import NoPage from "./Pages/NoPage.jsx";
 import SearchPage from "./Pages/SearchPage.jsx";
 
+
 //Passa as informações do usuário para todas as páginas
 export const UserContext = createContext();
 

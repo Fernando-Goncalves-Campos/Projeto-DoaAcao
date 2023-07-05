@@ -1,0 +1,28 @@
+
+.container-filter h1{
+    font-size: 15px;
+    margin-left: 5px;
+    margin-top: 8px;
+}
+
+/*Estilização do botao limpar todos*/
+.container-filter .clean-all-search{
+    font-size: 14px;
+    text-decoration: underline;
+    margin-left: 4px;
+}
+
+
+/*Estilização das opções de filtros*/
+.clean-filter{
+    color: blue;
+    margin-left: 4px;
+}
+
+.container-filter{
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    width: 17%;
+    padding: 8px;
+    height: 100%;
+}

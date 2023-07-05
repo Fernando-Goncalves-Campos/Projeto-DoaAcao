@@ -1,0 +1,9 @@
+/*Cada bloco de filtro (Causas, Habilidades, Localidades, Disponibilidade)*/
+.filterClass.filtro-oportunidades{
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}

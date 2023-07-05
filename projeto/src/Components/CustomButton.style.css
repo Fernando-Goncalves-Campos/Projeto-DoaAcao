@@ -3,7 +3,7 @@
 
 
     /*Estilização generica do botao*/
-  button{
+  .btnClass{
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
@@ -14,17 +14,17 @@
     cursor: pointer;
   }
 
-  button:hover{
+  .btnClass:hover{
     background-color: #4F4F4F;
   }
   
-  button:focus{
+  .btnClass:focus{
     outline: none;
     box-shadow: 0 0 5px rgba(92, 139, 255, 0.5);
   }
 
   /*Estilização generica dos input submit*/
-  input[type="submit"] {
+  .btnClass[type="submit"] {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
@@ -35,11 +35,11 @@
     cursor: pointer;
   }
   
-  input[type="submit"]:hover {
+  .btnClass[type="submit"]:hover {
     background-color: #4F4F4F;
   }
   
-  input[type="submit"]:focus {
+  .btnClass[type="submit"]:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(92, 139, 255, 0.5);
   }

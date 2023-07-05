@@ -10,7 +10,7 @@ function WorkOption({work, className="", style={}}) {
 
 
     return(
-        <div className={`workOptionContainer hoverScale${className}`} style={style} onClick={() => {navigate(`/entities/${work.entity}/works/${work.name}`)}}>
+        <div className={`workOptionContainer hoverScale ${className}`} style={style} onClick={() => {navigate(`/entities/${work.entity}/works/${work.name}`)}}>
             <img src={work.src} alt={work.name} />
             <h1>{work.name}</h1>                
             <h2>Por {work.entity}</h2>
