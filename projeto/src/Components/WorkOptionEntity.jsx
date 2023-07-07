@@ -12,19 +12,6 @@ import "./WorkOptionEntity.style.css";
 function WorkOptionEntity({work, entityCNPJ, deleteWork, className="workOptionEntityContainer", style={}}) {
     const { user, entity } = useContext(UserContext);
 
-    const workDataStyle = () => {
-        if(open) {
-            return {
-                height: contentRef.current.scrollHeight + "px"
-            }
-        } else {
-            return {
-                height: 0,
-                padding: 0
-            }
-        }
-    }
-
     const pointer = {
         cursor: "pointer"
     };
@@ -62,20 +49,22 @@ function WorkOptionEntity({work, entityCNPJ, deleteWork, className="workOptionEn
             </div>
             
             <div ref={contentRef} className="workData" style={{height: open ? contentRef.current.scrollHeight + "px" : 0}}>
-                {work.address} <br />
-                Tipo de vaga: {work.frequency}
-                <div className="workOptionVolunteers">
-                    <h3>Inscritos</h3>
-                    {work.volunteers.length} inscritos
-                    <table>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Email</th>
-                            <th>Telefone</th>
-                            <th>Avaliação</th>
-                        </tr>
-                        {volunteersInfo}
-                    </table>
+                <div className="workDataHandler">
+                    {work.address} <br />
+                    Tipo de vaga: {work.frequency}
+                    <div className="workOptionVolunteers">
+                        <h3>Inscritos</h3>
+                        {work.volunteers.length} inscritos
+                        <table>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                                <th>Avaliação</th>
+                            </tr>
+                            {volunteersInfo}
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

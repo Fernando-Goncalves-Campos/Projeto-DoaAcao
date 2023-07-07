@@ -32,10 +32,13 @@
 
 .workData{
     overflow: hidden;
-    padding: 1vh 1vw;
     transition: height 0.3s ease-in-out;
     background-color: #E4FAFF;
     width: 90%;
+}
+
+.workDataHandler {
+    margin: 1vh 1vw;
 }
 
 .workOptionVolunteers {
