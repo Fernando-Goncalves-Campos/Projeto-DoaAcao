@@ -203,20 +203,20 @@ app.delete("/entities/:entityName/works", async (req, res) => {
   }
 })
 
-app.get('/user', async function (req, res) {
+app.get('/login', async function (req, res) {
   console.log("Get em /user")
-  console.log(req.query.email)
-  console.log(req.query.password)
+  console.log(req.body.email)
+  console.log(req.body.password)
   let aux=[];
   try {
-    await Volunteer.find({ email: req.query.email, password: req.query.password }, { password: 0 }).then(userFound => {
+    await Volunteer.find({ email: req.body.email, password: req.body.password }, { password: 0 }).then(userFound => {
       if(userFound.length>0){
         aux=userFound;
         console.log("achou um volunteer")
       }
     });
 
-    await Entity.find({ email: req.query.email, password: req.query.password }, { password: 0 }).then(userFound => {
+    await Entity.find({ email: req.body.email, password: req.body.password }, { password: 0 }).then(userFound => {
       if(userFound.length>0){
         aux=userFound;
         console.log("achou uma entity")

@@ -15,7 +15,7 @@ function CreateWork() {
 
     const { filters } = useContext(FilterContext);
 
-    const { entityCNPJ } = useParams();
+    const { entityName } = useParams();
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -35,7 +35,7 @@ function CreateWork() {
 
     //Adiciona a conta no banco de dados
     const addWorkDB = async () => {
-        const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityCNPJ}/works`, {
+        const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityName}/works`, {
             method: "POST",
             body: JSON.stringify({
                 name: name,

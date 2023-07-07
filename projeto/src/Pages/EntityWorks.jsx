@@ -9,65 +9,22 @@ function EntityWorks() {
     const [ filteredWorks, setFilteredWorks ] = useState([]);
     const [workOptions, setWorkOptions] = useState([]);
 
-    const { entityCNPJ } = useParams();
+    const { entityName } = useParams();
 
 	useEffect(() => {
 		async function getWorks() {
-			//const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityCNPJ}/works`);
+			const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityName}/works`);
 
-			//if (response.status !== 200) {
-			//	const message = `An error occurred: ${response.statusText}`;
-			//	alert(message);
-			//	return;
-			//}
+			if (response.status !== 200) {
+				const message = `An error occurred: ${response.statusText}`;
+				alert(message);
+				return;
+			}
 
-			//const readWorks = await response.json();
+			const readWorks = await response.json();
 
-			//setWorks(readWorks);
-            //setFilteredWorks(readWorks);
-            setWorks([
-                {
-                    name: "nome",
-                    img: "",
-                    address: "Address",
-                    frequency: "Pontual",
-                    description: "Descrição",
-                    volunteers: [
-                        {
-                            name: "Fernando",
-                            email: "Fernando@Fernando.com",
-                            phone: "Fernando"
-                        },
-                        {
-                            name: "Eduardo",
-                            email: "Eduardo@Eduardo.com",
-                            phone: "Eduardo"
-                        }
-                    ]
-                }
-            ]);
-
-            setFilteredWorks([
-                {
-                    name: "nome",
-                    img: "",
-                    address: "Address",
-                    frequency: "Pontual",
-                    description: "Descrição",
-                    volunteers: [
-                        {
-                            name: "Fernando",
-                            email: "Fernando@Fernando.com",
-                            phone: "Fernando"
-                        },
-                        {
-                            name: "Eduardo",
-                            email: "Eduardo@Eduardo.com",
-                            phone: "Eduardo"
-                        }
-                    ]
-                }
-            ]);
+			setWorks(readWorks);
+            setFilteredWorks(readWorks);
 		}
 
         getWorks();
@@ -77,8 +34,8 @@ function EntityWorks() {
         setFilteredWorks(works.filter(work => work.name.startsWith(searchText)));
     }
 
-    const handleDelete = (work) => {
-        /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityCNPJ}/works/${work}`, {
+    const handleDelete = async (work) => {
+        const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityName}/works/${work}`, {
             method: "DELETE"
         });
 
@@ -89,12 +46,11 @@ function EntityWorks() {
         }
 
         setWorks(works.filter(curWork => curWork.name !== work));
-        */
     }
 
     useEffect(() => {
         setWorkOptions(filteredWorks? filteredWorks.map(work => {
-            return <WorkOptionEntity work={work} entityCNPJ={entityCNPJ} deleteWork={() => {handleDelete(work)}}/>
+            return <WorkOptionEntity work={work} entityName={entityName} deleteWork={() => {handleDelete(work)}}/>
         }) :<></>);
     }, [works, filteredWorks])
 

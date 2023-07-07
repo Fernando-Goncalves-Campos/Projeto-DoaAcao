@@ -87,7 +87,7 @@ function App() {
                             <Route path="entity" element={<SignUpEntity />}/>
                         </Route>
                         
-                        <Route path="entities/:entityCNPJ">
+                        <Route path="entities/:entityName">
                             <Route index element={<EntityProfile />}/>
                             
                             <Route path="works">

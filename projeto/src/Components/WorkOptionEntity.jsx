@@ -31,7 +31,7 @@ function WorkOptionEntity({work, entityCNPJ, deleteWork, className="", style={}}
             <img src={work.img} alt={work.name}/>
             <h2 onClick={()=>{navigate(`${work.name}`)}}>{work.name}</h2>
             {work.description}
-            {entity && user.CNPJ == entityCNPJ?
+            {entity && user.CNPJ === entityCNPJ?
                     <><CustomButton onClick={handleDelete}>Remover</CustomButton>
                     <CustomButton onClick={handleLook}>Visualizar</CustomButton></>
                 :

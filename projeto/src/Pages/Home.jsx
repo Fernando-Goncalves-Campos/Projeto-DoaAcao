@@ -16,7 +16,7 @@ function Home() {
 
 	useEffect(() => {
 		async function getTopWorks(amount = 4) {
-			/*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/works?amount=${amount}`);
+			const response = await fetch(`http://${process.env.REACT_APP_API_URL}/works?amount=${amount}`);
 
 			if (response.status !== 200) {
 				const message = `An error occurred: ${response.statusText}`;
@@ -26,8 +26,7 @@ function Home() {
 
 			const readTopWorks = await response.json();
 
-			setTopWorks(readTopWorks.filter((topWork, index) => index < amount));*/
-            setTopWorks([]);
+			setTopWorks(readTopWorks.filter((topWork, index) => index < amount));
 		}
 
 		getTopWorks();
@@ -39,15 +38,6 @@ function Home() {
             return <WorkOption work={work} />
         }) : <></>)
     }, [topWorks])
-
-    let work = {
-        src: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
-        name: "Ação voluntária",
-        entity: "Ong 1234",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sapien ligula, auctor eu nisl id, auctor fermentum tortor.",
-        region: "São Carlos - SP",
-        day: "12/07/2023"
-    }
 
 	return(
         <div className="home-container">
@@ -61,10 +51,7 @@ function Home() {
                 <div className="opportunities-container">
                     <h1>Oportunidades imperdíveis</h1>
                     <div className="opportunities-options">
-                        <WorkOption work={work}/>
-                        <WorkOption work={work}/>
-                        <WorkOption work={work}/>
-                        {/* {topWorkOptions} */}
+                        {topWorkOptions}
                     </div>
                     <CustomButton onClick={() => {navigate("/works")}} >Ver mais oportunidades</CustomButton>
                 </div>
@@ -73,21 +60,21 @@ function Home() {
                     <h1>Encontre as melhores ações voluntárias para você</h1>
                     <h2>Confira as categorias mais acessadas</h2>
                     <ul>
-                        <li><ImageLink to="/works?reason=causa animal" src="https://conceitos.com/wp-content/uploads/direito/causa-animal.jpg" className="causa-animal">Causa Animal</ImageLink></li>
-                        <li><ImageLink to="/works?reason=combate à fome" src="https://encenasaudemental.com/wp-content/uploads/2021/10/Getty-Hadyniak-fome-alimentos-pobreza.jpg" className="combate-fome">Combate à fome</ImageLink></li>
-                        <li><ImageLink to="/works?region=são carlos" src="https://radiosds.com.br/wp-content/uploads/2022/03/sao-carlos.jpg" className="vagas-sao-carlos">Vagas em São Carlos</ImageLink></li>
-                        <li><ImageLink to="/works?reason=arte e cultura" src="https://st3.depositphotos.com/1457895/19142/v/450/depositphotos_191427288-stock-illustration-map-from-traditional-symbols-of.jpg" className="arte-cultura">Arte e Cultura</ImageLink></li>
-                        <li><ImageLink to="/works?reason=educação" src="https://img.imageboss.me/revista-cdn/cdn/19580/2ae2c2aaa3c9b3912769332306c5a292f4817b1a.jpg?1559248176" className="educacao">Educação</ImageLink></li>
+                        <li><ImageLink to="/works?causa=causa animal" src="https://conceitos.com/wp-content/uploads/direito/causa-animal.jpg" className="causa-animal">Causa Animal</ImageLink></li>
+                        <li><ImageLink to="/works?causa=combate à fome" src="https://encenasaudemental.com/wp-content/uploads/2021/10/Getty-Hadyniak-fome-alimentos-pobreza.jpg" className="combate-fome">Combate à fome</ImageLink></li>
+                        <li><ImageLink to="/works?localidade=são carlos" src="https://radiosds.com.br/wp-content/uploads/2022/03/sao-carlos.jpg" className="vagas-sao-carlos">Vagas em São Carlos</ImageLink></li>
+                        <li><ImageLink to="/works?causa=arte e cultura" src="https://st3.depositphotos.com/1457895/19142/v/450/depositphotos_191427288-stock-illustration-map-from-traditional-symbols-of.jpg" className="arte-cultura">Arte e Cultura</ImageLink></li>
+                        <li><ImageLink to="/works?causa=educação" src="https://img.imageboss.me/revista-cdn/cdn/19580/2ae2c2aaa3c9b3912769332306c5a292f4817b1a.jpg?1559248176" className="educacao">Educação</ImageLink></li>
                     </ul>
                 </div>
 
                 <div className="cities-opportunities-container">
                     <h1>Escolha sua cidade</h1>
                     <ul>
-                        <li><LinkQuery to="/works?region=são carlos">São Carlos</LinkQuery></li>
-                        <li><LinkQuery to="/works?region=araraquara">Araraquara</LinkQuery></li>
-                        <li><LinkQuery to="/works?region=ribeirão preto">Ribeirão Preto</LinkQuery></li>
-                        <li><LinkQuery to="/works?region=rio claro">Rio Claro</LinkQuery></li>
+                        <li><LinkQuery to="/works?localidade=são carlos">São Carlos</LinkQuery></li>
+                        <li><LinkQuery to="/works?localidade=araraquara">Araraquara</LinkQuery></li>
+                        <li><LinkQuery to="/works?localidade=ribeirão preto">Ribeirão Preto</LinkQuery></li>
+                        <li><LinkQuery to="/works?localidade=rio claro">Rio Claro</LinkQuery></li>
                     </ul>
                 </div>
             </div>

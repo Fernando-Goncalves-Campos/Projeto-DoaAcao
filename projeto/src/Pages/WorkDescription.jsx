@@ -12,7 +12,7 @@ function WorkDescription() {
 
     const { user } = useContext(UserContext);
 
-    const { entityCNPJ, workName } = useParams();
+    const { entityName, workName } = useParams();
 
     const [work, setWork] = useState();
     const [workDisplay, setWorkDisplay] = useState();
@@ -23,31 +23,17 @@ function WorkDescription() {
 
     useEffect(() => {
 		async function getWork() {
-			//const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityCNPJ}/works/${workName}`);
+			const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityName}/works/${workName}`);
 
-			//if (response.status !== 200) {
-			//	const message = `An error occurred: ${response.statusText}`;
-			//	alert(message);
-			//	return;
-			//}
+			if (response.status !== 200) {
+				const message = `An error occurred: ${response.statusText}`;
+				alert(message);
+				return;
+			}
 
-			//const readWork = await response.json();
+			const readWork = await response.json();
 
-			//setWork(readWork);
-            setWork({entity: {
-                name: "nome",
-                CNPJ: entityCNPJ,
-                img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
-            },
-            info:{
-                name: workName,
-                description: "Descrição t",
-                date: "1/1/1",
-                time: "8:00 até 12:00",
-                img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
-                location: "São Carlos",
-                skills: ["skill1", "skill2", "skill3"],
-            }});
+			setWork(readWork);
 		}
 
 		getWork();
@@ -56,7 +42,7 @@ function WorkDescription() {
     useEffect(()=>{
         //Inscreve o voluntário no trabalho
         const registerVolunteerDB = async () => {
-            /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${work.entity.name}/works/${work.info.name}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${work.entity.name}/works/${work.info.name}`, {
                 method: "POST",
                 body: JSON.stringify({
                     name: user.name,
@@ -69,8 +55,7 @@ function WorkDescription() {
                 },
             });
 
-            return response;*/
-            return {status: 200};
+            return response;
         }
 
         //Lida com o clique do botão de se inscrever
@@ -116,7 +101,7 @@ function WorkDescription() {
             </div>
 
             <div className="workDescriptionEntity">
-                <h3 style={style} onClick={() => {navigate(`/entities/${entityCNPJ}`)}}>Sobre a entidade realizadora</h3>
+                <h3 style={style} onClick={() => {navigate(`/entities/${entityName}`)}}>Sobre a entidade realizadora</h3>
                 <img src={work.entity.img} alt={work.entity.name}/>
             </div>
         </> :<></>)
