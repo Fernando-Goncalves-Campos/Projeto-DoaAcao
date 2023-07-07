@@ -228,8 +228,12 @@ app.post('/login', async function (req, res) {
         console.log("achou uma entity")
       }
     });
-
-    res.status(200).send(aux)
+    
+    if(aux.length==0){
+      res.status(404).send(aux);
+    }else{
+      res.status(200).send(aux)
+    }
   } catch (err) {
     res.status(500).send(err)
     console.log(err)
