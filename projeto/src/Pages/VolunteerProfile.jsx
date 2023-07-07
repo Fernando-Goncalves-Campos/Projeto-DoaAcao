@@ -233,11 +233,11 @@ function VolunteerProfile() {
 
                         <div className="volunteerResponsibleLine">
                             <div className="volunteerResponsibleComponent">
-                                <h3>Causas</h3>
+                                <h3>Causas (Máx 3)</h3>
                                 <ChoosePreferences filter={filters.Causas} preferences={reasons} setPreferences={(value) => {setReasons(value)}} max={3}>Causas</ChoosePreferences>
                             </div>
                             <div className="volunteerResponsibleComponent">
-                                <h3>Habilidades</h3>
+                                <h3>Habilidades (Máx 3)</h3>
                                 <ChoosePreferences filter={filters.Habilidades} preferences={skills} setPreferences={(value) => {setSkills(value)}} max={3}>Habilidades</ChoosePreferences>
                             </div>
                         </div>
