@@ -41,7 +41,7 @@ function WorkDescription() {
             },
             info:{
                 name: workName,
-                description: "Descrição t",
+                description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam consequatur, iure deleniti officia explicabo ex repellendus cupiditate dolor, dolorem accusamus culpa! Eos odio aspernatur ad omnis voluptates est, illo esse. Voluptatum a repellendus laudantium esse odio iure amet nulla quia! Dolore ratione dolorum aperiam assumenda, aliquid illo nulla necessitatibus ipsum et eveniet consequatur facilis nobis culpa laboriosam nisi quidem impedit.",
                 date: "1/1/1",
                 time: "8:00 até 12:00",
                 img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
@@ -89,11 +89,17 @@ function WorkDescription() {
         setWorkDisplay(work? <>
             <h2>{work.info.name}</h2>
             <div className="workDescriptionMain">
-                <div className="workDescriptionLocationSkills">
-                    <p>{work.info.location}</p>
-                    <ul>
-                        {work.info.skills.map((skill)=><li key={skill}>{skill}</li>)}
-                    </ul>
+                <div className="workDescriptionMainText">
+                    <div className="workDescriptionAbout">
+                        <h3>Sobre a oportunidade</h3>
+                        {work.info.description}
+                    </div>
+                    <div className="workDescriptionLocationSkills">
+                        <p>{work.info.location}</p>
+                        <ul>
+                            {work.info.skills.map((skill)=><li key={skill}>{skill}</li>)}
+                        </ul>
+                    </div>
                 </div>
 
                 <div className="workDescriptionImgBtn">
@@ -104,20 +110,16 @@ function WorkDescription() {
                 </div>
             </div>
 
-            <div className="workDescriptionAbout">
-                <h3>Sobre a oportunidade</h3>
-                {work.info.description}
-            </div>
+            
 
             <div className="workDescriptionDate">
                 <h3>Data</h3>
-                {work.info.date}
-                {work.info.time}
+                {work.info.date}  {work.info.time}
             </div>
 
             <div className="workDescriptionEntity">
-                <h3 style={style} onClick={() => {navigate(`/entities/${entityCNPJ}`)}}>Sobre a entidade realizadora</h3>
-                <img src={work.entity.img} alt={work.entity.name}/>
+                <h3 >Sobre a entidade realizadora</h3>
+                <img style={style} src={work.entity.img} alt={work.entity.name} onClick={() => {navigate(`/entities/${entityCNPJ}`)}}/>
             </div>
         </> :<></>)
     }, [work]);

@@ -5,39 +5,59 @@
 
 .workDescriptionContainer {
     background-color: white;
-    width: 60%;
+    width: 36%;
     margin: 3vh 1vw;
     padding: 5vh 10vw;
+}
+
+.workDescriptionContainer p {
+    font-size: 1.2rem;
 }
 
 .workDescriptionMain {
     width: 100%;
     display: flex;  
-    align-items: end;  
+    align-items: center;   
     margin-bottom: 4vh;
 }
 
-.workDescriptionLocationSkills {
+.workDescriptionMainText {
     display: flex;
+    padding: 1vh 1vw;
+    text-align: justify;
     flex-direction: column;
     width: 60%;
+    justify-content: space-between;
 }
 
-.workDescriptionLocationSkills ul {
+.workDescriptionMainText ul {
     width: 40%;
     display: flex;
     justify-content: space-between;
 }
 
+.workDescriptionAbout {
+    margin-top: 5vh;
+}
+
+.workDescriptionLocationSkills {
+    margin-top: 1vh;
+}
+
 .workDescriptionImgBtn {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 40%;
+}
+
+.workDescriptionImgBtn button {
+    width: 100%;
 }
 
 .workDescriptionImg {
     text-align: center;
-    height: 30vh;
+    width: 100%;
     margin-bottom: 2vh;
 }
 
@@ -45,7 +65,7 @@
     height: 100%;
 }
 
-.workDescriptionAbout, .workDescriptionDate, .workDescriptionEntity {
+.workDescriptionDate, .workDescriptionEntity {
     border-top: 1px solid gray;
     padding: 4vh 0;
 }

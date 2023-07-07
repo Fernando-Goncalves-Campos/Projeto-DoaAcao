@@ -1,4 +1,63 @@
+.workOptionEntityContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.workOptionMain {
+    display: flex;
+    margin-bottom: 2vh;
+}
+
+.workOptionMainText {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    text-align: justify;
+    justify-content: space-between;
+}
+
+.workOptionMainBtns button{
+    margin-right: 0.3vw;    
+    padding: 5px 1vw;
+}
+
+.workOptionImg {
+    width: 20%;
+}
+
+.workOptionImg img {
+    width: 100%;
+}
+
 .workData{
     overflow: hidden;
+    padding: 1vh 1vw;
     transition: height 0.3s ease-in-out;
+    background-color: #E4FAFF;
+    width: 90%;
+}
+
+.workOptionVolunteers {
+    background-color: #e0e0e0;
+    margin-top: 1.5vh;
+    padding: 1vh 1vw;
+}
+
+.workOptionVolunteers table {
+    width: 100%;
+}
+
+.workOptionVolunteers th, td {
+    text-align: center;
+}
+
+.workOptionTableTitles {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1vh;
+}
+
+.lastRow {
+    text-align: right;
 }

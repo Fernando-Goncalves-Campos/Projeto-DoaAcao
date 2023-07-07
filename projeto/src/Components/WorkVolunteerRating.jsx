@@ -8,12 +8,12 @@ import CustomRating from "./CustomRating"
 function WorkVolunteerRating({volunteer, className="", style={}}) {
 
     return(
-        <div className={className} style={style}>
-            {volunteer.name}
-            {volunteer.email}
-            {volunteer.phone}
-            <CustomRating />
-        </div>
+        <tr>
+            <td>{volunteer.name}</td>
+            <td>{volunteer.email}</td>
+            <td>{volunteer.phone}</td>
+            <td><CustomRating /></td>
+        </tr>
     );
 }
 

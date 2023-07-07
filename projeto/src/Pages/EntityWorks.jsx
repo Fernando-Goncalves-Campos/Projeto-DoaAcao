@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import WorkOptionEntity from "../Components/WorkOptionEntity.jsx";
 import SearchBar from "../Components/SearchBar.jsx";
 
+import "./css/EntityWorks.style.css";
+
 function EntityWorks() {
     const [works, setWorks] = useState([]);
     const [ filteredWorks, setFilteredWorks ] = useState([]);
@@ -28,7 +30,7 @@ function EntityWorks() {
             setWorks([
                 {
                     name: "nome",
-                    img: "",
+                    img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
                     address: "Address",
                     frequency: "Pontual",
                     description: "Descrição",
@@ -50,10 +52,10 @@ function EntityWorks() {
             setFilteredWorks([
                 {
                     name: "nome",
-                    img: "",
+                    img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
                     address: "Address",
                     frequency: "Pontual",
-                    description: "Descrição",
+                    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio, eligendi similique, amet deserunt magni voluptatibus illum aut ratione laboriosam ipsum eos, culpa dolores soluta accusantium? Libero iure aperiam laborum!",
                     volunteers: [
                         {
                             name: "Fernando",
@@ -99,9 +101,9 @@ function EntityWorks() {
     }, [works, filteredWorks])
 
 	return(
-        <div>
+        <div className="entityWorksContainer">
             <h1>Gerenciar vagas</h1>
-            <div>
+            <div className="entityWorksMain">
                 <SearchBar setValue={value => {filterWorks(value)}} onChange >Busque vagas criadas</SearchBar>
 
                 {workOptions}
