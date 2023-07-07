@@ -6,7 +6,7 @@ function CheckBox({name, onChange, className = '', style = {}, checked=false, ra
     return(
         <div className={`${className}`} style={style}>
             <input type={radio?"radio":"checkbox"} id={children} name={name} value={children} checked={checked} onChange={onChange} />
-            <label htmlFor={children}>{children}</label>
+            &thinsp;<label htmlFor={children}>{children}</label>
         </div>  
     );
 }
