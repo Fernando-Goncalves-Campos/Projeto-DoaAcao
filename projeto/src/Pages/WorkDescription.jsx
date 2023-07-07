@@ -32,7 +32,7 @@ function WorkDescription() {
 			}
 
 			const readWork = await response.json();
-
+            
 			setWork(readWork);
 		}
 

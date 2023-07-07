@@ -385,4 +385,15 @@ app.get('/entities/:entityName/works', async function (req, res) {
     }else{
       res.status(200).send(works);
     }
-  })
+})
+
+app.get('/entities/:entityName/works/:workName', async function (req, res) {
+    console.log("Get em /works/entity");
+    console.log(req.params.entityName);
+    works= await Work.find({name: req.params.workName, entity: req.params.entityName});
+    if(works.length==0){
+      res.status(404).send(works);
+    }else{
+      res.status(200).send(works[0]._doc);
+    }
+})
