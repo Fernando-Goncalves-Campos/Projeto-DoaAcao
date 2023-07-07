@@ -1,12 +1,13 @@
-.contentNav {
+.workDescriptionContainer {    
+    width: 100%;    
     display: flex;
     justify-content: center;
 }
 
-.workDescriptionContainer {
+.workDescriptionWrap {
     background-color: white;
-    width: 36%;
     margin: 3vh 1vw;
+    width: 36%;
     padding: 5vh 10vw;
 }
 
@@ -23,7 +24,7 @@
 
 .workDescriptionMainText {
     display: flex;
-    padding: 1vh 1vw;
+    padding: 1vh 1vw 1vh 0;
     text-align: justify;
     flex-direction: column;
     width: 60%;

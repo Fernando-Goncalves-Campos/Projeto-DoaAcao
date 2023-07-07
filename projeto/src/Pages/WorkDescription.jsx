@@ -86,7 +86,8 @@ function WorkDescription() {
             }
         }
 
-        setWorkDisplay(work? <>
+        setWorkDisplay(work? 
+        <div className="workDescriptionWrap">
             <h2>{work.info.name}</h2>
             <div className="workDescriptionMain">
                 <div className="workDescriptionMainText">
@@ -121,7 +122,7 @@ function WorkDescription() {
                 <h3 >Sobre a entidade realizadora</h3>
                 <img style={style} src={work.entity.img} alt={work.entity.name} onClick={() => {navigate(`/entities/${entityCNPJ}`)}}/>
             </div>
-        </> :<></>)
+        </ div> : <></>)
     }, [work]);
 
 	return(
