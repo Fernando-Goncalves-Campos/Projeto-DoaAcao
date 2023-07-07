@@ -8,13 +8,20 @@
     flex-direction: column;
 }
 
+.entityProfileContainer form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+}
+
 .entityProfileContainer h3 {
     font-size: medium;
 }
 
-.entityProfileContainer button {
+.entityProfileContainer .btnClass {
     width: 50%;
-    margin: auto;
+    margin: 3vh auto;
 }
 
 .entityImg {

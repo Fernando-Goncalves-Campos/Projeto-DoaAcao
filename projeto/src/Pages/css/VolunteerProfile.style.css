@@ -8,13 +8,31 @@
     flex-direction: column;
 }
 
+.volunteerProfileContainer form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+}
+
+.volunteerProfileContainer form .collapsibleBtn {
+    padding: 0.5vh 1vw;
+    border: 1px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #45BBC2;
+    color: white;
+    font-weight: 600;
+    width: 40%;
+}
+
 .volunteerProfileContainer h3 {
     font-size: medium;
 }
 
-.volunteerProfileContainer button {
+.volunteerProfileContainer .btnClass {
     width: 50%;
-    margin: auto;
+    margin: 3vh auto;
 }
 
 .volunteerImg {

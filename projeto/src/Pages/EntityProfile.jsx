@@ -143,26 +143,97 @@ function EntityProfile() {
             }
 
             setEntityDisplay(entityInfo? <>
-                <h1>Dados da Entidade</h1>
-                <form onSubmit={handleSubmit}>
-                    <InputForm setValue={value => {setName(value)}} defaultValue={entityInfo.name}  required>Nome</InputForm>
-                    <InputForm setValue={value => {setSocialReason(value)}} defaultValue={entityInfo.socialReason}  required>Razão Social</InputForm>
-                    <InputForm setValue={value => {setCNPJ(value)}} defaultValue={entityInfo.CNPJ}  disabled required>CNPJ</InputForm>
-                    <InputForm type="email" setValue={value => {setEmail(value)}} defaultValue={entityInfo.email}  required>E-mail</InputForm>
-                    <InputForm setValue={value => {setPhone(value)}} defaultValue={entityInfo.phone}  required>Telefone 1</InputForm>
-                    <InputForm setValue={value => {setSecondPhone(value)}} defaultValue={entityInfo.secondPhone} >Telefone 2</InputForm>
+                    <h1>Dados da Entidade</h1>
+                    <form onSubmit={handleSubmit}>
+                    <div className="entityImgNameSocialReason">
+                        <div className="entityImg">
+                            <img src={entityInfo.img} alt={entityInfo.name} />
+                        </div>
+                        <div className="entitySideImageContainer">
+                            <div className="entitySideImageLine">
+                                <div className="entitySideImage">
+                                    <h3>Nome</h3>
+                                    <InputForm setValue={value => {setName(value)}} defaultValue={entityInfo.name}  required>Nome</InputForm>
+                                </div>
+                                <div className="entitySideImage">
+                                    <h3>CNPJ</h3>
+                                    <InputForm setValue={value => {setCNPJ(value)}} defaultValue={entityInfo.CNPJ}  disabled required>CNPJ</InputForm>
+                                </div>                        
+                            </div>
+                            <div className="entitySideImageLine">
+                                <div className="entitySideImage">
+                                    <h3>Razão Social</h3>
+                                    <InputForm setValue={value => {setSocialReason(value)}} defaultValue={entityInfo.socialReason}  required>Razão Social</InputForm>
+                                </div>
+                                <div className="entitySideImage">
+                                    <h3>Email</h3>
+                                    <InputForm type="email" setValue={value => {setEmail(value)}} defaultValue={entityInfo.email}  required>E-mail</InputForm>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <h3>Telefones</h3>
+                    <div className="entityPhones">
+                        <div className="entityPhone1">
+                            <InputForm setValue={value => {setPhone(value)}} defaultValue={entityInfo.phone}  required>Telefone 1</InputForm>
+                        </div>
+                        <div className="entityPhone2">
+                            <InputForm setValue={value => {setSecondPhone(value)}} defaultValue={entityInfo.secondPhone} >Telefone 2</InputForm>
+                        </div>
+                    </div>
+                    
+                    <div className="entityAddressContainer">
+                        <div className="entityAddressLine">
+                            <div className="entityAddressSideComponent">
+                                <h3>CEP</h3>
+                                <InputForm setValue={value => {setCEP(value)}} defaultValue={entityInfo.CEP}  required>CEP</InputForm>
+                            </div>
+                            <div className="entityAddressMiddleComponent">
+                                <h3>Nome da rua</h3>
+                                <InputForm setValue={value => {setStreetName(value)}} defaultValue={entityInfo.streetName}  required>Nome da Rua</InputForm>
+                            </div>
+                            <div className="entityAddressSideComponent">
+                                <h3>Número</h3>
+                                <InputForm setValue={value => {setAddressNumber(value)}} defaultValue={entityInfo.addressNumber}  required>Número</InputForm>
+                            </div>
+                        </div>
+                        <div className="entityAddressLine">
+                            <div className="entityAddressSideComponent">
+                                <h3>Complemento</h3>
+                                <InputForm setValue={value => {setComplement(value)}} defaultValue={entityInfo.complement} >Complemento</InputForm>
+                            </div>
+                            <div className="entityAddressMiddleComponent">
+                                <h3>Cidade</h3>
+                                <InputForm setValue={value => {setCity(value)}} defaultValue={entityInfo.city}  required>Cidade</InputForm>
+                            </div>
+                            <div className="entityAddressSideComponent">
+                                <h3>Ponto de referência</h3>
+                                <InputForm setValue={value => {setReferencePoint(value)}} defaultValue={entityInfo.referencePoint} >Referência</InputForm>
+                            </div>
+                        </div>
+                        <div className="entityAddressLine">
+                            <div className="entityResponsibleComponent">
+                                <h3>Bairro</h3>
+                                <InputForm setValue={value => {setDistrict(value)}} defaultValue={entityInfo.district}  required>Bairro</InputForm>
+                            </div>
+                            <div className="entityResponsibleComponent">
+                                <h3>Estado</h3>
+                                <InputForm setValue={value => {setState(value)}} defaultValue={entityInfo.state}  required>Estado</InputForm>  
+                            </div>
+                        </div>
+                    </div>
 
-                    <InputForm setValue={value => {setCEP(value)}} defaultValue={entityInfo.CEP}  required>CEP</InputForm>
-                    <InputForm setValue={value => {setStreetName(value)}} defaultValue={entityInfo.streetName}  required>Nome da Rua</InputForm>
-                    <InputForm setValue={value => {setAddressNumber(value)}} defaultValue={entityInfo.addressNumber}  required>Número</InputForm>
-                    <InputForm setValue={value => {setComplement(value)}} defaultValue={entityInfo.complement} >Complemento</InputForm>
-
-                    <InputForm setValue={value => {setDistrict(value)}} defaultValue={entityInfo.district}  required>Bairro</InputForm>
-                    <InputForm setValue={value => {setState(value)}} defaultValue={entityInfo.state}  required>Estado</InputForm>
-                    <InputForm setValue={value => {setCity(value)}} defaultValue={entityInfo.city}  required>Cidade</InputForm>
-                    <InputForm setValue={value => {setReferencePoint(value)}} defaultValue={entityInfo.referencePoint} >Referência</InputForm>
-                    <InputForm setValue={value => {setResponsible(value)}} defaultValue={entityInfo.responsible}  required>Nome do Responsável</InputForm>
-                    <InputForm setValue={value => {setPosition(value)}} defaultValue={entityInfo.position}  required>Cargo do responsável</InputForm>
+                    <div className="entityResponsibleLine">
+                        <div className="entityResponsibleComponent">
+                            <h3>Responsável</h3>
+                            <InputForm setValue={value => {setResponsible(value)}} defaultValue={entityInfo.responsible}  required>Nome do Responsável</InputForm>
+                        </div>
+                        <div className="entityResponsibleComponent">
+                            <h3>Posição</h3>
+                            <InputForm setValue={value => {setPosition(value)}} defaultValue={entityInfo.position}  required>Cargo do responsável</InputForm>
+                        </div>
+                    </div>                  
                     <CustomButton submit>SALVAR INFORMAÇÕES</CustomButton>
                 </form>
             </> :<></>);
@@ -188,7 +259,7 @@ function EntityProfile() {
                         </div>
                         <div className="entitySideImageLine">
                             <div className="entitySideImage">
-                                <h3>Social Reason</h3>
+                                <h3>Razão Social</h3>
                                 <input type="text" disabled value={entityInfo.socialReason}/>
                             </div>
                             <div className="entitySideImage">
@@ -236,6 +307,16 @@ function EntityProfile() {
                         <div className="entityAddressSideComponent">
                             <h3>Ponto de referência</h3>
                             <input type="text" disabled value={entityInfo.referencePoint} />
+                        </div>
+                    </div>
+                    <div className="entityAddressLine">
+                        <div className="entityResponsibleComponent">
+                            <h3>Bairro</h3>
+                            <input type="text" disabled value={entityInfo.district} />
+                        </div>
+                        <div className="entityResponsibleComponent">
+                            <h3>Estado</h3>
+                            <input type="text" disabled value={entityInfo.state} /> 
                         </div>
                     </div>
                 </div>
