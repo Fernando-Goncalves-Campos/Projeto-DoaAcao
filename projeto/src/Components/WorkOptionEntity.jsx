@@ -9,7 +9,7 @@ import WorkVolunteerRating from "./WorkVolunteerRating";
 import "./WorkOptionEntity.style.css";
 
 //Item que mostra os dados de um trabalho de uma entidade
-function WorkOptionEntity({work, entityCNPJ, deleteWork, className="", style={}}) {
+function WorkOptionEntity({work, entityName, deleteWork, className="", style={}}) {
     const { user, entity } = useContext(UserContext);
 
     const contentRef = useRef();
@@ -31,7 +31,7 @@ function WorkOptionEntity({work, entityCNPJ, deleteWork, className="", style={}}
             <img src={work.img} alt={work.name}/>
             <h2 onClick={()=>{navigate(`${work.name}`)}}>{work.name}</h2>
             {work.description}
-            {entity && user.CNPJ === entityCNPJ?
+            {entity && user.Name === entityName?
                     <><CustomButton onClick={handleDelete}>Remover</CustomButton>
                     <CustomButton onClick={handleLook}>Visualizar</CustomButton></>
                 :

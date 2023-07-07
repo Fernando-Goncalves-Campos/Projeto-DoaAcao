@@ -24,7 +24,7 @@ function UserMenu() {
     const { user, entity, setLogged, setEntity, setUser } = useContext(UserContext);
 
     const navigate = useNavigate();
-
+    console.log(user)
     const handleLogout = () => {
         setLogged(false);
         setEntity(false);
@@ -54,9 +54,9 @@ function UserMenu() {
             >
                 {entity?
                     <>
-                        <MenuItem key="profile" onClick={() => {handleClose(); navigate(`/entities/${user.CNPJ}`)}}>Editar entidade</MenuItem>
-                        <MenuItem key="createWork" onClick={() => {handleClose(); navigate(`/entities/${user.CNPJ}/createWork`)}}>Criar vaga</MenuItem>
-                        <MenuItem key="works" onClick={() => {handleClose(); navigate(`/entities/${user.CNPJ}/works`)}}>Gerenciar vagas</MenuItem>
+                        <MenuItem key="profile" onClick={() => {handleClose(); navigate(`/entities/${user.name}`)}}>Editar entidade</MenuItem>
+                        <MenuItem key="createWork" onClick={() => {handleClose(); navigate(`/entities/${user.name}/createWork`)}}>Criar vaga</MenuItem>
+                        <MenuItem key="works" onClick={() => {handleClose(); navigate(`/entities/${user.name}/works`)}}>Gerenciar vagas</MenuItem>
                         <MenuItem key="logout" onClick={() => {handleClose(); handleLogout()}}>Sair</MenuItem>
                     </>
                 :

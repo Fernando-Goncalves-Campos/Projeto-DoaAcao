@@ -7,8 +7,6 @@ import "./WorkOption.css";
 function WorkOption({work, className="", style={}}) {
     const navigate = useNavigate();
 
-
-
     return(
         <div className={`workOptionContainer hoverScale ${className}`} style={style} onClick={() => {navigate(`/entities/${work.entity}/works/${work.name}`)}}>
             <img src={work.src} alt={work.name} />
