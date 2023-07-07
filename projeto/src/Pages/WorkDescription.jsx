@@ -34,20 +34,7 @@ function WorkDescription() {
 			const readWork = await response.json();
 
 			//setWork(readWork);
-            setWork({entity: {
-                name: "nome",
-                CNPJ: entityCNPJ,
-                img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
-            },
-            info:{
-                name: workName,
-                description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam consequatur, iure deleniti officia explicabo ex repellendus cupiditate dolor, dolorem accusamus culpa! Eos odio aspernatur ad omnis voluptates est, illo esse. Voluptatum a repellendus laudantium esse odio iure amet nulla quia! Dolore ratione dolorum aperiam assumenda, aliquid illo nulla necessitatibus ipsum et eveniet consequatur facilis nobis culpa laboriosam nisi quidem impedit.",
-                date: "1/1/1",
-                time: "8:00 até 12:00",
-                img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
-                location: "São Carlos",
-                skills: ["skill1", "skill2", "skill3"],
-            }});
+            setWork(readWork);
 		}
 
 		getWork();
@@ -119,7 +106,7 @@ function WorkDescription() {
 
             <div className="workDescriptionEntity">
                 <h3 >Sobre a entidade realizadora</h3>
-                <img style={style} src={work.entity.img} alt={work.entity.name} onClick={() => {navigate(`/entities/${entityCNPJ}`)}}/>
+                <img style={style} src={work.entity.img} alt={work.entity.name} onClick={() => {navigate(`/entities/${work.CNPJ}`)}}/>
             </div>
         </ div> : <></>)
     }, [work]);

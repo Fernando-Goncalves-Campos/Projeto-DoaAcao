@@ -32,7 +32,6 @@ function WorkOptionEntity({work, entityCNPJ, deleteWork, className="workOptionEn
 
     return(
         <div className={className} style={style}>
-<<<<<<< HEAD
             <div className="workOptionMain">
                 <div className="workOptionImg">
                     <img src={work.img} alt={work.name}/>
@@ -48,17 +47,6 @@ function WorkOptionEntity({work, entityCNPJ, deleteWork, className="workOptionEn
                     }
                 </div>
             </div>
-=======
-            <img src={work.img} alt={work.name}/>
-            <h2 onClick={()=>{navigate(`${work.name}`)}}>{work.name}</h2>
-            {work.description}
-            {entity && user.CNPJ === entityCNPJ?
-                    <><CustomButton onClick={handleDelete}>Remover</CustomButton>
-                    <CustomButton onClick={handleLook}>Visualizar</CustomButton></>
-                :
-                    <></>
-            }
->>>>>>> main
             
             <div ref={contentRef} className="workData" style={{height: open ? contentRef.current.scrollHeight + "px" : 0}}>
                 <div className="workDataHandler">
