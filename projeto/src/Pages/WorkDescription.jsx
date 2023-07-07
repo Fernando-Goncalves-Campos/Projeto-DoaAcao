@@ -5,6 +5,8 @@ import { UserContext } from "../App"
 
 import CustomButton from "../Components/CustomButton";
 
+import "./css/WorkDescription.style.css";
+
 function WorkDescription() {
     const navigate = useNavigate();
 
@@ -14,6 +16,10 @@ function WorkDescription() {
 
     const [work, setWork] = useState();
     const [workDisplay, setWorkDisplay] = useState();
+
+    const style = {
+        cursor: "pointer"
+    };
 
     useEffect(() => {
 		async function getWork() {
@@ -31,16 +37,16 @@ function WorkDescription() {
             setWork({entity: {
                 name: "nome",
                 CNPJ: entityCNPJ,
-                img: "",
+                img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
             },
             info:{
                 name: workName,
                 description: "Descrição t",
                 date: "1/1/1",
                 time: "8:00 até 12:00",
-                img: "",
-                lacation: "São Carlos",
-                skills: ["teste", "teste2", "teste3"],
+                img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
+                location: "São Carlos",
+                skills: ["skill1", "skill2", "skill3"],
             }});
 		}
 
@@ -81,39 +87,43 @@ function WorkDescription() {
         }
 
         setWorkDisplay(work? <>
-            <div>
-                <h1>{work.info.name}</h1>
-                <h2>{work.info.location}</h2>
-                <ul>
-                    {work.info.skills.map((skill)=><li key={skill}>{skill}</li>)}
-                </ul>
+            <h2>{work.info.name}</h2>
+            <div className="workDescriptionMain">
+                <div className="workDescriptionLocationSkills">
+                    <p>{work.info.location}</p>
+                    <ul>
+                        {work.info.skills.map((skill)=><li key={skill}>{skill}</li>)}
+                    </ul>
+                </div>
 
-                <div>
-                    <img src={work.info.img} alt={work.info.name}/>
+                <div className="workDescriptionImgBtn">
+                    <div className="workDescriptionImg">
+                        <img src={work.info.img} alt={work.info.name}/>
+                    </div>
                     <CustomButton onClick={handleRegister}>QUERO ME INSCREVER</CustomButton>
                 </div>
             </div>
 
-            <div>
-                <h1>Sobre o trabalho</h1>
+            <div className="workDescriptionAbout">
+                <h3>Sobre a oportunidade</h3>
                 {work.info.description}
             </div>
 
-            <div>
-                <h1>Data</h1>
+            <div className="workDescriptionDate">
+                <h3>Data</h3>
                 {work.info.date}
                 {work.info.time}
             </div>
 
-            <div>
-                <h1 onClick={() => {navigate(`/entities/${entityCNPJ}`)}}>Sobre a entidade</h1>
+            <div className="workDescriptionEntity">
+                <h3 style={style} onClick={() => {navigate(`/entities/${entityCNPJ}`)}}>Sobre a entidade realizadora</h3>
                 <img src={work.entity.img} alt={work.entity.name}/>
             </div>
         </> :<></>)
     }, [work]);
 
 	return(
-        <div>
+        <div className="workDescriptionContainer">
             {workDisplay}
         </div>
     );

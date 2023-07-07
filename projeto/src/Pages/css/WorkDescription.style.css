@@ -1,0 +1,51 @@
+.contentNav {
+    display: flex;
+    justify-content: center;
+}
+
+.workDescriptionContainer {
+    background-color: white;
+    width: 60%;
+    margin: 3vh 1vw;
+    padding: 5vh 10vw;
+}
+
+.workDescriptionMain {
+    width: 100%;
+    display: flex;  
+    align-items: end;  
+    margin-bottom: 4vh;
+}
+
+.workDescriptionLocationSkills {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.workDescriptionLocationSkills ul {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.workDescriptionImgBtn {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.workDescriptionImg {
+    text-align: center;
+    height: 30vh;
+    margin-bottom: 2vh;
+}
+
+.workDescriptionImg img {
+    height: 100%;
+}
+
+.workDescriptionAbout, .workDescriptionDate, .workDescriptionEntity {
+    border-top: 1px solid gray;
+    padding: 4vh 0;
+}
