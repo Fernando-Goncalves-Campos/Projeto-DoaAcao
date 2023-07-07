@@ -326,7 +326,7 @@ app.put('/entity/:entityName', async function (req, res) {
   console.log(req.params.entityName);
   try{
     entity=await Entity.find({name: req.params.entityName}).then();
-    if(entity.length==0){
+    if(entity.length===0){
       console.log("Entity não encontrada");
       res.status(404).send({});
     }else{
@@ -345,7 +345,7 @@ app.get('/volunteers/:volunteerCPF', async function (req, res) {
   console.log("get em /volunteers");
   try{
     voluntario = await Volunteer.find({CPF: req.params.volunteerCPF});
-    if(voluntario.length==0){
+    if(voluntario.length===0){
       res.status(404).send({});
     }else{
       res.status(200).send(voluntario);
