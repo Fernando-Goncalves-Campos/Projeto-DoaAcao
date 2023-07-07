@@ -1,0 +1,55 @@
+/*Estilização generica para tds campos de pesquisa(searchBar)*/
+.searchField{
+    width: 80%;
+}
+
+/*Estilização do search Maior de att voluntarias*/
+.busca-att-voluntarias{
+    display: flex;
+    justify-content: center;
+ }
+/*Campo input do search maior*/
+.busca-att-voluntarias input{
+    background-color: #EBEBEB;
+    height: 65px;
+    width: 78%;
+    border: none;
+    font-size: 18px;
+ }
+ /*Campo input(focus) do search maior*/
+ .busca-att-voluntarias input:focus{
+    outline: none; 
+    box-shadow: none; 
+ }
+
+/*Botao do search maior*/
+.busca-att-voluntarias .magnifyingGlass{
+    background-color: #EBEBEB;
+    height: 65px;
+    width: 60px;
+    border: none;
+    box-shadow: none;
+}
+
+.busca-att-voluntarias .icone-pesquisa{
+    height: 200x;
+}
+
+
+.filterButtonClass.filtro-oportunidades{
+    display: flex;
+}   
+/*Estilização dos campos seach menores*/
+.filtro-oportunidades.searchField{
+    border-color: #EBEBEB;
+    outline: none;
+}
+/*Botao dos search pequenos*/
+.filtro-oportunidades .magnifyingGlass{
+    height: 20px;
+    width: 20px;
+    border: none;
+    box-shadow: none;
+    border: 0.2px 0.2px 0.2px 0 solid;
+}
+

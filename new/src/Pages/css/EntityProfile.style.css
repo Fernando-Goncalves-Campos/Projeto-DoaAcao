@@ -1,0 +1,106 @@
+.entityProfileContainer {
+    margin: 5vh auto;
+    padding: 5vh 5vw;
+    width: 50%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.entityProfileContainer form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+}
+
+.entityProfileContainer h3 {
+    font-size: medium;
+}
+
+.entityProfileContainer .btnClass {
+    width: 50%;
+    margin: 3vh auto;
+}
+
+.entityImg {
+    width: 12vw;
+    margin-right: 2vw;
+}
+
+.entityImg img {
+    width: 100%;
+}
+
+.entityImgNameSocialReason {
+    display: flex;
+    align-items: center;
+}
+
+.entitySideImageContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.entitySideImageLine {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.entitySideImage {
+    width: 48%;
+}
+
+.entityProfileContainer input {
+    width: 100%;
+    padding: 1vh 0;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.entityPhones {
+    margin-top: 1vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.entityPhone1, .entityPhone2 {
+    width: 49%;
+}
+
+.entityAddressContainer {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.entityAddressLine {
+    margin-top: 1vh;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.entityAddressSideComponent {
+    width: 22%;
+}
+
+.entityAddressMiddleComponent {
+    width: 52%;
+}
+
+.entityResponsibleLine {
+    margin: 4vh 0;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.entityResponsibleComponent {
+    width: 49%;
+}

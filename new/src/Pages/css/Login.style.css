@@ -1,0 +1,50 @@
+body{
+    background-color: #45BBC2;
+}
+
+.container-login-register{
+    display: flex;
+    text-align: center;
+    margin-top: 150px;
+    width: 100%;
+}
+
+.container-login{
+    text-align: center;
+    margin-left: auto;
+    width: 30%;
+}
+
+.container-register{
+    margin-right: auto;
+    text-align: center;
+    width: 30%;
+}
+
+.container-login-fields{
+    background-color: none;
+}
+.container-login-fields h1{
+    font-size: 20px;
+}
+
+.line-between{
+    border-left: 2px solid #EBEBEB;
+    height: 320px;
+    position:absolute;
+    left: 50%;
+}
+
+
+/*Estização dos botoes da pagina de login*/
+.login-button{
+    width: 70%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+/*Estilização especifica dos inputs de login*/
+.login-input{
+    width: 64%;
+    margin-top: 10px;
+}

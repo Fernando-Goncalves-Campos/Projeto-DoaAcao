@@ -1,0 +1,44 @@
+.container-att-voluntarias{
+    margin-top: 40px;
+    /*background-color: yellow;*/
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+
+
+.container-att-voluntarias .container-oportunidades{
+    background-color: white;
+    width: calc(60px + 78%);
+    margin: 40px auto auto auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   
+    /*background-color: lightblue;*/
+}
+
+
+.container-filtro-oportunidades{
+    background-color: white;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-bottom: 30px;
+    display: flex;
+}
+
+/*Container externo maior que armazena a parte dos itens*/
+.itens-oportunidades{
+    width: 100%;
+    padding-left: 75px;
+}
+
+.itens-oportunidades .title-oportunidades{
+    width: 80%;
+}
+
+/*Container que armazena os itens*/
+.lista-itens-oportunidades{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-content: flex-start;
+}

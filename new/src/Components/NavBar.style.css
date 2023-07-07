@@ -1,0 +1,25 @@
+nav{
+    height: var(--NavBar-height);
+    background-color: #FFFF;
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.navbar-btns h3 {
+    color: #3F86A4;
+}
+
+.navbar-btns :hover {
+    cursor: pointer;
+    color: #00162D;
+}
+
+.navbar-btns {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 10%;
+    margin-right: 30%;
+}

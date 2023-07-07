@@ -1,0 +1,21 @@
+#single-form{
+    display: flex;
+    justify-content: space-around;
+}
+
+#single-form input{
+    height: 10px;
+ 
+}
+
+.container-data-oportunidades{
+    display: flex;
+    flex-direction: column;
+}
+
+
+#single-form{
+    border-radius: 10px;
+    padding-bottom: 15px;
+    padding-top: 5px;
+}

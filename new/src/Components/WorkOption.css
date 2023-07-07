@@ -1,0 +1,83 @@
+.workOptionContainer {
+    width: 30%;
+    margin-bottom: 2%;
+    border: 2px solid black;
+    border-radius: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.workOptionContainer:hover {
+    cursor: pointer;
+}
+
+
+.workOptionContainer img {
+    width: 70%;
+    height: 40%;
+    margin-left: 15%;
+}
+
+
+.workOptionContainer h1 {
+    color: #0044AA;
+    font-weight: 600;
+    margin-left: 2%;
+}
+
+.workOptionContainer h2 {
+    color: #ccc;
+    font-weight: 600;
+    margin-left: 2%;
+}
+
+.workOptionContainer p {
+    color: gray;
+    margin-left: 2%;
+}
+
+.workOptionContainer span {
+    margin-left: 2%;
+}
+
+
+
+/*Opções de trabalhos do search*/
+.work-option-search{
+    width: 20%;
+    margin-bottom: 2%;
+    border: 2px solid black;
+    border-radius: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.work-option-search img {
+    width: 70%;
+    height: 40%;
+
+    margin-left: 15%;
+}
+.work-option-search h1 {
+    color: #0044AA;
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 2%;
+}
+.work-option-search h2 {
+    color: #ccc;
+    font-weight: 600;
+    font-size: 15px;
+    margin-left: 2%;
+
+}
+.work-option-search p {
+    color: gray;
+    margin-left: 2%;
+    font-size: 14px;
+}
+.work-option-search span {
+    margin-left: 2%;
+}
