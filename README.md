@@ -18,4 +18,4 @@ Uma entidade pode cadastrar atividades, selecionando as habilidades que seriam u
 O projeto foi construído utilizando o node JS, mais especificamente o framework React e algumas de suas bibliotecas. Para a parte de banco de dados, foi utilizado o MongoDB, juntamente do Mongoose para criação de esquemas.
 
 ### Como inicializar o site
-É necessário possuir o Node JS instalado na máquina e clonar o repositório localmente
+É necessário possuir o Node JS instalado na máquina e clonar o repositório localmente. Após esses dois passos, é necessário pelo terminal acessar a pasta onde foi baixado o repositório e dentro dela acessar a pasta servidor, onde o comando "npm i --save" deve ser rodado. Após finalizado, execute o comando "node server.js". Em seguida, retorne uma pasta e acesse a pasta projeto. Lá, execute novamente "npm i --save" e após finalizado execute o comando "npm start". Feitos todos esses passos, o site está pronto para ser utilizado.
