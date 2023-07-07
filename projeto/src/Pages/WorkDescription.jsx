@@ -1,10 +1,14 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
+import { UserContext } from "../App"
 
 import CustomButton from "../Components/CustomButton";
 
 function WorkDescription() {
     const navigate = useNavigate();
+
+    const { user } = useContext(UserContext);
 
     const { entityCNPJ, workName } = useParams();
 
@@ -44,9 +48,36 @@ function WorkDescription() {
 	}, []);
 
     useEffect(()=>{
-        const handleRegister = () => {
-            alert("The request was sent to validation");
-            navigate(-1);
+        //Inscreve o voluntário no trabalho
+        const registerVolunteerDB = async () => {
+            /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${work.entity.name}/works/${work.info.name}`, {
+                method: "POST",
+                body: JSON.stringify({
+                    name: user.name,
+                    CPF: user.CPF,
+                    email: user.email,
+                    phone: user.phone
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            return response;*/
+            return {status: 200};
+        }
+
+        //Lida com o clique do botão de se inscrever
+        const handleRegister = async () => {
+            const response = await registerVolunteerDB();
+            if(response.status === 200 || response.status === 201){
+                alert("Account sent to validation");
+                navigate(-1);
+            }
+            else{
+                const message = `An error occurred: ${response.statusText}`;
+                alert(message);
+            }
         }
 
         setWorkDisplay(work? <>
