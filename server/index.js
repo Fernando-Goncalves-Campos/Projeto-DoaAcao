@@ -217,14 +217,14 @@ app.post('/login', async function (req, res) {
   try {
     await Volunteer.find({ email: req.body.email, password: req.body.password }, { password: 0 }).then(userFound => {
       if(userFound.length>0){
-        aux={user: {...userFound}, entity:false};
+        aux=userFound;
         console.log("achou um volunteer")
       }
     });
 
     await Entity.find({ email: req.body.email, password: req.body.password }, { password: 0 }).then(userFound => {
       if(userFound.length>0){
-        aaux={user: {...userFound}, entity:true};
+        aux=userFound;
         console.log("achou uma entity")
       }
     });
@@ -339,6 +339,36 @@ app.put('/entity/:entityName', async function (req, res) {
     res.status(500).send({});
   }
 
+});
+
+app.get('/volunteers/:volunteerCPF', async function (req, res) {
+  console.log("get em /volunteers");
+  try{
+    voluntario = await Volunteer.find({CPF: req.params.volunteerCPF});
+    if(voluntario.length==0){
+      res.status(404).send({});
+    }else{
+      res.status(200).send(voluntario);
+    }
+  }catch(err){
+    console.log(err);
+    res.status(500).send({});
+  }
+});
+
+app.get('/entities/:entityName', async function (req, res) {
+  console.log("get em /entities");
+  try{
+    entidade = await Entity.find({name: req.params.entityName});
+    if(entidade.length==0){
+      res.status(404).send({});
+    }else{
+      res.status(200).send(entidade);
+    }
+  }catch(err){
+    console.log(err);
+    res.status(500).send({});
+  }
 });
 
 app.listen(port, () => {
