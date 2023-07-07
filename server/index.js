@@ -374,3 +374,15 @@ app.get('/entities/:entityName', async function (req, res) {
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
+
+app.get('/entities/:entityName/works', async function (req, res) {
+    console.log("Get em /works/entity");
+    console.log(req.params.entityName);
+    works= await Work.find({entity: req.params.entityName});
+    if(works.length==0){
+      res.status(404).send(works);
+    }else{
+      res.status(200).send(works);
+    }
+  })

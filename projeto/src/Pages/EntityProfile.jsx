@@ -81,7 +81,7 @@ function EntityProfile() {
             //Adiciona a conta no banco de dados
             const patchEntityDB = async () => {
                 const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entity/${entityName}`, {
-                    method: "PATCH",
+                    method: "PUT",
                     body: JSON.stringify({
                         name: name,
                         socialReason: socialReason,

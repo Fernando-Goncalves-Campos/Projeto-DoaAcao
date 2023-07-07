@@ -84,7 +84,7 @@ function VolunteerProfile() {
                 //Adiciona a conta no banco de dados
                 const patchVolunteerDB = async () => {
                     const response = await fetch(`http://${process.env.REACT_APP_API_URL}/volunteers/${volunteerCPF}`, {
-                        method: "PATCH",
+                        method: "PUT",
                         body: JSON.stringify({
                             name: name,
                             birthday: birthday,
