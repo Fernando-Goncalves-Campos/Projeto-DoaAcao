@@ -1,4 +1,10 @@
 .workDescriptionContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.workDescriptionWrap {
     background-color: white;
     margin: 3vh 1vw;
     width: 36%;
