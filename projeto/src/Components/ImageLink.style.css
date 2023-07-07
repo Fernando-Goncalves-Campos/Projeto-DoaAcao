@@ -1,10 +1,10 @@
-.hoverScale img {
+.imageLinkClass img {
     height: 15vh;
     width: 8vw;
     border-radius: 10%;
 }
 
-.hoverScale .textInsideImg {
+.imageLinkClass .textInsideImg {
     position: absolute;
     border-radius: 10%;
     width: 100%;
@@ -17,27 +17,27 @@
     align-items: center;
 }
 
-.hoverScale .textInsideImg:hover {
+.imageLinkClass .textInsideImg:hover {
     cursor: pointer;
 }
 
-.hoverScale.causa-animal .textInsideImg {
+.imageLinkClass.causa-animal .textInsideImg {
     background-color: rgba(54, 165, 172, 0.7);
 }
 
-.hoverScale.combate-fome .textInsideImg{
+.imageLinkClass.combate-fome .textInsideImg{
     background-color: rgba(187, 0, 0, 0.5);
 }
 
-.hoverScale.vagas-sao-carlos .textInsideImg{
+.imageLinkClass.vagas-sao-carlos .textInsideImg{
     background-color: rgba(0, 121, 56, 0.7);
 }
 
-.hoverScale.arte-cultura .textInsideImg{
+.imageLinkClass.arte-cultura .textInsideImg{
     background-color: rgba(212, 204, 0, 0.5);
 }
 
-.hoverScale.educacao .textInsideImg{
+.imageLinkClass.educacao .textInsideImg{
     background-color: rgba(14, 0, 97, 0.7);
 }
 

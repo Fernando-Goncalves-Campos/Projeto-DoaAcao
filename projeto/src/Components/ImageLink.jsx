@@ -7,7 +7,7 @@ import "./ImageLink.style.css";
 function ImageLink({to, src, className = '', style = {}, children}) {
     const navigate = useNavigate();
     return(
-        <div className={`hoverScale ${className}`} style={style} onClick={() => {navigate(to)}}>
+        <div className={`hoverScale imageLinkClass ${className}`} style={style} onClick={() => {navigate(to)}}>
             <img src={src} alt={children}/>
             <div className="textInsideImg"><span>{children}</span></div>
         </div>
