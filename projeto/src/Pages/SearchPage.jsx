@@ -28,18 +28,17 @@ function SearchPage() {
 
 	useEffect(() => {
 		async function getWorks() {
-			//const response = await fetch(`http://${process.env.REACT_APP_API_URL}/works${document.location.search}`);
+			const response = await fetch(`http://${process.env.REACT_APP_API_URL}/works${document.location.search}`);
 
-			//if (response.status !== 200) {
-			//	const message = `An error occurred: ${response.statusText}`;
-			//	alert(message);
-			//	return;
-			//}
+			if (response.status !== 200) {
+				const message = `An error occurred: ${response.statusText}`;
+				alert(message);
+				return;
+			}
 
-			//const readWorks = await response.json();
+			const readWorks = await response.json();
 
-			//setWorks(readWorks);
-            setWorks([]);
+			setWorks(readWorks);
 		}
 
 		getWorks();
@@ -51,23 +50,8 @@ function SearchPage() {
         }) :<></>)
     }, [works])
 
-
-    let work = {
-        src: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
-        name: "Ação voluntária",
-        entity: "Ong 1234",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sapien ligula, auctor eu nisl id, auctor fermentum tortor.",
-        region: "São Carlos - SP",
-        day: "12/07/2023"
-    }
-
 	return(
-        
-
-
         <div className="container-att-voluntarias">
-    
-
             <SearchBar 
                 setValue={value => {
                     if(value){
@@ -92,22 +76,7 @@ function SearchPage() {
                         
                         <div className="lista-itens-oportunidades">
                             <h1 className="title-oportunidades">Oportunidades</h1>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
-                            <WorkOption className="work-option-search" work={work}/>
+                            {workOptions}
                         </div>
                        
                     </div>

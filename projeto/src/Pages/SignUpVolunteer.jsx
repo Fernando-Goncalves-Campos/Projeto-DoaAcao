@@ -33,7 +33,7 @@ function SignUpVolunteer() {
 
     //Adiciona a conta no banco de dados
     const addVolunteerDB = async () => {
-        /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/volunteers`, {
+        const response = await fetch(`http://${process.env.REACT_APP_API_URL}/user`, {
             method: "POST",
             body: JSON.stringify({
                 name: name,
@@ -57,8 +57,7 @@ function SignUpVolunteer() {
             },
         });
 
-        return response;*/
-        return {status: 201};
+        return response;
     }
 
     const handleSubmit = async (e) => {

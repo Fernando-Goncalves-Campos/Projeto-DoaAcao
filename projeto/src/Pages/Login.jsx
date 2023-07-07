@@ -21,8 +21,8 @@ function Login() {
     const [emailVolunteer, setEmailVolunteer] = useState("");
     const [emailEntity, setEmailEntity] = useState("");
 
-    const loginUser = () => {
-        /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/login`, {
+    const loginUser = async () => {
+        const response = await fetch(`http://${process.env.REACT_APP_API_URL}/login`, {
             method: "POST",
             body: JSON.stringify({
                 username: username,
@@ -46,7 +46,7 @@ function Login() {
         else{
             const message = `An error occurred: ${response.statusText}`;
 			alert(message);
-        }*/
+        }
     }
 
     const handleLogin = (e) => {

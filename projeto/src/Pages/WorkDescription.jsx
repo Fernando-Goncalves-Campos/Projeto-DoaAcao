@@ -12,7 +12,7 @@ function WorkDescription() {
 
     const { user } = useContext(UserContext);
 
-    const { entityCNPJ, workName } = useParams();
+    const { entityName, workName } = useParams();
 
     const [work, setWork] = useState();
     const [workDisplay, setWorkDisplay] = useState();
@@ -23,15 +23,15 @@ function WorkDescription() {
 
     useEffect(() => {
 		async function getWork() {
-			//const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityCNPJ}/works/${workName}`);
+			const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityName}/works/${workName}`);
 
-			//if (response.status !== 200) {
-			//	const message = `An error occurred: ${response.statusText}`;
-			//	alert(message);
-			//	return;
-			//}
+			if (response.status !== 200) {
+				const message = `An error occurred: ${response.statusText}`;
+				alert(message);
+				return;
+			}
 
-			//const readWork = await response.json();
+			const readWork = await response.json();
 
 			//setWork(readWork);
             setWork({entity: {
@@ -56,7 +56,7 @@ function WorkDescription() {
     useEffect(()=>{
         //Inscreve o voluntário no trabalho
         const registerVolunteerDB = async () => {
-            /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${work.entity.name}/works/${work.info.name}`, {
+            const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${work.entity.name}/works/${work.info.name}`, {
                 method: "POST",
                 body: JSON.stringify({
                     name: user.name,
@@ -69,8 +69,7 @@ function WorkDescription() {
                 },
             });
 
-            return response;*/
-            return {status: 200};
+            return response;
         }
 
         //Lida com o clique do botão de se inscrever

@@ -31,12 +31,12 @@ function SignUpEntity() {
 
     //Adiciona a conta no banco de dados
     const addEntityDB = async () => {
-        /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities`, {
+        const response = await fetch(`http://${process.env.REACT_APP_API_URL}/user`, {
             method: "POST",
             body: JSON.stringify({
                 name: name,
                 socialReason: socialReason,
-                CNPJ, CNPJ
+                CNPJ, CNPJ,
                 email: email,
                 phone: phone,
                 img: img,
@@ -57,7 +57,7 @@ function SignUpEntity() {
             },
         });
 
-        return response;*/
+        return response;
         return {status: 201};
     }
 
@@ -91,12 +91,10 @@ function SignUpEntity() {
                     <InputForm setValue={value => {setCNPJ(value)}} required className="input-forms-entity cnpj">*CNPJ</InputForm>
                 </div>
 
-
                 <div className="form-row">
                     <InputForm type="email" setValue={value => {setEmail(value)}} required className="input-forms-entity email">*E-mail</InputForm>
                     <InputForm setValue={value => {setPhone(value)}} required className="input-forms-entity telefone">*Telefone</InputForm>
                     <InputForm setValue={value => {setCEP(value)}} required className="input-forms-entity cep">*CEP</InputForm>
-                    
                 </div>
                 
                 <div className="form-row">
@@ -105,21 +103,18 @@ function SignUpEntity() {
                     <InputForm setValue={value => {setComplement(value)}} className="input-forms-entity complemento">Complemento</InputForm>
                 </div>
 
-
                 <div className="form-row">
                     <InputForm setValue={value => {setDistrict(value)}} required className="input-forms-entity bairro">*Bairro</InputForm>
                     <InputForm setValue={value => {setState(value)}} required className="input-forms-entity estado">*Estado</InputForm>
                     <InputForm setValue={value => {setCity(value)}} required className="input-forms-entity cidade">*Cidade</InputForm>
                     <InputForm setValue={value => {setReferencePoint(value)}} className="input-forms-entity referencia">Ponto de Referência</InputForm>
                 </div>
-                
 
                 <div className="form-row">
                     <InputForm setValue={value => {setResponsible(value)}} required className="input-forms-entity responsavel">*Nome do Responsável</InputForm>
                     <InputForm setValue={value => {setPosition(value)}} required className="input-forms-entity cargoresponsavel">*Cargo do responsável</InputForm>
                     <InputForm type="password" setValue={value => {setPassword(value)}} required className="input-forms-entity senha">*Senha</InputForm>
                 </div>
-                
 
                 <div className="form-row">
                     <div className="img-cadastro-entity">
@@ -132,7 +127,6 @@ function SignUpEntity() {
                     </div>
                     
                 </div>
-                
                 
             </div>
 

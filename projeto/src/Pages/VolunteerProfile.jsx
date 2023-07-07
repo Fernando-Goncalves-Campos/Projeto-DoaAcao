@@ -41,22 +41,22 @@ function VolunteerProfile() {
 
     useEffect(() => {
 		async function getVolunteer() {
-			//const response = await fetch(`http://${process.env.REACT_APP_API_URL}/volunteers/${volunteersCPF}`);
+			const response = await fetch(`http://${process.env.REACT_APP_API_URL}/volunteers/${volunteerCPF}`);
 
-			//if (response.status !== 200) {
-			//	const message = `An error occurred: ${response.statusText}`;
-			//	alert(message);
-			//	return;
-			//}
+			if (response.status !== 200) {
+				const message = `An error occurred: ${response.statusText}`;
+				alert(message);
+				return;
+			}
 
-			//const readVolunteer = await response.json();
+			const readVolunteer = await response.json();
 
-			//setVolunteer(readVolunteer);
-            /*
+			setVolunteerInfo(readVolunteer);
+
             setName(readVolunteer.name);
             setBirthday(readVolunteer.birthday);
             setCPF(readVolunteer.CPF);
-            setemail(readVolunteer.email);
+            setEmail(readVolunteer.email);
             setPhone(readVolunteer.phone);
             setSecondPhone(readVolunteer.secondPhone);
 
@@ -72,30 +72,7 @@ function VolunteerProfile() {
             setReferencePoint(readVolunteer.referencePoint);
             
             setReasons(readVolunteer.reasons);
-            setSkills(readVolunteer.skills);         
-            */
-            setVolunteerInfo({
-                name: "nome",
-                birthday: "01/01/1991",
-                CNPJ: volunteerCPF,
-                streetName: "streetName",
-                reason: "reason",
-                img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
-                email:"email",
-                phone:"phone",
-                secondPhone: "secondPhone",
-                CEP: "CEP",
-                addressNumber: "AddressNumber",
-                complement: "complement",
-                district: "district",
-                state: "state",
-                city: "city",
-                referencePoint: "referencePoint",
-                reasons: ["causa 2", "causa 3", "causa 4"],
-                skills: ["habilidade 1", "habilidade 5"]
-            });
-            setReasons(["causa 2", "causa 3", "causa 4"]);
-            setSkills(["habilidade 1", "habilidade 5"]);
+            setSkills(readVolunteer.skills);
 		}
 
 		getVolunteer();
@@ -106,7 +83,7 @@ function VolunteerProfile() {
             if(!entity && user.CPF === volunteerCPF){
                 //Adiciona a conta no banco de dados
                 const patchVolunteerDB = async () => {
-                    /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/volunteers/${volunteerCPF}`, {
+                    const response = await fetch(`http://${process.env.REACT_APP_API_URL}/volunteers/${volunteerCPF}`, {
                         method: "PATCH",
                         body: JSON.stringify({
                             name: name,
@@ -130,8 +107,7 @@ function VolunteerProfile() {
                         },
                     });
 
-                    return response;*/
-                    return {status: 200};
+                    return response;
                 }
 
                 const handleSubmit = async (e) => {

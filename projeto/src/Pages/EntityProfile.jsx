@@ -13,7 +13,7 @@ function EntityProfile() {
 
 	const navigate = useNavigate();
 
-    const { entityCNPJ } = useParams();
+    const { entityName } = useParams();
 
     const [entityInfo, setEntityInfo] = useState();
     const [entityDisplay, setEntityDisplay] = useState();
@@ -40,22 +40,22 @@ function EntityProfile() {
 
     useEffect(() => {
 		async function getEntity() {
-			//const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityCNPJ}`);
+			const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entities/${entityName}`);
 
-			//if (response.status !== 200) {
-			//	const message = `An error occurred: ${response.statusText}`;
-			//	alert(message);
-			//	return;
-			//}
+			if (response.status !== 200) {
+				const message = `An error occurred: ${response.statusText}`;
+				alert(message);
+				return;
+			}
 
-			//const readEntity = await response.json();
+			const readEntity = await response.json();
 
-			//setEntityInfo(readEntity);
-            /*
+			setEntityInfo(readEntity);
+
             setName(readEntity.name);
             setSocialReason(readEntity.socialReason);
             setCNPJ(readEntity.CNPJ);
-            setemail(readEntity.email);
+            setEmail(readEntity.email);
             setPhone(readEntity.phone);
             setSecondPhone(readEntity.secondPhone);
 
@@ -70,37 +70,17 @@ function EntityProfile() {
             setCity(readEntity.city);
             setReferencePoint(readEntity.referencePoint);
             setResponsible(readEntity.responsible);
-            setPosition(readEntity.position);            
-            */
-            setEntityInfo({
-                name: "nome",
-                CNPJ: entityCNPJ,
-                streetName: "streetName",
-                socialReason: "socialReason",
-                img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
-                email:"email",
-                phone:"phone",
-                secondPhone: "secondPhone",
-                CEP: "CEP",
-                addressNumber: "AddressNumber",
-                complement: "complement",
-                district: "district",
-                state: "state",
-                city: "city",
-                referencePoint: "referencePoint",
-                responsible: "Responsible",
-                position: "position"
-            });
+            setPosition(readEntity.position);
 		}
 
 		getEntity();
 	}, []);
 
     useEffect(()=>{
-        if(entity && user.CNPJ === entityCNPJ){
+        if(entity && user.CNPJ === entityName){
             //Adiciona a conta no banco de dados
             const patchEntityDB = async () => {
-                /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entity/${entityCNPJ}`, {
+                const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entity/${entityName}`, {
                     method: "PATCH",
                     body: JSON.stringify({
                         name: name,
@@ -124,8 +104,7 @@ function EntityProfile() {
                     },
                 });
 
-                return response;*/
-                return {status: 200};
+                return response;
             }
 
             const handleSubmit = async (e) => {
@@ -332,7 +311,7 @@ function EntityProfile() {
                     </div>
                 </div>
                 
-                <CustomButton onClick={()=>{navigate(`/entities/${entityCNPJ}/works`)}}>VER TRABALHOS</CustomButton>
+                <CustomButton onClick={()=>{navigate(`/entities/${entityName}/works`)}}>VER TRABALHOS</CustomButton>
             </> :<></>);
         }
     }, [entityInfo]);
