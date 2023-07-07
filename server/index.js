@@ -391,9 +391,10 @@ app.get('/entities/:entityName/works/:workName', async function (req, res) {
     console.log("Get em /works/entity");
     console.log(req.params.entityName);
     works= await Work.find({name: req.params.workName, entity: req.params.entityName});
-    if(works.length==0){
+    entities= await Entity.find({name: req.params.entityName});
+    if(works.length===0 || entities.length === 0){
       res.status(404).send(works);
     }else{
-      res.status(200).send(works[0]._doc);
+      res.status(200).send({info: {...works[0]._doc}, entity:{...entities[0]._doc}});
     }
 })

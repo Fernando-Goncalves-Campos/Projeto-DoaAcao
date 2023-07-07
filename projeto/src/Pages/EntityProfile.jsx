@@ -77,7 +77,7 @@ function EntityProfile() {
 	}, []);
 
     useEffect(()=>{
-        if(entity && user.CNPJ === entityName){
+        if(entity && user.name === entityName){
             //Adiciona a conta no banco de dados
             const patchEntityDB = async () => {
                 const response = await fetch(`http://${process.env.REACT_APP_API_URL}/entity/${entityName}`, {
