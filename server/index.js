@@ -180,8 +180,8 @@ app.get('/', function (req, res) {
   res.send("Hello world!");
 });
 
-app.get('/works', function (req, res) {
-    res.status(200).send(Work.find({}).array());
+app.get('/works', async function (req, res) {
+  res.status(200).send(await Work.find({}).then());
 })
 
 app.post('/entities/:entityName/works', function (req, res) {
