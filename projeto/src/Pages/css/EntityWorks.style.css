@@ -1,8 +1,18 @@
 .entityWorksContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.entityWorksWrap {
     background-color: white;
     margin: 3vh 0;
     padding: 3vh 3vw;
     width: 50%;
+}
+
+.entityWorksWrap h1, div {
+    color: #59626F;
 }
 
 .entityWorksMain {

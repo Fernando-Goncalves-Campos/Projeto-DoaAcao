@@ -115,7 +115,7 @@ function WorkDescription() {
 
             <div className="workDescriptionDate">
                 <h3>Data</h3>
-                {work.info.date}  {work.info.time}
+                <p>{work.info.date}  {work.info.time}</p>
             </div>
 
             <div className="workDescriptionEntity">

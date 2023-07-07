@@ -15,6 +15,10 @@
     font-size: 1.2rem;
 }
 
+.workDescriptionContainer h2, h3, p, li {
+    color: #59626F;
+}
+
 .workDescriptionMain {
     width: 100%;
     display: flex;  
@@ -53,7 +57,7 @@
 }
 
 .workDescriptionImgBtn button {
-    width: 100%;
+    width: 80%;
 }
 
 .workDescriptionImg {

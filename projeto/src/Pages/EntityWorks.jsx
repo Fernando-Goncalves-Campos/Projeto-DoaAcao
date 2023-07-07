@@ -102,11 +102,13 @@ function EntityWorks() {
 
 	return(
         <div className="entityWorksContainer">
-            <h1>Gerenciar vagas</h1>
-            <div className="entityWorksMain">
-                <SearchBar setValue={value => {filterWorks(value)}} onChange >Busque vagas criadas</SearchBar>
+            <div className="entityWorksWrap">
+                <h1>Gerenciar vagas</h1>
+                <div className="entityWorksMain">
+                    <SearchBar setValue={value => {filterWorks(value)}} onChange >Busque vagas criadas</SearchBar>
 
-                {workOptions}
+                    {workOptions}
+                </div>
             </div>
         </div>
     );

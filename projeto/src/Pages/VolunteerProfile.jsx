@@ -103,7 +103,7 @@ function VolunteerProfile() {
 
     useEffect(()=>{
         if(volunteerInfo){
-            if(!(!entity && user.CPF === volunteerCPF)){
+            if(!entity && user.CPF === volunteerCPF){
                 //Adiciona a conta no banco de dados
                 const patchVolunteerDB = async () => {
                     /*const response = await fetch(`http://${process.env.REACT_APP_API_URL}/volunteers/${volunteerCPF}`, {
