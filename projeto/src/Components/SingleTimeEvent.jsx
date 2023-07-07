@@ -21,14 +21,21 @@ function SingleTimeEvent({setDate, setTime, className="", style={}}) {
 
     return(
         <div id="single-form" className={className} style={style}>
-            <h2>Dia</h2>
-            <InputForm type="date" setValue={value => {setDate(value)}} required/>
+            <div className="container-data-oportunidades">
+                <h2>Dia</h2>
+                <InputForm type="date" setValue={value => {setDate(value)}} required/>
+            </div>
             
-            <h2>Início</h2>
-            <InputForm type="time" setValue={value => {handleChangeStartTime(value)}} required/>
+            <div className="container-data-oportunidades">
+                <h2>Início</h2>
+                <InputForm type="time" setValue={value => {handleChangeStartTime(value)}} required/>
+            </div>
+
+            <div className="container-data-oportunidades">
+                <h2>Término</h2>
+                <InputForm type="time" setValue={value => {handleChangeEndTime(value)}} required/>
+            </div>
             
-            <h2>Término</h2>
-            <InputForm type="time" setValue={value => {handleChangeEndTime(value)}} required/>
         </div>
     );
 }

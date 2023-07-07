@@ -86,7 +86,8 @@ function WorkDescription() {
             }
         }
 
-        setWorkDisplay(work? <>
+        setWorkDisplay(work? 
+        <div className="workDescriptionWrap">
             <h2>{work.info.name}</h2>
             <div className="workDescriptionMain">
                 <div className="workDescriptionMainText">
@@ -114,14 +115,14 @@ function WorkDescription() {
 
             <div className="workDescriptionDate">
                 <h3>Data</h3>
-                {work.info.date}  {work.info.time}
+                <p>{work.info.date}  {work.info.time}</p>
             </div>
 
             <div className="workDescriptionEntity">
                 <h3 >Sobre a entidade realizadora</h3>
                 <img style={style} src={work.entity.img} alt={work.entity.name} onClick={() => {navigate(`/entities/${entityCNPJ}`)}}/>
             </div>
-        </> :<></>)
+        </ div> : <></>)
     }, [work]);
 
 	return(

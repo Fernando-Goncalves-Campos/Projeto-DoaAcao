@@ -1,12 +1,16 @@
 .workDescriptionContainer {
     background-color: white;
-    width: 36%;
     margin: 3vh 1vw;
+    width: 36%;
     padding: 5vh 10vw;
 }
 
 .workDescriptionContainer p {
     font-size: 1.2rem;
+}
+
+.workDescriptionContainer h2, h3, p, li {
+    color: #59626F;
 }
 
 .workDescriptionMain {
@@ -18,7 +22,7 @@
 
 .workDescriptionMainText {
     display: flex;
-    padding: 1vh 1vw;
+    padding: 1vh 1vw 1vh 0;
     text-align: justify;
     flex-direction: column;
     width: 60%;
@@ -47,7 +51,7 @@
 }
 
 .workDescriptionImgBtn button {
-    width: 100%;
+    width: 80%;
 }
 
 .workDescriptionImg {

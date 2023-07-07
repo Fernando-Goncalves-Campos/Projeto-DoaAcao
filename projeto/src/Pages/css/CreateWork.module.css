@@ -1,12 +1,11 @@
 .container{
     color: #59626F;
+    font-size: 15px;
 }
 
 .containerForms{
     margin: 50px 0;
-
 }
-
 
 .forms{
     background-color: white;
@@ -103,4 +102,27 @@
     display: flex;
     justify-content: space-evenly;
     
+}
+
+.radioFrequency{
+    display: flex;
+    gap: 40px;
+}
+
+.radioFrequency input[type="radio"]{
+    width: 20px;
+    height: 20px;
+}
+
+.tituloDisponibilidade{
+    margin-top: 15px;
+    
+}
+
+
+
+
+
+.h2Titulo{
+    margin-top: 25px;
 }
