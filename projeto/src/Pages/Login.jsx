@@ -25,7 +25,7 @@ function Login() {
         const response = await fetch(`http://${process.env.REACT_APP_API_URL}/login`, {
             method: "POST",
             body: JSON.stringify({
-                username: username,
+                email: username,
                 password: password
             }),
             headers: {
