@@ -7,6 +7,8 @@ import CustomButton from "../Components/CustomButton";
 import InputForm from "../Components/InputForm";
 import ChoosePreferences from "../Components/ChoosePreferences";
 
+import "./css/VolunteerProfile.style.css";
+
 function VolunteerProfile() {
     const {user, entity} = useContext(UserContext);
     const {filters} = useContext(FilterContext);
@@ -74,10 +76,11 @@ function VolunteerProfile() {
             */
             setVolunteerInfo({
                 name: "nome",
+                birthday: "01/01/1991",
                 CNPJ: volunteerCPF,
                 streetName: "streetName",
                 reason: "reason",
-                img: "",
+                img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
                 email:"email",
                 phone:"phone",
                 secondPhone: "secondPhone",
@@ -146,7 +149,7 @@ function VolunteerProfile() {
                 }
 
                 setVolunteerDisplay(<>
-                    <h1>Dados da entidade</h1>
+                    <h1>Seus Dados</h1>
                     <form onSubmit={handleSubmit}>
                         <InputForm setValue={value => {setName(value)}} defaultValue={volunteerInfo.name}  required>Nome</InputForm>
                         <InputForm type="date" setValue={value => {setBirthday(value)}} defaultValue={volunteerInfo.birthday}  required>Data de nascimento</InputForm>
@@ -175,22 +178,90 @@ function VolunteerProfile() {
 
             else{
                 setVolunteerDisplay(<>
-                    <h1>Dados da entidade</h1>
-                    <img src={volunteerInfo.img} alt={volunteerInfo.name} />
-                    {volunteerInfo.name}
-                    {volunteerInfo.CPF}
-                    {volunteerInfo.birthday}
-                    {volunteerInfo.email}
-                    {volunteerInfo.phone}
-                    {volunteerInfo.secondPhone}
-                    {volunteerInfo.CEP}
-                    {volunteerInfo.streetName}
-                    {volunteerInfo.addressNumber}
-                    {volunteerInfo.complement}
-                    {volunteerInfo.city}
-                    {volunteerInfo.referencePoint}
-                    <ul>{volunteerInfo.reasons.map(reason=><li key={reason}>{reason}</li>)}</ul>
-                    <ul>{volunteerInfo.skills.map(skill=><li key={skill}>{skill}</li>)}</ul>
+                    <h1>Seus Dados</h1>
+                <div className="volunteerImgNameSocialReason">
+                    <div className="volunteerImg">
+                        <img src={volunteerInfo.img} alt={volunteerInfo.name} />
+                    </div>
+                    <div className="volunteerSideImageContainer">
+                        <div className="volunteerSideImageLine">
+                            <div className="volunteerSideImage">
+                                <h3>Nome</h3>
+                                <input type="text" disabled value={volunteerInfo.name} />
+                            </div>
+                            <div className="volunteerSideImage">
+                                <h3>CPF</h3>
+                                <input type="text" disabled value={volunteerInfo.CPF} />
+                            </div>                        
+                        </div>
+                        <div className="volunteerSideImageLine">
+                            <div className="volunteerSideImage">
+                                <h3>Email</h3>
+                                <input type="text" disabled value={volunteerInfo.email}/>
+                            </div>
+                            <div className="volunteerSideImage">
+                                <h3>Data de nascimento</h3>
+                                <input type="text" disabled value={volunteerInfo.birthday}/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <h3>Telefones</h3>
+                <div className="volunteerPhones">
+                    <div className="volunteerPhone1">
+                        <input type="text" disabled value={volunteerInfo.phone}/>
+                    </div>
+                    <div className="volunteerPhone2">
+                        <input type="text" disabled value={volunteerInfo.secondPhone} />
+                    </div>
+                </div>
+                
+                <div className="volunteerAddressContainer">
+                    <div className="volunteerAddressLine">
+                        <div className="volunteerAddressSideComponent">
+                            <h3>CEP</h3>
+                            <input type="text" disabled value={volunteerInfo.CEP} />
+                        </div>
+                        <div className="volunteerAddressMiddleComponent">
+                            <h3>Nome da rua</h3>
+                            <input type="text" disabled value={volunteerInfo.streetName} />
+                        </div>
+                        <div className="volunteerAddressSideComponent">
+                            <h3>Número</h3>
+                            <input type="text" disabled value={volunteerInfo.addressNumber} />
+                        </div>
+                    </div>
+                    <div className="volunteerAddressLine">
+                        <div className="volunteerAddressSideComponent">
+                            <h3>Complemento</h3>
+                            <input type="text" disabled value={volunteerInfo.complement} />
+                        </div>
+                        <div className="volunteerAddressMiddleComponent">
+                            <h3>Cidade</h3>
+                            <input type="text" disabled value={volunteerInfo.city} />
+                        </div>
+                        <div className="volunteerAddressSideComponent">
+                            <h3>Ponto de referência</h3>
+                            <input type="text" disabled value={volunteerInfo.referencePoint} />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="volunteerResponsibleLine">
+                    <div className="volunteerResponsibleComponent">
+                        <h3>Causas</h3>
+                        <input type="text" disabled value={volunteerInfo.reasons.map(reason => {
+                            return " " + reason
+                        })} />
+                    </div>
+                    <div className="volunteerResponsibleComponent">
+                        <h3>Habilidades</h3>
+                        <input type="text" disabled value={volunteerInfo.skills.map(skill => {
+                            return " " + skill
+                        })} />
+                    </div>
+                </div>
                 </>);
             }
         }
@@ -198,7 +269,7 @@ function VolunteerProfile() {
     }, [volunteerInfo, skills, reasons]);
 
 	return(
-        <div>
+        <div className="volunteerProfileContainer">
             {volunteerDisplay}
         </div>
     );

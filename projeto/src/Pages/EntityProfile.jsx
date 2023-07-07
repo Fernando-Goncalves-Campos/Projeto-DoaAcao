@@ -6,6 +6,8 @@ import { UserContext } from "../App";
 import CustomButton from "../Components/CustomButton";
 import InputForm from "../Components/InputForm";
 
+import "./css/EntityProfile.style.css";
+
 function EntityProfile() {
     const {user, entity} = useContext(UserContext);
 
@@ -75,7 +77,7 @@ function EntityProfile() {
                 CNPJ: entityCNPJ,
                 streetName: "streetName",
                 socialReason: "socialReason",
-                img: "",
+                img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?q=10&h=200",
                 email:"email",
                 phone:"phone",
                 secondPhone: "secondPhone",
@@ -141,7 +143,7 @@ function EntityProfile() {
             }
 
             setEntityDisplay(entityInfo? <>
-                <h1>Dados da entidade</h1>
+                <h1>Dados da Entidade</h1>
                 <form onSubmit={handleSubmit}>
                     <InputForm setValue={value => {setName(value)}} defaultValue={entityInfo.name}  required>Nome</InputForm>
                     <InputForm setValue={value => {setSocialReason(value)}} defaultValue={entityInfo.socialReason}  required>Razão Social</InputForm>
@@ -169,28 +171,93 @@ function EntityProfile() {
         else{
             setEntityDisplay(entityInfo? <>
                 <h1>Dados da entidade</h1>
-                <img src={entityInfo.img} alt={entityInfo.name} />
-                {entityInfo.name}
-                {entityInfo.CNPJ}
-                {entityInfo.socialReason}
-                {entityInfo.email}
-                {entityInfo.phone}
-                {entityInfo.secondPhone}
-                {entityInfo.CEP}
-                {entityInfo.streetName}
-                {entityInfo.addressNumber}
-                {entityInfo.complement}
-                {entityInfo.city}
-                {entityInfo.referencePoint}
-                {entityInfo.responsible}
-                {entityInfo.position}
+                <div className="entityImgNameSocialReason">
+                    <div className="entityImg">
+                        <img src={entityInfo.img} alt={entityInfo.name} />
+                    </div>
+                    <div className="entitySideImageContainer">
+                        <div className="entitySideImageLine">
+                            <div className="entitySideImage">
+                                <h3>Nome</h3>
+                                <input type="text" disabled value={entityInfo.name} />
+                            </div>
+                            <div className="entitySideImage">
+                                <h3>CNPJ</h3>
+                                <input type="text" disabled value={entityInfo.CNPJ} />
+                            </div>                        
+                        </div>
+                        <div className="entitySideImageLine">
+                            <div className="entitySideImage">
+                                <h3>Social Reason</h3>
+                                <input type="text" disabled value={entityInfo.socialReason}/>
+                            </div>
+                            <div className="entitySideImage">
+                                <h3>Email</h3>
+                                <input type="text" disabled value={entityInfo.email}/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <h3>Telefones</h3>
+                <div className="entityPhones">
+                    <div className="entityPhone1">
+                        <input type="text" disabled value={entityInfo.phone}/>
+                    </div>
+                    <div className="entityPhone2">
+                        <input type="text" disabled value={entityInfo.secondPhone} />
+                    </div>
+                </div>
+                
+                <div className="entityAddressContainer">
+                    <div className="entityAddressLine">
+                        <div className="entityAddressSideComponent">
+                            <h3>CEP</h3>
+                            <input type="text" disabled value={entityInfo.CEP} />
+                        </div>
+                        <div className="entityAddressMiddleComponent">
+                            <h3>Nome da rua</h3>
+                            <input type="text" disabled value={entityInfo.streetName} />
+                        </div>
+                        <div className="entityAddressSideComponent">
+                            <h3>Número</h3>
+                            <input type="text" disabled value={entityInfo.addressNumber} />
+                        </div>
+                    </div>
+                    <div className="entityAddressLine">
+                        <div className="entityAddressSideComponent">
+                            <h3>Complemento</h3>
+                            <input type="text" disabled value={entityInfo.complement} />
+                        </div>
+                        <div className="entityAddressMiddleComponent">
+                            <h3>Cidade</h3>
+                            <input type="text" disabled value={entityInfo.city} />
+                        </div>
+                        <div className="entityAddressSideComponent">
+                            <h3>Ponto de referência</h3>
+                            <input type="text" disabled value={entityInfo.referencePoint} />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="entityResponsibleLine">
+                    <div className="entityResponsibleComponent">
+                        <h3>Responsável</h3>
+                        <input type="text" disabled value={entityInfo.responsible} />
+                    </div>
+                    <div className="entityResponsibleComponent">
+                        <h3>Posição</h3>
+                        <input type="text" disabled value={entityInfo.position} />
+                    </div>
+                </div>
+                
                 <CustomButton onClick={()=>{navigate(`/entities/${entityCNPJ}/works`)}}>VER TRABALHOS</CustomButton>
             </> :<></>);
         }
     }, [entityInfo]);
 
 	return(
-        <div>
+        <div className="entityProfileContainer">
             {entityDisplay}
         </div>
     );
