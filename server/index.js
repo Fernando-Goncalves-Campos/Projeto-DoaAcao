@@ -217,18 +217,18 @@ app.post('/login', async function (req, res) {
   try {
     await Volunteer.find({ email: req.body.email, password: req.body.password }, { password: 0 }).then(userFound => {
       if(userFound.length>0){
-        aux=userFound;
+        aux={user: {...userFound[0]._doc}, entity:false};
         console.log("achou um volunteer")
       }
     });
 
     await Entity.find({ email: req.body.email, password: req.body.password }, { password: 0 }).then(userFound => {
       if(userFound.length>0){
-        aux=userFound;
+        aux={user: {...userFound[0]._doc}, entity:true};
         console.log("achou uma entity")
       }
     });
-    
+
     if(aux.length==0){
       res.status(404).send(aux);
     }else{
