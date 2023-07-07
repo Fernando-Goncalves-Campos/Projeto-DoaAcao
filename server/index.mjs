@@ -86,12 +86,12 @@ const volunteerSchema = new mongoose.Schema({
   referencePoint: String,
   reasons: [String],
   skills: [String],
-  passowod: String
+  password: String
 });
 
 const Work = mongoose.model('work', workSchema);
 const Entity = mongoose.model('entity', entitySchema);
-const volunteer = mongoose.model("volunteer", volunteerSchema)
+const Volunteer = mongoose.model("volunteer", volunteerSchema)
 
 newWork = new Work({
   "name": "nome",
@@ -146,7 +146,7 @@ newEntity = new Entity({
   "password": "senha"
 })
 
-newVolunteer = new volunteer({
+newVolunteer = new Volunteer({
   "name": "nome",
   "birthday": "birthday",
   "CPF": "volunteerCPF",
@@ -162,42 +162,173 @@ newVolunteer = new volunteer({
   "state": "state",
   "city": "city",
   "referencePoint": "referencePoint",
-  "reasons": ["str1","str2"],
+  "reasons": ["str1", "str2"],
   "skills": ["skill 1", "skill 2"],
   "password": "senha"
 })
 
-newWork.save();
-newEntity.save();
-newVolunteer.save();
+// newWork.save();
+// newEntity.save();
+// newVolunteer.save();
 
-
-app.post("User", async (request, response) => {
-  const user = new User(request.body);
-  try {
-    await user.save();
-    response.send(user);
-  } catch (error) {
-    response.status(500).send(error);
-  }
-});
-
-app.get("/users", async (request, response) => {
-  const users = await User.find({});
-  try {
-    response.send(users);
-  } catch (error) {
-    response.status(500).send(error);
-  }
-});
-
-app.use((req, res, next) => {
-  console.log("Foi");
-  next();
-});
+app.use(express.json());
+app.use(express.static('public'))
 
 app.get('/', function (req, res) {
   res.send("Hello world!");
+});
+
+app.post('/trabalhos', function (req, res) {
+  console.log("Post em /trabalhos")
+  try {
+    newWork = new Work(req.body);
+    newWork.save();
+    res.status(200).send(newWork)
+  } catch (err) {
+    console.log(err)
+    res.status(500).send({})
+  }
+});
+
+app.delete("/trabalhos", async (req, res) => {
+  console.log("delete em /trabalhos")
+  let work = req.body;
+  console.log(work)
+  try {
+    await Work.findByIdAndDelete(work._id["$oid"])
+    res.status(200).send(`work ${work._id} was delete`)
+  } catch (err) {
+    res.status(500).send(err);
+    console.log(err)
+  }
+})
+
+app.get('/user', async function (req, res) {
+  console.log("Get em /user")
+  console.log(req.query.email)
+  console.log(req.query.password)
+  let aux=[];
+  try {
+    await Volunteer.find({ email: req.query.email, password: req.query.password }, { password: 0 }).then(userFound => {
+      if(userFound.length>0){
+        aux=userFound;
+        console.log("achou um volunteer")
+      }
+    });
+
+    await Entity.find({ email: req.query.email, password: req.query.password }, { password: 0 }).then(userFound => {
+      if(userFound.length>0){
+        aux=userFound;
+        console.log("achou uma entity")
+      }
+    });
+
+    res.status(200).send(aux)
+  } catch (err) {
+    res.status(500).send(err)
+    console.log(err)
+  }
+});
+
+app.post('/user', async function (req, res) {
+  console.log("POST em /user");
+  encontrado=false;
+  newUser=req.body;
+  try{
+    await Volunteer.find({$or:[{email: newUser.email},{CPF: newUser.CPF}]}).then(userFound =>{
+      if(userFound.length>0){
+        encontrado=true;
+      }
+    });
+  
+    await Entity.find({$or:[{email: newUser.email},{CNPJ: newUser.CNPJ}]}).then(userFound =>{
+      if(userFound.length>0){
+        encontrado=true;
+      }
+    });
+  
+    if(encontrado==true){
+      console.log("Usuário já existe")
+      res.status(409).send({});
+    }else{
+      if(newUser.hasOwnProperty("CPF")){
+        newVolunteer=new Volunteer(newUser);
+        newVolunteer.save();
+      }else{
+        newEntity=new Entity(newUser);
+        newEntity.save();
+      }
+      res.status(201).send(newUser);
+    }
+  }catch(err){
+    console.log(err);
+    res.status(500);
+  }
+  
+});
+
+app.post('/entities/:entityName/works/:workName', async function (req, res) {
+  console.log("POST para adicionar voluntário a um trabalho");
+  console.log(req.params.entityName);
+  console.log(req.params.workName);
+  try{
+    work= await Work.find({name: req.params.workName,entity: req.params.entityName}).then();
+    if(work.length==0){
+      console.log("Trabalho não encontrado");
+      res.status(404).send({});
+    }else{
+      work=work[0];
+      work.volunteers.push(req.body);
+      console.log(work)
+      console.log(work._id);
+      await Work.findByIdAndUpdate(work._id,work).then();
+      res.status(200).send(work)
+    }
+  }catch(err){
+    console.log(err)
+    res.status(500).send({});
+  }
+
+});
+
+app.put('/volunteers/:volunteerCPF', async function (req, res) {
+  console.log("PUT em /volunteers");
+  console.log(req.params.volunteerCPF);
+  try{
+    volunteer=await Volunteer.find({CPF: req.params.volunteerCPF}).then();
+    if(volunteer.length==0){
+      console.log("Voluntário não encontrado");
+      res.status(404).send({});
+    }else{
+      volunteer=volunteer[0];
+      await Volunteer.findByIdAndUpdate(volunteer._id,{ $set: req.body }).then();
+      res.status(200).send({});
+    }
+  }catch(err){
+    console.log(err);
+    res.status(500).send({});
+  }
+
+});
+
+app.put('/entity/:entityCNPJ', async function (req, res) {
+  console.log("PUT em /entity");
+  console.log(req.params.entityCNPJ);
+  try{
+    entity=await Entity.find({CNPJ: req.params.entityCNPJ}).then();
+    if(entity.length==0){
+      console.log("Entity não encontrada");
+      res.status(404).send({});
+    }else{
+      entity=entity[0];
+      await Entity.findByIdAndUpdate(entity._id,{ $set: req.body }).then();
+      res.status(200).send({});
+    }
+  }catch(err){
+    console.log(err);
+    res.status(500).send({});
+  }
+
 });
 
 app.listen(port, () => {
