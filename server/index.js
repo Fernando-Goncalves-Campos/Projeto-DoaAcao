@@ -178,6 +178,10 @@ app.get('/', function (req, res) {
   res.send("Hello world!");
 });
 
+app.get('\works', function (req, res) {
+    res.status(200).send(Work.find({}).array());
+})
+
 app.post('/entities/:entityName/works', function (req, res) {
   console.log("Post em /trabalhos")
   try {
@@ -203,7 +207,7 @@ app.delete("/entities/:entityName/works", async (req, res) => {
   }
 })
 
-app.get('/login', async function (req, res) {
+app.post('/login', async function (req, res) {
   console.log("Get em /user")
   console.log(req.body.email)
   console.log(req.body.password)
