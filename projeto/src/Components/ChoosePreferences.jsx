@@ -6,7 +6,7 @@ import CheckBoxGroup from "./CheckBoxGroup";
 import "./ChoosePreferences.style.css";
 
 //Container que colapsa com checkboxes
-function ChoosePreferences({filter, preferences, setPreferences, max=0, children}) {
+function ChoosePreferences({filter, preferences, setPreferences, className="", max=0, children}) {
     const checkPreferences = (e) => {
         let newPreferences = [...preferences, e.target.value.toLowerCase()];
         setPreferences(newPreferences);
@@ -22,7 +22,7 @@ function ChoosePreferences({filter, preferences, setPreferences, max=0, children
     }
 
     return(
-        <Collapsible buttonValue={children}>
+        <Collapsible buttonValue={children} className={`${className}`}>
             <CheckBoxGroup name={filter.name} options={filter.options} max={max} checkFunction={checkPreferences} unCheckFunction={unCheckPreferences} testChecked={testCheckedPreferences} startingCount={preferences.length}/>
         </Collapsible>
     );

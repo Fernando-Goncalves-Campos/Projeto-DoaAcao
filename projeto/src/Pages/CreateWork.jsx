@@ -10,6 +10,11 @@ import ChoosePreferences from "../Components/ChoosePreferences";
 import SingleTimeEvent from "../Components/SingleTimeEvent";
 import RepeatingEvent from "../Components/RepeatingEvent";
 
+import styles from "./css/CreateWork.module.css";
+
+import "./css/WelcomePage.style.css";
+import { backdropClasses } from "@mui/material";
+
 function CreateWork() {
     const navigate = useNavigate();
 
@@ -92,39 +97,49 @@ function CreateWork() {
     }
 
 	return(
-        <div>
-            <h1>Criação de nova oportunidade</h1>
+        <div className={styles.container}>
+            
+                <div className={styles.containerForms}>
+                    
+                    <form onSubmit={handleSubmit} className={styles.forms}>
+                        <h1 className="h1-cria-vagas">Criação de nova oportunidade</h1>
+                        <h2 className="h2-cria-vagas">Nome da vaga</h2>
+                        <InputForm setValue={value => {setName(value)}} required className={styles.inputVagas + ' ' + "vagaWork"}>Digite o nome da vaga</InputForm>
 
-            <form onSubmit={handleSubmit}>
-                <h2>Nome da vaga</h2>
-                <InputForm setValue={value => {setName(value)}} required>Digite o nome da vaga</InputForm>
+                        <h2 className="h2-cria-vagas">Sobre a vaga</h2>
+                        <InputForm setValue={value => {setDescription(value)}} rows={10} cols={50} textarea required className={[styles.inputVagas, styles.sobreVaga].join(' ')}>Descreva as funções que a pessoa deve nesta vaga e a finalidade de se voluntariar para ela</InputForm>
+                        
+                        <h2 className="h2-cria-vagas">Quantidade de vagas</h2>
+                        <InputForm type="number" setValue={value => setQuantity(value)} defaultValue={1} min={1} required className={[styles.inputVagas, styles.qtdVaga].join(' ')}/>
+                        
+                        <h2 className="h2-cria-vagas">Endereço</h2>
+                        <InputForm className={[styles.inputVagas, styles.enderecoWork].join(' ')} setValue={value => {setAddress(value)}} required>Digite o local onde o evento irá ocorrer</InputForm>
+                        <InputForm className={styles.inputVagas + ' ' + styles.complementoWork} setValue={value => {setComplement(value)}} required>Complemento</InputForm>
 
-                <h2>Sobre a vaga</h2>
-                <InputForm setValue={value => {setDescription(value)}} rows={10} cols={50} textarea required>Descreva as funções que a pessoa deve nesta vaga e a finalidade de se voluntariar para ela</InputForm>
+
+                        <div className={styles.containerBotoes}>
+                            <ChoosePreferences className={styles.botaoCausas} filter={filters.Causas} preferences={reasons} setPreferences={(value) => {setReasons(value)}} max={3}>Causas</ChoosePreferences>
+                            <ChoosePreferences className={styles.botaoHabilidades} filter={filters.Habilidades} preferences={skills} setPreferences={(value) => {setSkills(value)}} max={3}>Habilidades</ChoosePreferences>
+                        </div>
+
+
+                        <CheckBox radio name="frequency" checked={frequency === "Recorrente"} onChange={handleChangeFrequency}>Recorrente</CheckBox>
+                        <CheckBox radio name="frequency" checked={frequency === "Pontual"} onChange={handleChangeFrequency}>Pontual</CheckBox>
+                        {
+                            frequency === "Pontual"? 
+                                <SingleTimeEvent className={styles.inputVagas} setDate={value => {setDate(value)}} setTime={value => {setTime(value)}}/>
+                            : 
+                                <RepeatingEvent className={styles.inputVagas} setDate={value => {setDate(value)}} setTime={value => {setTime(value)}}/>
+                        }
+                        
+                        <CheckBox className={styles.checkboxVagas} name="Distance" onChange={handleDistanceChange} checked={distance}>Essa vaga pode ser feita a distância</CheckBox>
+
+                        <CustomButton submit>Adicionar vaga</CustomButton>
+                    </form>
+                </div> 
+
                 
-                <h2>Quantidade de vagas</h2>
-                <InputForm type="number" setValue={value => setQuantity(value)} defaultValue={1} min={1} required/>
-                
-                <h2>Endereço</h2>
-                <InputForm setValue={value => {setAddress(value)}} required>Digite o local onde o evento irá ocorrer</InputForm>
-                <InputForm setValue={value => {setComplement(value)}} required>Complemento</InputForm>
 
-                <ChoosePreferences filter={filters.Causas} preferences={reasons} setPreferences={(value) => {setReasons(value)}} max={3}>Causas</ChoosePreferences>
-                <ChoosePreferences filter={filters.Habilidades} preferences={skills} setPreferences={(value) => {setSkills(value)}} max={3}>Habilidades</ChoosePreferences>
-
-                <CheckBox radio name="frequency" checked={frequency === "Recorrente"} onChange={handleChangeFrequency}>Recorrente</CheckBox>
-                <CheckBox radio name="frequency" checked={frequency === "Pontual"} onChange={handleChangeFrequency}>Pontual</CheckBox>
-                {
-                    frequency === "Pontual"? 
-                        <SingleTimeEvent setDate={value => {setDate(value)}} setTime={value => {setTime(value)}}/>
-                    : 
-                        <RepeatingEvent setDate={value => {setDate(value)}} setTime={value => {setTime(value)}}/>
-                }
-                
-                <CheckBox name="Distance" onChange={handleDistanceChange} checked={distance}>Essa vaga pode ser feita a distância</CheckBox>
-
-                <CustomButton submit>Adicionar vaga</CustomButton>
-            </form>
             
         </div>
     );

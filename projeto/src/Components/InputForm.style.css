@@ -21,8 +21,6 @@
     box-shadow: 0 0 5px rgba(92, 139, 255, 0.5);
   }
 
-  
-
   /*Estilização especifica dos inputs de cadastro de voluntario*/
   .input-forms{
     padding: 14px;
@@ -31,3 +29,9 @@
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
     }
    
+    /*Estilização do input especifico de cadastro de vaga de trabalho */
+    .vagaWork{
+      height: 2px;
+      border-radius: 20px;
+      font-size: 17px;
+  }

@@ -20,7 +20,7 @@ function SingleTimeEvent({setDate, setTime, className="", style={}}) {
     }
 
     return(
-        <div id="form" className={className} style={style}>
+        <div id="single-form" className={className} style={style}>
             <h2>Dia</h2>
             <InputForm type="date" setValue={value => {setDate(value)}} required/>
             

@@ -81,10 +81,10 @@ function SignUpEntity() {
 
 	return(
         <form onSubmit={handleSubmit} className="signup-entity">
+            
             <h2>*Campos obrigatórios</h2>
-
             <div className="container-input-forms-entity">
-
+                
                 <div className="form-row">
                     <InputForm setValue={value => {setName(value)}} required className="input-forms-entity nome">*Nome da Empresa</InputForm>
                     <InputForm setValue={value => {setSocialReason(value)}} required className="input-forms-entity razaosocial">*Razão Social</InputForm>
