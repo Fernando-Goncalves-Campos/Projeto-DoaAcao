@@ -1,5 +1,7 @@
 const express = require('express');
+const cors = require("cors");
 const app = express();
+app.use(cors());
 const port = 8000;
 
 const mongoose = require('mongoose');
@@ -178,7 +180,7 @@ app.get('/', function (req, res) {
   res.send("Hello world!");
 });
 
-app.get('\works', function (req, res) {
+app.get('/works', function (req, res) {
     res.status(200).send(Work.find({}).array());
 })
 
