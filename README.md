@@ -20,4 +20,11 @@
 ### Como inicializar o site
  É necessário possuir o Node JS instalado na máquina e clonar o repositório localmente. Após esses dois passos, é necessário pelo terminal acessar a pasta onde foi baixado o repositório e dentro dela acessar a pasta servidor, onde o comando 
  ####"npm i --save" 
- deve ser rodado. Após finalizado, execute o comando "node server.js". Em seguida, retorne uma pasta e acesse a pasta projeto. Lá, execute novamente "npm i --save" e após finalizado execute o comando "npm start". Feitos todos esses passos, o site está pronto para ser utilizado.
+ deve ser rodado. Após finalizado, execute o comando "node index.js". Em seguida, retorne uma pasta e acesse a pasta projeto. Lá, execute novamente "npm i --save" e após finalizado execute o comando "npm start". Feitos todos esses passos, o site está pronto para ser utilizado.
+
+### Observações
+- Existem duas versões do projeto:
+  
+  - Com servidor: o servidor está funcional, sendo assim todos as interações com o banco de dados serão salvas. É necessário estar com o aplicativo do mongodb baixado e utilizar o comando "node index.js" no diretório "server". O servidor não possui dados, logo é necessário criá-los. (Branch principal)
+
+  - Sem servidor: o servidor não foi utilizado, sendo assim as interações com o banco de dados não serão salvas. Como o servidor não foi utilizado apenas é necessário utilizar o comando "npm start" no diretório "projeto" para inicializar a aplicação. Essa versão utiliza dados fixos para permitir que sejam feitos testes, mas como não existe um banco de dados algumas funcionalidades podem não ser acessíveis apenas pela página inicial, podendo ser necessário alterar o link da página manualmente ou modificar o código para testá-las. (Branch cssWork)
