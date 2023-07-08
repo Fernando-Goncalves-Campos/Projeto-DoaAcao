@@ -1,0 +1,37 @@
+
+/*Estilização generica dos inputs*/
+
+  textarea.inputClass:focus {
+    outline: none;
+    border-color: #5c8bff;
+    box-shadow: 0 0 5px rgba(92, 139, 255, 0.5);
+  }
+
+
+  input.inputClass{
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  input.inputClass:focus {
+    outline: none;
+    border-color: #5c8bff;
+    box-shadow: 0 0 5px rgba(92, 139, 255, 0.5);
+  }
+
+  /*Estilização especifica dos inputs de cadastro de voluntario*/
+  .input-forms{
+    padding: 14px;
+    border: 1px solid #336971;
+    border-radius: 8px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  }
+   
+    /*Estilização do input especifico de cadastro de vaga de trabalho */
+    .vagaWork{
+      height: 2px;
+      border-radius: 20px;
+      font-size: 17px;
+    }

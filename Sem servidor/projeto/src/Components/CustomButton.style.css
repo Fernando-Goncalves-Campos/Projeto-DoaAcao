@@ -1,0 +1,47 @@
+/*N sei o nome das classes dos botoes entao */
+
+
+
+    /*Estilização generica do botao*/
+  .btnClass{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00162D;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .btnClass:hover{
+    background-color: #4F4F4F;
+  }
+  
+  .btnClass:focus{
+    outline: none;
+    box-shadow: 0 0 5px rgba(92, 139, 255, 0.5);
+  }
+
+  /*Estilização generica dos input submit*/
+  .btnClass[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00162D;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .btnClass[type="submit"]:hover {
+    background-color: #4F4F4F;
+  }
+  
+  .btnClass[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(92, 139, 255, 0.5);
+  }
+  
+
